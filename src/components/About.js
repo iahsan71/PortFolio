@@ -27,8 +27,10 @@ const About = () => {
                         a flair for building beautiful, functional, and
                         user-friendly websites. Proficient in modern web
                         technologies such as{" "}
-                        <strong>HTML, CSS, JavaScript, ReactJS, VueJS</strong>,
-                        and more, I bring ideas to life with precision and
+                        <strong>
+                            HTML, CSS, JavaScript, ReactJS, VueJS, TypeScript
+                        </strong>
+                        , and more, I bring ideas to life with precision and
                         creativity.
                     </p>
                     <p>

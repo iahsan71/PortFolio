@@ -9,8 +9,10 @@ import {
 import logoImage from "../assets/img/AALOGO.jpg";
 import { Link } from "react-scroll";
 import pdfFile from "../assets/pdf/Resume.pdf";
+
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState("");
+    const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
 
     const sections = ["hero", "about", "skills", "projects", "contact"];
 
@@ -23,85 +25,143 @@ const Navbar = () => {
                     }
                 });
             },
-            {
-                threshold: 0.5,
-            }
+            { threshold: 0.5 }
         );
 
         sections.forEach((section) => {
-            const element = document.getElementById(section);
-            if (element) {
-                observer.observe(element);
-            }
+            const el = document.getElementById(section);
+            if (el) observer.observe(el);
         });
 
-        return () => {
-            observer.disconnect();
-        };
+        return () => observer.disconnect();
     }, []);
 
     return (
-        <nav className="navbar">
-            <div className="logo">
-                <img src={logoImage} alt="Logo" />
-                Ahsan's Portfolio
+        <nav className="navbar bg-dark px-3 py-2 position-relative">
+            <div className="d-none d-lg-flex justify-content-between align-items-center w-100">
+                <div className="logo d-flex align-items-center text-white">
+                    <img
+                        src={logoImage}
+                        alt="Logo"
+                        style={{ height: "40px", marginRight: "8px" }}
+                    />
+                    Ahsan's Portfolio
+                </div>
+
+                <ul className="nav-links d-flex align-items-center mb-0">
+                    {sections.map((section, i) => {
+                        const icons = [
+                            FaHome,
+                            FaUser,
+                            FaCode,
+                            FaFolderOpen,
+                            FaEnvelope,
+                        ];
+                        const labels = [
+                            "Home",
+                            "About",
+                            "Skills",
+                            "Projects",
+                            "Contact",
+                        ];
+                        const Icon = icons[i];
+                        return (
+                            <li key={section}>
+                                <Link
+                                    to={section}
+                                    smooth={true}
+                                    duration={500}
+                                    className={
+                                        activeSection === section
+                                            ? "active"
+                                            : ""
+                                    }
+                                >
+                                    <Icon className="nav-icon" /> {labels[i]}
+                                </Link>
+                            </li>
+                        );
+                    })}
+                </ul>
+
+                <a
+                    href={pdfFile}
+                    download="Ahsan-CV.pdf"
+                    className="btn btn-primary"
+                >
+                    Download CV
+                </a>
             </div>
-            <ul className="nav-links">
-                <li>
-                    <Link
-                        to="hero"
-                        smooth={true}
-                        duration={500}
-                        className={activeSection === "hero" ? "active" : ""}
-                    >
-                        <FaHome className="nav-icon" /> Home
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="about"
-                        smooth={true}
-                        duration={500}
-                        className={activeSection === "about" ? "active" : ""}
-                    >
-                        <FaUser className="nav-icon" /> About
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="skills"
-                        smooth={true}
-                        duration={500}
-                        className={activeSection === "skills" ? "active" : ""}
-                    >
-                        <FaCode className="nav-icon" /> Skills
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="projects"
-                        smooth={true}
-                        duration={500}
-                        className={activeSection === "projects" ? "active" : ""}
-                    >
-                        <FaFolderOpen className="nav-icon" /> Projects
-                    </Link>
-                </li>
-                <li>
-                    <Link
-                        to="contact"
-                        smooth={true}
-                        duration={500}
-                        className={activeSection === "contact" ? "active" : ""}
-                    >
-                        <FaEnvelope className="nav-icon" /> Contact
-                    </Link>
+
+            <div className="d-flex d-lg-none justify-content-between align-items-center w-100">
+                <div className="logo d-flex align-items-center text-white">
+                    <img
+                        src={logoImage}
+                        alt="Logo"
+                        style={{ height: "40px", marginRight: "8px" }}
+                    />
+                    Ahsan's Portfolio
+                </div>
+
+                <div
+                    className="text-white"
+                    onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
+                    style={{ fontSize: "24px", cursor: "pointer" }}
+                >
+                    ☰
+                </div>
+            </div>
+
+            <ul
+                className={`nav-links-mobile position-absolute top-100 start-0 w-100 bg-dark shadow-lg rounded-bottom px-4 py-3 ${
+                    isMobileMenuOpen ? "d-block" : "d-none"
+                } d-lg-none`}
+                style={{
+                    marginTop: "8px",
+                    position: "absolute",
+                    top: "100%",
+                    left: 0,
+                    zIndex: 999,
+                }}
+            >
+                {sections.map((section, i) => {
+                    const icons = [
+                        FaHome,
+                        FaUser,
+                        FaCode,
+                        FaFolderOpen,
+                        FaEnvelope,
+                    ];
+                    const labels = [
+                        "Home",
+                        "About",
+                        "Skills",
+                        "Projects",
+                        "Contact",
+                    ];
+                    const Icon = icons[i];
+                    return (
+                        <li key={section} className="mb-2">
+                            <Link
+                                to={section}
+                                smooth={true}
+                                duration={500}
+                                className={
+                                    activeSection === section ? "active" : ""
+                                }
+                                onClick={() => setIsMobileMenuOpen(false)}
+                            >
+                                <Icon className="nav-icon" /> {labels[i]}
+                            </Link>
+                        </li>
+                    );
+                })}
+                <li className="mt-2">
+                    <a href={pdfFile} download="Ahsan-CV.pdf" className="btn">
+                        Download CV
+                    </a>
                 </li>
             </ul>
-
-            <a href={pdfFile} download="Ahsan-CV.pdf" className="download-btn">
-                Download CV
-            </a>
         </nav>
     );
 };

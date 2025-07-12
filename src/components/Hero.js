@@ -40,10 +40,11 @@ const Hero = () => {
                         I am a passionate Front-End Developer with expertise in
                         crafting responsive and interactive web experiences.
                         Skilled in HTML, CSS, Bootstrap, JavaScript, ReactJS,
-                        and VueJS, I bring designs to life with precision and
-                        creativity. I also have foundational backend experience,
-                        leveraging Firebase to enhance functionality and
-                        scalability. Let’s build something amazing together!
+                        TypeScript and VueJS, I bring designs to life with
+                        precision and creativity. I also have foundational
+                        backend experience, leveraging Firebase to enhance
+                        functionality and scalability. Let’s build something
+                        amazing together!
                     </p>
                     <a href="#projects" className="btn">
                         View My Work

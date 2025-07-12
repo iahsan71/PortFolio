@@ -2,14 +2,36 @@ body {
     margin: 0;
     font-family: "Poppins", sans-serif;
     background-color: #f8f9fa;
-    color: #343a40;
+    color: #656e77;
+}
+
+.nav-links-mobile li {
+    padding: 10px 0;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.nav-links-mobile li:last-child {
+    border-bottom: none;
+}
+
+.nav-links-mobile a {
+    color: white;
+    font-weight: 500;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+}
+
+.nav-links-mobile a:hover {
+    color: #00bfff;
+}
+
+.nav-links-mobile .nav-icon {
+    margin-right: 10px;
+    font-size: 18px;
 }
 
 .navbar {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    background-color: #1f1f1f;
     padding: 1rem 2rem;
     position: sticky;
     top: 0;
@@ -18,8 +40,6 @@ body {
 }
 
 .logo {
-    display: flex;
-    align-items: center;
     font-size: 1.2rem;
     font-weight: bold;
     color: #fff;
@@ -91,6 +111,7 @@ body {
     transform: scaleX(0); /* Initially, line is not visible */
     transform-origin: bottom right;
     transition: transform 0.5s ease-out, width 0.5s ease-out;
+    text-transform: none;
 }
 
 /* When hovered or active, the line appears */
@@ -109,15 +130,23 @@ body {
     border-radius: 5px;
     font-weight: 600;
     font-size: 1rem;
+    text-decoration: none;
+    text-transform: none;
     cursor: pointer;
     transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
 }
 
 .download-btn:hover {
+    background-color: #7cb3e7;
     transform: scale(1.05);
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    color: black;
 }
-
+.download-btn:visited,
+.download-btn:active,
+.download-btn:hover {
+    text-decoration: none;
+}
 .hero {
     display: flex;
     align-items: center;
@@ -195,7 +224,6 @@ body {
 .btn {
     display: inline-block;
     padding: 0.7rem 1.5rem;
-    margin-top: 1rem;
     font-size: 1rem;
     font-weight: bold;
     color: white;
@@ -208,6 +236,65 @@ body {
 
 .btn:hover {
     transform: translateY(-3px);
+}
+
+.skill-card {
+    width: 100%;
+    max-width: 160px;
+    height: 160px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.skill-card:hover {
+    transform: translateY(-5px);
+}
+
+.skill-card .icon {
+    font-size: 40px;
+    margin-bottom: 10px;
+    color: #00d8ff;
+}
+
+.skill-card h3 {
+    font-size: 1rem;
+    margin: 0;
+}
+
+.project-card {
+    width: 100%;
+    max-width: 260px;
+    height: 260px;
+    background-color: #1e1e1e;
+    padding: 20px;
+    border-radius: 10px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+    transform: translateY(-5px);
+}
+
+.project-card p {
+    font-size: 0.9rem;
+    text-align: center;
+    margin-bottom: auto; /* push button to bottom */
+}
+
+.project-card a.btn {
+    margin-top: auto; /* ensures button stays at the bottom */
 }
 
 @keyframes fadeInText {
@@ -393,14 +480,9 @@ body {
 }
 
 .project-card h3 {
-    font-size: 1.5rem;
+    font-size: 1.1rem;
     margin-bottom: 10px;
     color: #7cb3e7;
-}
-
-.project-card p {
-    font-size: 1rem;
-    color: #d1d1d1;
 }
 
 .project-card .btn {
@@ -416,7 +498,7 @@ body {
 
 .project-card .btn:hover {
     background: #7cb3e7;
-    color: white;
+    color: rgb(0, 0, 0);
 }
 
 .contact {
@@ -465,7 +547,7 @@ body {
 
 .contact-form .btn {
     background-color: #7cb3e7;
-    color: #1f1c2c;
+    color: #ffffff;
     border: none;
     padding: 15px;
     border-radius: 5px;
@@ -476,8 +558,7 @@ body {
 }
 
 .contact-form .btn:hover {
-    background-color: #1f1c2c;
-    color: #7cb3e7;
+    color: #000000;
 }
 
 @media (max-width: 768px) {
@@ -642,6 +723,20 @@ body {
     font-family: "Poppins", sans-serif;
     background-color: #f8f9fa;
     color: #343a40;
+}
+
+@media (max-width: 991px) {
+    .nav-links {
+        flex-direction: column !important;
+        background-color: #2c2c2c;
+        padding: 10px;
+        width: 100%;
+    }
+
+    .nav-links li {
+        margin: 10px 0;
+        text-align: center;
+    }
 }
 
 /* Mobile Screens (max-width: 576px) */
