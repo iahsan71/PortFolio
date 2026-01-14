@@ -1,5 +1,5 @@
 import { Provider } from "react-redux";
-import { BrowserRouter, Redirect, Route, Switch } from "react-router-dom";
+import { BrowserRouter, Navigate, Route, Routes } from "react-router-dom";
 import Auth from "./layout/Auth";
 import Main from "./layout/Main";
 import routes from "./routes";
@@ -10,29 +10,39 @@ function App() {
         <>
             <Provider store={store}>
                 <BrowserRouter>
-                    <Switch>
-                        {routes.map((route) => {
+                    <Routes>
+                        {routes.map((route, index) => {
                             switch (route.layout) {
                                 case "main":
                                     return (
-                                        <Route exact path={route.path}>
-                                            <Main>
-                                                <route.component />
-                                            </Main>
-                                        </Route>
+                                        <Route 
+                                            key={index}
+                                            path={route.path} 
+                                            element={
+                                                <Main>
+                                                    <route.component />
+                                                </Main>
+                                            }
+                                        />
                                     );
                                 case "auth":
                                     return (
-                                        <Route exact path={route.path}>
-                                            <Auth>
-                                                <route.component />
-                                            </Auth>
-                                        </Route>
+                                        <Route 
+                                            key={index}
+                                            path={route.path} 
+                                            element={
+                                                <Auth>
+                                                    <route.component />
+                                                </Auth>
+                                            }
+                                        />
                                     );
+                                default:
+                                    return null;
                             }
                         })}
-                        <Redirect to="/" />
-                    </Switch>
+                        <Route path="*" element={<Navigate to="/" replace />} />
+                    </Routes>
                 </BrowserRouter>
             </Provider>
         </>

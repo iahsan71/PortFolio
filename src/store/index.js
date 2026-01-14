@@ -1,6 +1,6 @@
 import { applyMiddleware, compose, createStore } from "redux";
 import rootReducer from "./reducers";
-import thunk from "redux-thunk";
+import { thunk } from "redux-thunk";
 import CryptoJS from "crypto-js";
 
 const saveToLocalStorage = (state) => {
