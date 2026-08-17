@@ -158,7 +158,7 @@ const Navbar = () => {
                         whileTap={{ scale: 0.95 }}
                         style={{ cursor: "pointer" }}
                     >
-                        <img src={logoImage} alt="Ahsan Afzal Logo" />
+                        <img src={typeof logoImage === "object" && logoImage !== null ? logoImage.src : logoImage} alt="Ahsan Afzal Logo" />
                         <span>Ahsan <span className="gradient-text">Afzal</span></span>
                     </motion.div>
 
