@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-    metadataBase: new URL("https://portfolio-aahsan.web.app"),
+    metadataBase: new URL("https://ahsan-afzal.web.app"),
     title: "Ahsan Afzal | MERN Stack Developer & Full Stack Engineer",
     description: "Ahsan Afzal is a results-driven MERN Stack Developer specializing in building high-performance full-stack web applications with React, Next.js, Node.js, Express, and MongoDB. Explore projects, experience, and skills.",
     keywords: [
@@ -33,7 +33,7 @@ export const metadata = {
     },
     openGraph: {
         type: "website",
-        url: "https://portfolio-aahsan.web.app/",
+        url: "https://ahsan-afzal.web.app/",
         title: "Ahsan Afzal | MERN Stack Developer & Full Stack Engineer",
         description: "Ahsan Afzal is a results-driven MERN Stack Developer specializing in building high-performance full-stack web applications with React, Next.js, Node.js, Express, and MongoDB.",
         images: [
@@ -58,8 +58,8 @@ const jsonLd = {
     "@type": "Person",
     "name": "Ahsan Afzal",
     "jobTitle": "MERN Stack Developer & Full Stack Engineer",
-    "url": "https://portfolio-aahsan.web.app",
-    "image": "https://portfolio-aahsan.web.app/logo512.png",
+    "url": "https://ahsan-afzal.web.app",
+    "image": "https://ahsan-afzal.web.app/logo512.png",
     "description": "Ahsan Afzal is a results-driven MERN Stack Developer specializing in building high-performance full-stack web applications with React, Next.js, Node.js, Express, and MongoDB.",
     "sameAs": [
         "https://github.com/iahsan71"

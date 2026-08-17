@@ -4,6 +4,6 @@ export default function robots() {
             userAgent: "*",
             allow: "/",
         },
-        sitemap: "https://portfolio-aahsan.web.app/sitemap.xml",
+        sitemap: "https://ahsan-afzal.web.app/sitemap.xml",
     };
 }
