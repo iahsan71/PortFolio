@@ -170,6 +170,7 @@ const Navbar = () => {
                                 <li key={section.id} style={{ position: "relative" }}>
                                     <Link
                                         to={section.id}
+                                        href={`#${section.id}`}
                                         smooth={true}
                                         duration={500}
                                         offset={-80}
@@ -285,6 +286,7 @@ const Navbar = () => {
                                         >
                                             <Link
                                                 to={section.id}
+                                                href={`#${section.id}`}
                                                 smooth={true}
                                                 duration={500}
                                                 offset={-80}

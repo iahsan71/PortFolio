@@ -26,17 +26,19 @@ const MainView = (props) => {
                 <BgParticles />
                 <CommandPalette />
                 <Navbar />
-                <Hero />
-                <About />
-                <Skills />
-                <Experience />
-                <Achievements />
-                <Services />
-                <TechWall />
-                <Projects />
-                <Testimonials />
-                <CTA />
-                <Contact />
+                <main>
+                    <Hero />
+                    <About />
+                    <Skills />
+                    <Experience />
+                    <Achievements />
+                    <Services />
+                    <TechWall />
+                    <Projects />
+                    <Testimonials />
+                    <CTA />
+                    <Contact />
+                </main>
                 <Footer />
             </div>
         </>
