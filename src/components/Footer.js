@@ -1,3 +1,5 @@
+"use client";
+
 import React from "react";
 import { Github, Linkedin, Mail, ArrowUp } from "lucide-react";
 import { Link } from "react-scroll";

@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import {
@@ -15,7 +17,7 @@ import {
 } from "lucide-react";
 import logoImage from "../assets/img/AALOGO.jpg";
 import { Link } from "react-scroll";
-import pdfFile from "../assets/pdf/Ahsan_Afzal_Resume.pdf";
+const pdfFile = "/Ahsan_Afzal_Resume.pdf";
 
 const Navbar = () => {
     const [activeSection, setActiveSection] = useState("hero");

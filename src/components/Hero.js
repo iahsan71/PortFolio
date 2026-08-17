@@ -1,3 +1,5 @@
+"use client";
+
 import React, { useEffect, useState } from "react";
 import { motion } from "framer-motion";
 import {
@@ -9,7 +11,7 @@ import {
     Briefcase,
     Sparkles
 } from "lucide-react";
-import pdfFile from "../assets/pdf/Ahsan_Afzal_Resume.pdf";
+const pdfFile = "/Ahsan_Afzal_Resume.pdf";
 
 const BlurText = ({ text }) => {
     const words = text.split(" ");

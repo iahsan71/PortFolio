@@ -1,4 +1,6 @@
-import { Link } from "react-router-dom";
+"use client";
+
+import Link from "next/link";
 import { useDispatch } from "react-redux";
 import { login, logout } from "../../store/actions/authAction";
 import { Button } from "reactstrap";
@@ -22,7 +24,7 @@ const AuthView = (props) => {
       >
         Logout
       </Button>
-      <Link to="/main">Main View</Link>
+      <Link href="/">Main View</Link>
     </>
   );
 };

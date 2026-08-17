@@ -1,7 +1,9 @@
+"use client";
+
 import React, { useEffect, useState, useRef } from "react";
 import { Search, Home, User, Code, Briefcase, Mail, Download, Sun, Moon, Link as LinkIcon, Compass, Sparkles } from "lucide-react";
 import { Link, animateScroll as scroll } from "react-scroll";
-import pdfFile from "../assets/pdf/Ahsan_Afzal_Resume.pdf";
+const pdfFile = "/Ahsan_Afzal_Resume.pdf";
 
 const CommandPalette = () => {
     const [isOpen, setIsOpen] = useState(false);

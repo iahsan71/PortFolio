@@ -4,6 +4,7 @@ import { thunk } from "redux-thunk";
 import CryptoJS from "crypto-js";
 
 const saveToLocalStorage = (state) => {
+  if (typeof window === "undefined") return;
   console.log(state.authUser);
   const serializedUid = CryptoJS.AES.encrypt(
     JSON.stringify(state.authUser),
@@ -14,23 +15,30 @@ const saveToLocalStorage = (state) => {
 };
 
 const checkLocalStorage = () => {
+  if (typeof window === "undefined") return undefined;
   const serializedUid = localStorage.getItem("auth");
   if (serializedUid === null) return undefined;
-  return {
-    authUser: JSON.parse(
-      CryptoJS.AES.decrypt(serializedUid, "my-secret-key").toString(
-        CryptoJS.enc.Utf8
-      )
-    ),
-  };
+  try {
+    return {
+      authUser: JSON.parse(
+        CryptoJS.AES.decrypt(serializedUid, "my-secret-key").toString(
+          CryptoJS.enc.Utf8
+        )
+      ),
+    };
+  } catch (e) {
+    return undefined;
+  }
 };
 
-const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
+const composeEnhancers = (typeof window !== "undefined" && window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__) || compose;
 let store = createStore(
   rootReducer,
   checkLocalStorage(),
   composeEnhancers(applyMiddleware(thunk))
 );
 
-store.subscribe(() => saveToLocalStorage(store.getState()));
+if (typeof window !== "undefined") {
+  store.subscribe(() => saveToLocalStorage(store.getState()));
+}
 export default store;
