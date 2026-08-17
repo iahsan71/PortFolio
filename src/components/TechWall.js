@@ -25,6 +25,7 @@ import {
     SiVscodium, 
     SiFigma 
 } from "react-icons/si";
+import { Brain, Sparkles, Cpu } from "lucide-react";
 
 const TechWall = () => {
     const techItems = [
@@ -42,6 +43,10 @@ const TechWall = () => {
         { name: "Material UI", icon: <SiMui /> },
         { name: "Postman", icon: <SiPostman /> },
         { name: "VS Code", icon: <SiVscodium /> },
+        { name: "Cursor AI", icon: <Sparkles size={20} /> },
+        { name: "ChatGPT", icon: <Brain size={20} /> },
+        { name: "Claude AI", icon: <Cpu size={20} /> },
+        { name: "Prompt Eng.", icon: <Sparkles size={20} /> },
         { name: "Figma", icon: <SiFigma /> },
         { name: "Git", icon: <FaGitAlt /> },
         { name: "GitHub", icon: <FaGithub /> }

@@ -96,7 +96,7 @@ const Projects = () => {
             title: "Vootee",
             description: "A secure digital voting and polls portal featuring live charts and custom voting workspaces.",
             longDescription: "Vootee is a real-time online polling platform supporting active security validations to prevent double voting, live vote tally charts, and custom workspaces.",
-            technologies: ["React.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "Chart.js"],
+            technologies: ["Next.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "Chart.js"],
             images: [vooteeImg],
             responsibilities: "Built live charting components and implemented voter IP/session double-vote protection logic.",
             challenges: "High traffic during concurrent polls caused minor latency. Solved by tuning Socket.io transport structures and connection clustering.",
@@ -119,7 +119,7 @@ const Projects = () => {
             title: "Lord's Hub",
             description: "A full-stack gaming marketplace for accounts, gems, diamonds, and automated bots.",
             longDescription: "Lord's Hub is a full-stack marketplace for buying and selling verified Lords Mobile accounts, gems, diamonds, and automated bot services (war, rein, KVK, and farm/bank bots). Built with a React/Next.js frontend and backend.",
-            technologies: ["React.js", "Next.js", "Firebase", "CSS3", "JavaScript"],
+            technologies: ["Next.js", "Firebase", "CSS3", "JavaScript"],
             images: [lordshubImg],
             liveUrl: "https://lordshub.com/",
             githubUrl: "https://github.com/iahsan71",
@@ -140,7 +140,7 @@ const Projects = () => {
             title: "Portfolio Website v2",
             description: "A premium modern developer portfolio showcasing full stack skill sets, dark mode, command palette, and smooth animations.",
             longDescription: "Designed to reflect premium developer profiles, this website features micro-interactions, responsive grids, dark/light theme switcher, a command palette search console, and smooth transitions.",
-            technologies: ["React.js", "Framer Motion", "SCSS", "Firebase Hosting", "Lucide Icons"],
+            technologies: ["Next.js", "Framer Motion", "SCSS", "Firebase Hosting", "Lucide Icons"],
             images: [portfolioImg],
             liveUrl: "https://github.com/iahsan71/PortFolio",
             githubUrl: "https://github.com/iahsan71/PortFolio",
@@ -281,7 +281,7 @@ const Projects = () => {
                         >
                             <div className="project-image" style={{ position: "relative", height: "220px", overflow: "hidden", borderRadius: "12px 12px 0 0" }}>
                                 <motion.img 
-                                    src={project.images[0]} 
+                                    src={typeof project.images[0] === 'object' && project.images[0] !== null ? project.images[0].src : project.images[0]} 
                                     alt={project.title}
                                     style={{ width: "100%", height: "100%", objectFit: "cover" }}
                                     variants={{
@@ -364,7 +364,7 @@ const Projects = () => {
                                 {/* Image Carousel */}
                                 <div className="modal-carousel">
                                     <img 
-                                        src={selectedProject.images[currentImageIndex]} 
+                                        src={typeof selectedProject.images[currentImageIndex] === 'object' && selectedProject.images[currentImageIndex] !== null ? selectedProject.images[currentImageIndex].src : selectedProject.images[currentImageIndex]} 
                                         alt={`${selectedProject.title} screenshot`} 
                                     />
                                     
