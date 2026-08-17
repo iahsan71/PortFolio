@@ -12,7 +12,7 @@ const poppins = Poppins({
 });
 
 export const metadata = {
-    metadataBase: new URL("https://ahsanafzal.com"),
+    metadataBase: new URL("https://portfolio-aahsan.web.app"),
     title: "Ahsan Afzal | MERN Stack Developer & Full Stack Engineer",
     description: "Ahsan Afzal is a results-driven MERN Stack Developer specializing in building high-performance full-stack web applications with React, Next.js, Node.js, Express, and MongoDB. Explore projects, experience, and skills.",
     keywords: [
@@ -33,7 +33,7 @@ export const metadata = {
     },
     openGraph: {
         type: "website",
-        url: "https://ahsanafzal.com/",
+        url: "https://portfolio-aahsan.web.app/",
         title: "Ahsan Afzal | MERN Stack Developer & Full Stack Engineer",
         description: "Ahsan Afzal is a results-driven MERN Stack Developer specializing in building high-performance full-stack web applications with React, Next.js, Node.js, Express, and MongoDB.",
         images: [
@@ -53,6 +53,19 @@ export const metadata = {
     }
 };
 
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@type": "Person",
+    "name": "Ahsan Afzal",
+    "jobTitle": "MERN Stack Developer & Full Stack Engineer",
+    "url": "https://portfolio-aahsan.web.app",
+    "image": "https://portfolio-aahsan.web.app/logo512.png",
+    "description": "Ahsan Afzal is a results-driven MERN Stack Developer specializing in building high-performance full-stack web applications with React, Next.js, Node.js, Express, and MongoDB.",
+    "sameAs": [
+        "https://github.com/iahsan71"
+    ]
+};
+
 export default function RootLayout({ children }) {
     return (
         <html lang="en" className={poppins.variable}>
@@ -60,6 +73,10 @@ export default function RootLayout({ children }) {
                 <link
                     rel="stylesheet"
                     href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.13.0/css/all.min.css"
+                />
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
                 />
             </head>
             <body>
