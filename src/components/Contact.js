@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
-import { toast } from "react-toastify";
-import { Mail, Send, User, MessageSquare, MapPin, Phone } from "lucide-react";
+import SectionHeader from "./SectionHeader";
+import { Mail, Send, User, MessageSquare, MapPin, Phone, Github, Linkedin, Calendar } from "lucide-react";
 
 const Contact = () => {
     const [formData, setFormData] = useState({
@@ -10,6 +10,7 @@ const Contact = () => {
         message: "",
     });
     const [isSubmitting, setIsSubmitting] = useState(false);
+    const [submitStatus, setSubmitStatus] = useState(null); // 'success' or 'error'
 
     const handleChange = (e) => {
         const { name, value } = e.target;
@@ -19,6 +20,7 @@ const Contact = () => {
     const handleSubmit = async (e) => {
         e.preventDefault();
         setIsSubmitting(true);
+        setSubmitStatus(null);
         
         try {
             const response = await fetch("https://formspree.io/f/xzzbojvp", {
@@ -28,39 +30,24 @@ const Contact = () => {
             });
             
             if (response.ok) {
-                toast.success("Message sent successfully! I'll get back to you soon.");
+                setSubmitStatus("success");
                 setFormData({ name: "", email: "", message: "" });
             } else {
-                toast.error("Failed to send the message. Please try again.");
+                setSubmitStatus("error");
             }
         } catch (error) {
-            toast.error("Network error. Please check your connection and try again.");
+            setSubmitStatus("error");
         } finally {
             setIsSubmitting(false);
         }
     };
-
-    const contactInfo = [
-        {
-            icon: <Mail size={24} />,
-            title: "Email",
-            value: "ahsanafzal129@gmail.com",
-            link: "mailto:ahsanafzal129@gmail.com"
-        },
-        {
-            icon: <MapPin size={24} />,
-            title: "Location",
-            value: "Pakistan",
-            link: null
-        }
-    ];
 
     const containerVariants = {
         hidden: { opacity: 0 },
         visible: {
             opacity: 1,
             transition: {
-                staggerChildren: 0.2,
+                staggerChildren: 0.15,
                 delayChildren: 0.1
             }
         }
@@ -73,157 +60,239 @@ const Contact = () => {
             y: 0,
             transition: {
                 duration: 0.6,
-                ease: [0.6, -0.05, 0.01, 0.99]
+                ease: [0.16, 1, 0.3, 1]
             }
         }
     };
 
     return (
-        <section id="contact" className="contact">
+        <section id="contact" className="contact" style={{ position: "relative" }}>
             <div className="container-custom">
-                <motion.div
-                    className="section-header"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="section-title">
-                        Get In <span className="gradient-text">Touch</span>
-                    </h2>
-                    <p className="section-subtitle">
-                        Have a project in mind? Let's discuss how we can work together
-                    </p>
-                </motion.div>
+                <SectionHeader 
+                    title="Get In" 
+                    highlight="Touch" 
+                    subtitle="Have an opportunity, a project in mind, or just want to connect?" 
+                />
 
-                <motion.div
-                    className="contact-grid"
-                    variants={containerVariants}
-                    initial="hidden"
-                    whileInView="visible"
-                    viewport={{ once: true }}
-                >
-                    {/* Contact Information */}
-                    <motion.div className="contact-info" variants={itemVariants}>
-                        <h3>Let's Connect</h3>
-                        
-                        <p>
-                            I'm always interested in hearing about new projects and opportunities. 
-                            Whether you're a company looking to hire, or you're someone who has a 
-                            project in mind, I'd love to hear from you.
-                        </p>
+                <div className="row gy-5">
+                    {/* Left Column: Contact details */}
+                    <div className="col-lg-5">
+                        <motion.div
+                            variants={containerVariants}
+                            initial="hidden"
+                            whileInView="visible"
+                            viewport={{ once: true }}
+                            className="d-flex flex-column gap-4"
+                        >
+                            <motion.div variants={itemVariants}>
+                                <h3 style={{ fontSize: "1.5rem", fontWeight: 700, marginBottom: "1rem", color: "var(--text-primary)" }}>Contact Info</h3>
+                                <p style={{ color: "var(--text-secondary)", fontSize: "1rem", lineHeight: 1.6 }}>
+                                    Feel free to reach out via the form, directly by email/phone, or find me on professional networks.
+                                </p>
+                            </motion.div>
 
-                        <div style={{
-                            display: 'flex',
-                            flexDirection: 'column',
-                            gap: '1.5rem'
-                        }}>
-                            {contactInfo.map((info, index) => (
-                                <motion.div
-                                    key={index}
-                                    className="contact-item"
-                                    whileHover={{
-                                        y: -3,
-                                        boxShadow: 'var(--shadow-glow)',
-                                        borderColor: 'var(--accent-primary)'
+                            {/* Status Card */}
+                            <motion.div 
+                                variants={itemVariants}
+                                className="p-4 rounded-4"
+                                style={{
+                                    background: "var(--glass-bg)",
+                                    border: "1px solid var(--border-color)",
+                                    backdropFilter: "blur(10px)",
+                                    display: "flex",
+                                    alignItems: "center",
+                                    gap: "1rem"
+                                }}
+                            >
+                                <div className="d-flex align-items-center justify-content-center p-2 rounded-3 bg-success bg-opacity-10 text-success">
+                                    <Calendar size={20} />
+                                </div>
+                                <div>
+                                    <h4 style={{ fontSize: "0.95rem", fontWeight: 700, margin: 0, color: "var(--text-primary)" }}>Availability Status</h4>
+                                    <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)" }}>Open for Full-time Roles & Contracts</span>
+                                </div>
+                            </motion.div>
+
+                            {/* Contact Details List */}
+                            <motion.div variants={itemVariants} className="d-flex flex-column gap-3">
+                                <a 
+                                    href="mailto:imahsan000@gmail.com" 
+                                    className="d-flex align-items-center gap-3 p-3 rounded-3"
+                                    style={{
+                                        background: "var(--card-bg)",
+                                        border: "1px solid var(--border-color)",
+                                        color: "inherit",
+                                        textDecoration: "none",
+                                        transition: "var(--transition-smooth)"
+                                    }}
+                                    onMouseEnter={(e) => e.currentTarget.style.borderColor = "var(--accent-primary)"}
+                                    onMouseLeave={(e) => e.currentTarget.style.borderColor = "var(--border-color)"}
+                                >
+                                    <Mail size={18} style={{ color: "var(--accent-primary)" }} />
+                                    <div>
+                                        <span className="d-block" style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase" }}>Email</span>
+                                        <span style={{ fontSize: "0.95rem", color: "var(--text-secondary)", fontWeight: 500 }}>imahsan000@gmail.com</span>
+                                    </div>
+                                </a>
+
+                                <a 
+                                    href="tel:+923493082202" 
+                                    className="d-flex align-items-center gap-3 p-3 rounded-3"
+                                    style={{
+                                        background: "var(--card-bg)",
+                                        border: "1px solid var(--border-color)",
+                                        color: "inherit",
+                                        textDecoration: "none",
+                                        transition: "var(--transition-smooth)"
+                                    }}
+                                    onMouseEnter={(e) => e.currentTarget.style.borderColor = "var(--accent-primary)"}
+                                    onMouseLeave={(e) => e.currentTarget.style.borderColor = "var(--border-color)"}
+                                >
+                                    <Phone size={18} style={{ color: "var(--accent-primary)" }} />
+                                    <div>
+                                        <span className="d-block" style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase" }}>Phone</span>
+                                        <span style={{ fontSize: "0.95rem", color: "var(--text-secondary)", fontWeight: 500 }}>+92 349 3082202</span>
+                                    </div>
+                                </a>
+
+                                <div 
+                                    className="d-flex align-items-center gap-3 p-3 rounded-3"
+                                    style={{
+                                        background: "var(--card-bg)",
+                                        border: "1px solid var(--border-color)",
+                                        color: "inherit"
                                     }}
                                 >
-                                    <div className="contact-icon">
-                                        {info.icon}
+                                    <MapPin size={18} style={{ color: "var(--accent-primary)" }} />
+                                    <div>
+                                        <span className="d-block" style={{ fontSize: "0.75rem", color: "var(--text-muted)", fontWeight: 600, textTransform: "uppercase" }}>Location</span>
+                                        <span style={{ fontSize: "0.95rem", color: "var(--text-secondary)", fontWeight: 500 }}>Pakistan</span>
                                     </div>
-                                    <div className="contact-details">
-                                        <h4>{info.title}</h4>
-                                        {info.link ? (
-                                            <a href={info.link}>
-                                                {info.value}
-                                            </a>
-                                        ) : (
-                                            <span>{info.value}</span>
-                                        )}
+                                </div>
+                            </motion.div>
+                        </motion.div>
+                    </div>
+
+                    {/* Right Column: Contact form */}
+                    <div className="col-lg-7">
+                        <motion.div
+                            initial={{ opacity: 0, x: 20 }}
+                            whileInView={{ opacity: 1, x: 0 }}
+                            viewport={{ once: true }}
+                            transition={{ duration: 0.6 }}
+                            className="p-4 p-md-5 rounded-4"
+                            style={{
+                                background: "var(--card-bg)",
+                                border: "1px solid var(--border-color)",
+                                backdropFilter: "blur(10px)",
+                                boxShadow: "var(--shadow-primary)"
+                            }}
+                        >
+                            <form onSubmit={handleSubmit} className="d-flex flex-column gap-4">
+                                <div className="position-relative">
+                                    <User size={18} style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", color: "var(--text-muted)" }} />
+                                    <input 
+                                        type="text" 
+                                        name="name"
+                                        placeholder="Your Name" 
+                                        required 
+                                        value={formData.name}
+                                        onChange={handleChange}
+                                        style={{
+                                            width: "100%",
+                                            padding: "12px 16px 12px 45px",
+                                            background: "var(--glass-bg)",
+                                            border: "1px solid var(--border-color)",
+                                            borderRadius: "8px",
+                                            color: "var(--text-primary)",
+                                            outline: "none",
+                                            transition: "var(--transition-smooth)"
+                                        }}
+                                        onFocus={(e) => e.currentTarget.style.borderColor = "var(--accent-primary)"}
+                                        onBlur={(e) => e.currentTarget.style.borderColor = "var(--border-color)"}
+                                    />
+                                </div>
+
+                                <div className="position-relative">
+                                    <Mail size={18} style={{ position: "absolute", left: "15px", top: "50%", transform: "translateY(-50%)", color: "var(--text-muted)" }} />
+                                    <input 
+                                        type="email" 
+                                        name="email"
+                                        placeholder="Your Email" 
+                                        required 
+                                        value={formData.email}
+                                        onChange={handleChange}
+                                        style={{
+                                            width: "100%",
+                                            padding: "12px 16px 12px 45px",
+                                            background: "var(--glass-bg)",
+                                            border: "1px solid var(--border-color)",
+                                            borderRadius: "8px",
+                                            color: "var(--text-primary)",
+                                            outline: "none",
+                                            transition: "var(--transition-smooth)"
+                                        }}
+                                        onFocus={(e) => e.currentTarget.style.borderColor = "var(--accent-primary)"}
+                                        onBlur={(e) => e.currentTarget.style.borderColor = "var(--border-color)"}
+                                    />
+                                </div>
+
+                                <div className="position-relative">
+                                    <MessageSquare size={18} style={{ position: "absolute", left: "15px", top: "20px", color: "var(--text-muted)" }} />
+                                    <textarea 
+                                        name="message"
+                                        placeholder="Your Message" 
+                                        required 
+                                        rows="5"
+                                        value={formData.message}
+                                        onChange={handleChange}
+                                        style={{
+                                            width: "100%",
+                                            padding: "15px 16px 15px 45px",
+                                            background: "var(--glass-bg)",
+                                            border: "1px solid var(--border-color)",
+                                            borderRadius: "8px",
+                                            color: "var(--text-primary)",
+                                            outline: "none",
+                                            resize: "none",
+                                            transition: "var(--transition-smooth)"
+                                        }}
+                                        onFocus={(e) => e.currentTarget.style.borderColor = "var(--accent-primary)"}
+                                        onBlur={(e) => e.currentTarget.style.borderColor = "var(--border-color)"}
+                                    />
+                                </div>
+
+                                <button 
+                                    type="submit" 
+                                    disabled={isSubmitting}
+                                    className="btn-primary w-100 d-flex align-items-center justify-content-center gap-2"
+                                    style={{ padding: "12px" }}
+                                >
+                                    {isSubmitting ? (
+                                        <span>Sending...</span>
+                                    ) : (
+                                        <>
+                                            <span>Send Message</span>
+                                            <Send size={16} />
+                                        </>
+                                    )}
+                                </button>
+
+                                {submitStatus === "success" && (
+                                    <div className="p-3 rounded-3 text-success bg-success bg-opacity-10 text-center" style={{ fontSize: "0.9rem", fontWeight: 600 }}>
+                                        Message sent successfully! I'll get back to you soon.
                                     </div>
-                                </motion.div>
-                            ))}
-                        </div>
-                    </motion.div>
-
-                    {/* Contact Form */}
-                    <motion.div variants={itemVariants}>
-                        <form onSubmit={handleSubmit} className="contact-form">
-                            <h3>Send a Message</h3>
-
-                            <div className="form-group">
-                                <User size={20} />
-                                <input
-                                    type="text"
-                                    name="name"
-                                    value={formData.name}
-                                    onChange={handleChange}
-                                    placeholder="Your Name"
-                                    required
-                                    className="form-input"
-                                />
-                            </div>
-
-                            <div className="form-group">
-                                <Mail size={20} />
-                                <input
-                                    type="email"
-                                    name="email"
-                                    value={formData.email}
-                                    onChange={handleChange}
-                                    placeholder="Your Email"
-                                    required
-                                    className="form-input"
-                                />
-                            </div>
-
-                            <div className="form-group textarea">
-                                <MessageSquare size={20} />
-                                <textarea
-                                    name="message"
-                                    value={formData.message}
-                                    onChange={handleChange}
-                                    placeholder="Your Message"
-                                    required
-                                    rows={5}
-                                    className="form-input form-textarea"
-                                />
-                            </div>
-
-                            <motion.button
-                                type="submit"
-                                disabled={isSubmitting}
-                                className="submit-btn"
-                                whileHover={{ scale: isSubmitting ? 1 : 1.02 }}
-                                whileTap={{ scale: isSubmitting ? 1 : 0.98 }}
-                            >
-                                {isSubmitting ? (
-                                    <div className="loading-spinner" style={{
-                                        width: '20px',
-                                        height: '20px'
-                                    }} />
-                                ) : (
-                                    <>
-                                        <Send size={18} />
-                                        Send Message
-                                    </>
                                 )}
-                            </motion.button>
-                        </form>
-                    </motion.div>
-                </motion.div>
+                                {submitStatus === "error" && (
+                                    <div className="p-3 rounded-3 text-danger bg-danger bg-opacity-10 text-center" style={{ fontSize: "0.9rem", fontWeight: 600 }}>
+                                        Failed to send message. Please try again or email directly.
+                                    </div>
+                                )}
+                            </form>
+                        </motion.div>
+                    </div>
+                </div>
             </div>
-
-            {/* Background Elements */}
-            <div style={{
-                position: 'absolute',
-                top: 0,
-                left: 0,
-                right: 0,
-                bottom: 0,
-                background: 'radial-gradient(circle at 30% 80%, rgba(139, 92, 246, 0.05) 0%, transparent 50%)',
-                pointerEvents: 'none'
-            }} />
         </section>
     );
 };

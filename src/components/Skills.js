@@ -1,57 +1,90 @@
 import React from "react";
 import { motion } from "framer-motion";
+import SectionHeader from "./SectionHeader";
 import { 
     FaHtml5, 
     FaCss3Alt, 
     FaReact, 
     FaJsSquare,
     FaGitAlt,
-    FaFigma
+    FaNodeJs,
+    FaGithub,
+    FaBootstrap
 } from "react-icons/fa";
 import { 
     SiFirebase, 
     SiTypescript, 
     SiTailwindcss,
     SiNextdotjs,
-    SiVercel,
-    SiNetlify
+    SiMongodb,
+    SiExpress,
+    SiRedux,
+    SiReactquery,
+    SiMui,
+    SiJsonwebtokens,
+    SiPostman
 } from "react-icons/si";
-import { Globe, Database, Palette, Code } from "lucide-react";
+import { Globe, Database, Settings, ShieldAlert, Cpu } from "lucide-react";
 
 const Skills = () => {
     const skillCategories = [
         {
             title: "Frontend Development",
-            icon: <Code size={24} />,
+            icon: <Globe size={22} />,
             skills: [
-                { name: "React.js", icon: <FaReact />, level: "Expert" },
-                { name: "Next.js", icon: <SiNextdotjs />, level: "Advanced" },
-                { name: "JavaScript", icon: <FaJsSquare />, level: "Expert" },
-                { name: "TypeScript", icon: <SiTypescript />, level: "Advanced" },
-                { name: "HTML5", icon: <FaHtml5 />, level: "Expert" },
-                { name: "CSS3", icon: <FaCss3Alt />, level: "Expert" }
+                { name: "React.js", icon: <FaReact />, percentage: 95 },
+                { name: "Next.js", icon: <SiNextdotjs />, percentage: 88 },
+                { name: "JavaScript", icon: <FaJsSquare />, percentage: 95 },
+                { name: "TypeScript", icon: <SiTypescript />, percentage: 90 },
+                { name: "HTML5", icon: <FaHtml5 />, percentage: 95 },
+                { name: "CSS3", icon: <FaCss3Alt />, percentage: 90 },
+                { name: "Tailwind CSS", icon: <SiTailwindcss />, percentage: 92 },
+                { name: "Bootstrap", icon: <FaBootstrap />, percentage: 88 },
+                { name: "Material UI", icon: <SiMui />, percentage: 85 }
             ]
         },
         {
-            title: "Styling & Design",
-            icon: <Palette size={24} />,
+            title: "Backend Development",
+            icon: <Cpu size={22} />,
             skills: [
-                { name: "Tailwind CSS", icon: <SiTailwindcss />, level: "Expert" },
-                { name: "Figma", icon: <FaFigma />, level: "Advanced" },
-                { name: "Responsive Design", icon: <Globe />, level: "Expert" },
-                { name: "UI/UX Design", icon: <Palette />, level: "Advanced" }
+                { name: "Node.js", icon: <FaNodeJs />, percentage: 90 },
+                { name: "Express.js", icon: <SiExpress />, percentage: 92 }
             ]
         },
         {
-            title: "Backend & Tools",
-            icon: <Database size={24} />,
+            title: "Database Management",
+            icon: <Database size={22} />,
             skills: [
-                { name: "Firebase", icon: <SiFirebase />, level: "Advanced" },
-                { name: "Git", icon: <FaGitAlt />, level: "Advanced" },
-                { name: "Vercel", icon: <SiVercel />, level: "Advanced" },
-                { name: "Netlify", icon: <SiNetlify />, level: "Advanced" },
-                { name: "API Integration", icon: <Database />, level: "Advanced" },
-                { name: "Authentication", icon: <Database />, level: "Advanced" }
+                { name: "MongoDB", icon: <SiMongodb />, percentage: 88 },
+                { name: "Firebase", icon: <SiFirebase />, percentage: 85 }
+            ]
+        },
+        {
+            title: "AI & Prompt Engineering",
+            icon: <Cpu size={22} />,
+            skills: [
+                { name: "ChatGPT & Claude", icon: <Cpu />, percentage: 95 },
+                { name: "GitHub Copilot & Cursor", icon: <Cpu />, percentage: 95 },
+                { name: "Antigravity & Kiro", icon: <Cpu />, percentage: 92 },
+                { name: "Prompt Engineering", icon: <Cpu />, percentage: 92 },
+                { name: "AI-Assisted Debugging & Code Gen", icon: <Cpu />, percentage: 90 }
+            ]
+        },
+        {
+            title: "Other & Architecture",
+            icon: <Settings size={22} />,
+            skills: [
+                { name: "REST APIs", icon: <Settings />, percentage: 95 },
+                { name: "Authentication", icon: <ShieldAlert />, percentage: 90 },
+                { name: "JWT Tokens", icon: <SiJsonwebtokens />, percentage: 92 },
+                { name: "Git & Versioning", icon: <FaGitAlt />, percentage: 90 },
+                { name: "GitHub", icon: <FaGithub />, percentage: 92 },
+                { name: "Redux Toolkit", icon: <SiRedux />, percentage: 88 },
+                { name: "React Query", icon: <SiReactquery />, percentage: 85 },
+                { name: "Responsive Design", icon: <Globe />, percentage: 95 },
+                { name: "API Integration", icon: <SiPostman />, percentage: 95 },
+                { name: "App Deployment", icon: <Globe />, percentage: 88 },
+                { name: "Performance Optimization", icon: <Cpu />, percentage: 87 }
             ]
         }
     ];
@@ -62,7 +95,7 @@ const Skills = () => {
             opacity: 1,
             transition: {
                 staggerChildren: 0.1,
-                delayChildren: 0.2
+                delayChildren: 0.1
             }
         }
     };
@@ -73,215 +106,101 @@ const Skills = () => {
             opacity: 1,
             y: 0,
             transition: {
-                duration: 0.6,
-                ease: [0.6, -0.05, 0.01, 0.99]
-            }
-        }
-    };
-
-    const skillVariants = {
-        hidden: { opacity: 0, scale: 0.8 },
-        visible: {
-            opacity: 1,
-            scale: 1,
-            transition: {
-                duration: 0.4,
-                ease: [0.6, -0.05, 0.01, 0.99]
+                duration: 0.8,
+                ease: [0.16, 1, 0.3, 1]
             }
         }
     };
 
     return (
-        <section id="skills" className="skills">
+        <section id="skills" className="skills" style={{ position: "relative" }}>
             <div className="container-custom">
-                <motion.div
-                    className="section-header"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8 }}
-                    viewport={{ once: true }}
-                >
-                    <h2 className="section-title">
-                        My <span className="gradient-text">Skills</span>
-                    </h2>
-                    <p className="section-subtitle">
-                        Technologies and tools I use to bring ideas to life
-                    </p>
-                </motion.div>
+                <SectionHeader 
+                    title="My Technical" 
+                    highlight="Skills" 
+                    subtitle="Expertise and tech stack built through professional experience" 
+                />
 
                 <motion.div
-                    className="skills-categories"
+                    className="row g-4"
                     variants={containerVariants}
                     initial="hidden"
                     whileInView="visible"
-                    viewport={{ once: true, margin: "-100px" }}
-                    style={{
-                        display: 'grid',
-                        gridTemplateColumns: 'repeat(3, 1fr)',
-                        gap: '2rem',
-                        marginBottom: '4rem'
-                    }}
-                >
-                    {skillCategories.map((category, categoryIndex) => (
-                        <motion.div
-                            key={categoryIndex}
-                            className="skill-category"
-                            variants={categoryVariants}
-                            style={{
-                                background: 'var(--glass-bg)',
-                                backdropFilter: 'blur(20px)',
-                                border: '1px solid var(--border-color)',
-                                borderRadius: '20px',
-                                padding: '2rem',
-                                transition: 'var(--transition-smooth)'
-                            }}
-                            whileHover={{
-                                y: -5,
-                                boxShadow: 'var(--shadow-glow)',
-                                borderColor: 'var(--accent-primary)'
-                            }}
-                        >
-                            <div style={{
-                                display: 'flex',
-                                alignItems: 'center',
-                                gap: '1rem',
-                                marginBottom: '1.5rem'
-                            }}>
-                                <div style={{
-                                    width: '50px',
-                                    height: '50px',
-                                    background: 'var(--gradient-primary)',
-                                    borderRadius: '50%',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    justifyContent: 'center',
-                                    color: 'white'
-                                }}>
-                                    {category.icon}
-                                </div>
-                                <h3 style={{
-                                    fontSize: '1.3rem',
-                                    fontWeight: '700',
-                                    color: 'var(--text-primary)',
-                                    margin: 0
-                                }}>
-                                    {category.title}
-                                </h3>
-                            </div>
-
-                            <div style={{
-                                display: 'grid',
-                                gridTemplateColumns: 'repeat(auto-fit, minmax(120px, 1fr))',
-                                gap: '1rem'
-                            }}>
-                                {category.skills.map((skill, skillIndex) => (
-                                    <motion.div
-                                        key={skillIndex}
-                                        className="skill-item"
-                                        variants={skillVariants}
-                                        whileHover={{ scale: 1.05 }}
-                                        style={{
-                                            background: 'rgba(255, 255, 255, 0.05)',
-                                            border: '1px solid var(--border-color)',
-                                            borderRadius: '12px',
-                                            padding: '1rem',
-                                            textAlign: 'center',
-                                            transition: 'var(--transition-smooth)',
-                                            cursor: 'pointer'
-                                        }}
-                                    >
-                                        <div style={{
-                                            fontSize: '2rem',
-                                            color: 'var(--accent-primary)',
-                                            marginBottom: '0.5rem',
-                                            display: 'flex',
-                                            justifyContent: 'center'
-                                        }}>
-                                            {skill.icon}
-                                        </div>
-                                        <div style={{
-                                            fontSize: '0.9rem',
-                                            fontWeight: '600',
-                                            color: 'var(--text-primary)',
-                                            marginBottom: '0.25rem'
-                                        }}>
-                                            {skill.name}
-                                        </div>
-                                        <div style={{
-                                            fontSize: '0.75rem',
-                                            color: 'var(--text-muted)',
-                                            textTransform: 'uppercase',
-                                            letterSpacing: '0.5px'
-                                        }}>
-                                            {skill.level}
-                                        </div>
-                                    </motion.div>
-                                ))}
-                            </div>
-                        </motion.div>
-                    ))}
-                </motion.div>
-
-                {/* Featured Skills Grid */}
-                <motion.div
-                    className="featured-skills"
-                    initial={{ opacity: 0, y: 30 }}
-                    whileInView={{ opacity: 1, y: 0 }}
-                    transition={{ duration: 0.8, delay: 0.2 }}
                     viewport={{ once: true }}
                 >
-                    <h3 style={{
-                        textAlign: 'center',
-                        fontSize: '1.5rem',
-                        fontWeight: '700',
-                        color: 'var(--text-primary)',
-                        marginBottom: '2rem'
-                    }}>
-                        Core Technologies
-                    </h3>
-                    
-                    <div style={{
-                        display: 'flex',
-                        justifyContent: 'center',
-                        flexWrap: 'wrap',
-                        gap: '1rem'
-                    }}>
-                        {[
-                            { name: "React.js", icon: <FaReact /> },
-                            { name: "Next.js", icon: <SiNextdotjs /> },
-                            { name: "TypeScript", icon: <SiTypescript /> },
-                            { name: "Tailwind CSS", icon: <SiTailwindcss /> },
-                            { name: "Firebase", icon: <SiFirebase /> },
-                            { name: "JavaScript", icon: <FaJsSquare /> }
-                        ].map((tech, index) => (
+                    {skillCategories.map((category, index) => (
+                        <div key={index} className="col-12 col-xl-6">
                             <motion.div
-                                key={index}
-                                className="tech-badge"
-                                initial={{ opacity: 0, scale: 0.8 }}
-                                whileInView={{ opacity: 1, scale: 1 }}
-                                transition={{ duration: 0.4, delay: index * 0.1 }}
-                                whileHover={{ scale: 1.1, y: -2 }}
-                                viewport={{ once: true }}
+                                variants={categoryVariants}
+                                className="skill-category-card p-4 p-md-5 rounded-4 h-100"
                                 style={{
-                                    background: 'var(--gradient-primary)',
-                                    color: 'white',
-                                    padding: '0.75rem 1.5rem',
-                                    borderRadius: '50px',
-                                    display: 'flex',
-                                    alignItems: 'center',
-                                    gap: '0.5rem',
-                                    fontWeight: '600',
-                                    fontSize: '0.9rem',
-                                    boxShadow: '0 4px 15px rgba(59, 130, 246, 0.3)',
-                                    cursor: 'pointer',
-                                    transition: 'var(--transition-smooth)'
+                                    background: "var(--card-bg)",
+                                    border: "1px solid var(--border-color)",
+                                    backdropFilter: "blur(10px)",
+                                    boxShadow: "var(--shadow-primary)",
+                                    transition: "var(--transition-smooth)"
+                                }}
+                                whileHover={{
+                                    y: -6,
+                                    borderColor: "var(--accent-primary)",
+                                    boxShadow: "0 10px 30px -10px rgba(59, 130, 246, 0.3)"
                                 }}
                             >
-                                {tech.icon}
-                                {tech.name}
+                                <div className="d-flex align-items-center gap-3 mb-4">
+                                    <div 
+                                        className="d-flex align-items-center justify-content-center p-2 rounded-3"
+                                        style={{
+                                            background: "rgba(59, 130, 246, 0.1)",
+                                            color: "var(--accent-primary)"
+                                        }}
+                                    >
+                                        {category.icon}
+                                    </div>
+                                    <h3 style={{ fontSize: "1.35rem", fontWeight: 700, margin: 0, color: "var(--text-primary)" }}>
+                                        {category.title}
+                                    </h3>
+                                </div>
+
+                                <div className="d-flex flex-column gap-3">
+                                    {category.skills.map((skill, sIndex) => (
+                                        <div key={sIndex} className="skill-progress-bar-container">
+                                            <div className="d-flex justify-content-between align-items-center mb-1">
+                                                <div className="d-flex align-items-center gap-2" style={{ color: "var(--text-primary)", fontWeight: 500, fontSize: "0.95rem" }}>
+                                                    <span style={{ display: "inline-flex", color: "var(--accent-secondary)" }}>{skill.icon}</span>
+                                                    <span>{skill.name}</span>
+                                                </div>
+                                                <span style={{ fontSize: "0.85rem", color: "var(--text-secondary)", fontFamily: "var(--font-mono)" }}>
+                                                    {skill.percentage}%
+                                                </span>
+                                            </div>
+                                            <div 
+                                                style={{
+                                                    height: "6px",
+                                                    background: "var(--glass-bg)",
+                                                    borderRadius: "3px",
+                                                    overflow: "hidden",
+                                                    width: "100%"
+                                                }}
+                                            >
+                                                <motion.div
+                                                    style={{
+                                                        height: "100%",
+                                                        background: "var(--gradient-primary)",
+                                                        borderRadius: "3px",
+                                                        originX: 0
+                                                    }}
+                                                    initial={{ scaleX: 0 }}
+                                                    whileInView={{ scaleX: skill.percentage / 100 }}
+                                                    viewport={{ once: true }}
+                                                    transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+                                                />
+                                            </div>
+                                        </div>
+                                    ))}
+                                </div>
                             </motion.div>
-                        ))}
-                    </div>
+                        </div>
+                    ))}
                 </motion.div>
             </div>
         </section>
