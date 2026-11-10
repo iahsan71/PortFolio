@@ -88,7 +88,7 @@ const Navbar: React.FC = () => {
                     type="button"
                     onClick={() => scrollTo("home")}
                     className="m-navbar-brand notranslate"
-                    aria-label="Home top"
+                    aria-label={`${personalInfo.initials} - Return to top`}
                 >
                     <span>{personalInfo.initials}</span>
                     <span className="m-dot">.</span>

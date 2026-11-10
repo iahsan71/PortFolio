@@ -51,7 +51,7 @@ const Achievements: React.FC = () => {
         <section id="stats" style={{ padding: "4rem 1.25rem", position: "relative" }}>
             <div className="editorial-container">
                 <div className="m-stats-grid">
-                    {personalInfo.stats.map((stat, idx) => (
+                    {personalInfo.stats?.map((stat, idx) => (
                         <motion.div
                             key={idx}
                             className="m-stat-box"

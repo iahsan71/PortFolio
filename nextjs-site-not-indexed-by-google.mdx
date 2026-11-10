@@ -1,0 +1,278 @@
+---
+title: "Next.js Site Not Indexed? What Took Mine From 21 to 54 Pages"
+excerpt: "Google had found 22 of my pages and refused to crawl them. Six Next.js mistakes caused it — including one that made every date in my sitemap a lie."
+category: "Web Development"
+tags: ["Next.js", "SEO", "Google Search Console", "Technical SEO", "Case Study"]
+publishedAt: "2026-09-14T09:00:00Z"
+updatedAt: "2026-09-14T09:00:00Z"
+status: "published"
+featured: false
+targetQuery: "next.js site not indexed by google"
+secondaryQueries:
+  - "next.js discovered currently not indexed"
+  - "next.js crawled currently not indexed"
+  - "next.js sitemap lastmod"
+  - "next.js metadata alternates not merged"
+searchIntent: "troubleshooting"
+relatedSlugs: ["nextjs-16-turbopack-webpack-config-error", "nextjs-failed-to-fetch-google-fonts-corporate-proxy"]
+faq:
+  - question: "Why does Google say Discovered – currently not indexed for my Next.js pages?"
+    answer: "It means Google knows the URLs exist and has queued them, but decided they are not worth crawling yet. On a young site it is usually a crawl-priority signal rather than a code bug. Fix the technical signals that make pages look low-value or unreliable — canonicals on the wrong host, sitemap dates that change on every deploy, thin near-duplicate pages — then request indexing for your most important URLs through URL Inspection."
+  - question: "Should my Next.js sitemap lastmod use new Date()?"
+    answer: "No. new Date() stamps every URL with the build time, so your sitemap claims every page changed on every deploy. Google says it uses lastmod only if it is consistently and verifiably accurate. Use a real modification date where you have one, such as a post's updatedAt, and omit lastmod entirely where you don't."
+  - question: "Do priority and changefreq in a Next.js sitemap help indexing?"
+    answer: "No. Google's own documentation states that it ignores priority and changefreq values. They are harmless, but time spent tuning them does nothing for crawling or indexing."
+  - question: "Why did my RSS feed link disappear from a Next.js page?"
+    answer: "If a page exports its own metadata.alternates, it replaces the alternates from the parent layout rather than merging with them. An RSS link declared in the layout is silently dropped on any page that sets its own canonical. Repeat the types entry in the page's alternates, or build both from one shared helper."
+sources:
+  - title: "Build and submit a sitemap — Google Search Central"
+    url: https://developers.google.com/search/docs/crawling-indexing/sitemaps/build-sitemap
+    accessedAt: "2026-09-14"
+  - title: "alternates metadata are not correctly merged (issue #74361)"
+    url: https://github.com/vercel/next.js/issues/74361
+    accessedAt: "2026-09-14"
+  - title: "generateStaticParams — Next.js docs"
+    url: https://nextjs.org/docs/app/api-reference/functions/generate-static-params
+    accessedAt: "2026-09-14"
+  - title: "generateMetadata — Next.js docs"
+    url: https://nextjs.org/docs/app/api-reference/functions/generate-metadata
+    accessedAt: "2026-09-14"
+---
+
+If your Next.js site isn't being indexed, the problem usually isn't your content — it's a handful of technical signals telling Google your pages aren't worth crawling. I know because this site had exactly that problem six weeks ago, and I have the Search Console numbers from before and after.
+
+On 9 August, Search Console showed:
+
+| | 9 August | 21 August |
+| --- | --- | --- |
+| Pages indexed | **21** | **54** |
+| Discovered – currently not indexed | **22** | **2** |
+| External backlinks | 3 | — |
+
+Over the same stretch, impressions went from **24 in the four weeks before** to **593 in the most recent four weeks**.
+
+I'll be straight about two things up front, because most "how I fixed my SEO" posts aren't.
+
+**I changed several things at once.** I fixed the issues below, published new posts, and manually requested indexing — all in the same fortnight. I can't tell you which fix did the most, and I won't pretend otherwise.
+
+**Indexing is not traffic.** Clicks barely moved. Getting indexed is what lets you compete; it doesn't make you win. I'll come back to that at the end, because it's the part that matters.
+
+## What "Discovered – currently not indexed" actually means
+
+This status is the one to understand first, because it's the one most people misread.
+
+It does **not** mean Google failed to find your page. It means Google found it, put it in a queue, and **decided it wasn't worth crawling yet**. On a young domain that's a priority judgement, not an error — and there's nothing in your code to "fix" in the usual sense.
+
+What you *can* fix is everything that makes your pages look unreliable or low-value. That turned out to be six things.
+
+## 1. Canonical URLs pointing at a host that redirects
+
+My production domain's apex (`its-tahir.com`) answered with a **307 redirect** to `www.its-tahir.com`. But the site's base URL constant was the apex.
+
+So every canonical tag, every Open Graph URL, every structured-data `@id`, every sitemap entry and every RSS link pointed at a URL that **redirected somewhere else**. I was telling Google "this is the real address" about an address that wasn't.
+
+Check yours in ten seconds:
+
+```bash
+curl -sI https://yourdomain.com | grep -iE "^(HTTP|location)"
+curl -sI https://www.yourdomain.com | grep -iE "^(HTTP|location)"
+```
+
+Whichever one returns `200` is your canonical host. Your base URL — and therefore every URL your metadata generates — has to match it exactly.
+
+Two details worth knowing. A **307 is a *temporary* redirect**, so it doesn't consolidate ranking signals the way a permanent `301` or `308` does. And in Next.js, keep the origin in **one constant** that every metadata file imports — which brings me to the next mistake.
+
+## 2. A hardcoded preview domain in eight places
+
+The blog section had been built before the custom domain existed. Eight canonical, Open Graph and JSON-LD URLs still hardcoded the old Vercel preview hostname — and several built the path by concatenation, producing a **double slash**: `.vercel.app//blog`.
+
+Nothing broke visibly. Pages rendered fine. The metadata just pointed search engines at a different domain entirely.
+
+The fix is structural, not a find-and-replace. One origin constant, imported everywhere:
+
+```ts
+// src/lib/site.ts
+export const SITE_URL = (
+  process.env.NEXT_PUBLIC_SITE_URL ?? "https://www.yourdomain.com"
+).replace(/\/+$/, "");
+```
+
+The trailing-slash strip is what kills the double-slash bug permanently. Set `metadataBase: new URL(SITE_URL)` in your root layout and relative metadata URLs resolve against it too.
+
+Then make it impossible to regress. My build's SSR check fails if the old hostname or a `//` ever appears in a rendered page again. The same habit — check the output, not just the exit code — matters for [a service worker that a Next.js 16 Turbopack build can silently drop](/blog/nextjs-16-turbopack-webpack-config-error).
+
+## 3. Every sitemap date was a lie
+
+This is the one I'd check first on any Next.js site, because the default pattern causes it.
+
+The generated `sitemap.ts` used this for most entries:
+
+```ts
+{ url: `${baseUrl}/work`, lastModified: new Date() }
+```
+
+`new Date()` runs **at build time**. So every deploy stamped every URL with the same timestamp. My sitemap had 48 URLs sharing **four distinct `lastmod` values** — almost all of them the build time. It was telling Google that every page on the site changed every time I shipped.
+
+Google is explicit about what it does with that:
+
+> Google uses the `<lastmod>` value if it's consistently and verifiably (for example by comparing to the last modification of the page) accurate.
+
+Once Google learns your dates are noise, it stops trusting them — including the genuine ones on pages that really did change.
+
+**The fix: a real date where you have one, and nothing where you don't.**
+
+```ts
+// Real modification date — use it
+{ url: `${baseUrl}/blog/${post.slug}`, lastModified: new Date(post.updatedAt) }
+
+// No meaningful date — omit lastModified entirely
+{ url: `${baseUrl}/work` }
+```
+
+A missing `lastmod` is handled fine. A false one poisons the real ones. After the fix, 18 of my 48 URLs carried a `lastmod`, and every one was true.
+
+For listing pages, derive the date from what they list — a category page genuinely changes when its newest post does:
+
+```ts
+export function newestUpdatedAt(posts: { updatedAt: string }[]): Date | null {
+  let newest: number | null = null;
+  for (const post of posts) {
+    const time = Date.parse(post.updatedAt);
+    if (Number.isNaN(time)) continue;
+    if (newest === null || time > newest) newest = time;
+  }
+  return newest === null ? null : new Date(newest);
+}
+```
+
+While you're in there: **Google ignores `priority` and `changefreq` completely.** Its sitemap documentation says so directly. They're harmless, but tuning them accomplishes nothing.
+
+## 4. Thin pages I was begging Google to index
+
+Tag and category pages are generated automatically in most Next.js blogs. That's where this crept in.
+
+With eight posts and twenty tags, **13 of my 20 tag pages listed exactly one post**. Each was a near-copy of the next: a title, a breadcrumb, one card. And every one was in the sitemap, which is the site formally asking Google to index them.
+
+Search Console's `Crawled – currently not indexed` bucket is Google fetching a page and deciding it isn't worth an index slot. Thirteen near-duplicate one-card pages are a very likely match for that — and they were costing crawl attention that should have gone to the actual posts.
+
+The fix keeps the pages working but stops asking:
+
+```ts
+export const MIN_POSTS_FOR_INDEXABLE_HUB = 2;
+
+export function isHubIndexable(postCount: number): boolean {
+  return postCount >= MIN_POSTS_FOR_INDEXABLE_HUB;
+}
+```
+
+Below the threshold, the page gets `robots: { index: false, follow: true }` **and** is left out of the sitemap. The route still returns 200, so no existing link breaks. A tag page qualifies again automatically the moment a second post uses it. My sitemap went from **56 URLs to 46**.
+
+Keep that threshold in **one** constant that both the sitemap and the page metadata import. If they can disagree, eventually they will — and a sitemap listing a page marked `noindex` is a contradiction Google has to resolve for you.
+
+## 5. Page metadata silently deleted my RSS link
+
+This is a genuine Next.js behaviour, and it's tracked in [issue #74361](https://github.com/vercel/next.js/issues/74361).
+
+I declared the RSS discovery link once, in the blog layout:
+
+```ts
+// app/blog/layout.tsx
+export const metadata = {
+  alternates: {
+    canonical: "/blog",
+    types: { "application/rss+xml": `${SITE_URL}/blog/rss.xml` },
+  },
+};
+```
+
+The listing page then set its own canonical:
+
+```ts
+// app/blog/page.tsx
+export const metadata = {
+  alternates: { canonical: "/blog" },
+};
+```
+
+You'd expect the page to add to the layout's `alternates`. It doesn't. **A page's `alternates` object replaces the layout's**, so the RSS link vanished from the rendered HTML — no error, no warning.
+
+The fix is to repeat the entry on the page, or better, build both from one helper so they can't drift:
+
+```ts
+// app/blog/page.tsx
+export const metadata = {
+  alternates: {
+    canonical: "/blog",
+    types: { "application/rss+xml": `${SITE_URL}/blog/rss.xml` },
+  },
+};
+```
+
+The same trap applies to `hreflang` alternates on multilingual sites, where it's considerably more expensive.
+
+## 6. Dynamic routes serving soft 404s
+
+A soft 404 is a page that says "not found" to a person while returning `200 OK` to a crawler. Google treats it as a quality problem.
+
+In the App Router, a dynamic segment like `/blog/tag/[slug]` will by default try to render **any** slug requested — including ones that don't exist. Depending on how the route renders, `notFound()` can end up serving not-found content with a 200 status.
+
+For routes where every valid value is known at build time, close the door explicitly:
+
+```ts
+export const dynamicParams = false;
+
+export async function generateStaticParams() {
+  const tags = await getAllTags();
+  return tags.map((tag) => ({ slug: tag.slug }));
+}
+```
+
+With `dynamicParams = false`, only the paths `generateStaticParams` returns are served, and everything else is a genuine 404 at the router. Then **verify the actual status code** rather than trusting it:
+
+```bash
+curl -s -o /dev/null -w "%{http_code}\n" https://yourdomain.com/blog/tag/does-not-exist
+```
+
+## What I did alongside the code fixes
+
+Two non-code actions that were almost certainly part of the result:
+
+**Requested indexing manually.** Search Console → paste the URL into the inspection bar → **Request Indexing**. The quota is roughly 10–15 a day, so prioritise: real content pages first, then key landing pages, and taxonomy pages last or not at all. My first posts took about two days to index after a request. Later ones were indexed within a day, and one was showing impressions on the day it went live.
+
+**Resubmitted the sitemap on the canonical host.** The original was registered against the apex domain — the one that redirected. I resubmitted it as the `www` URL so Google read it directly instead of through a redirect.
+
+## The part most SEO posts leave out
+
+Indexed pages went from 21 to 54. Impressions went up more than twentyfold. **Clicks barely moved.**
+
+That's not a failure of the fixes — it's what they're for. Every one of them removes a reason for Google to *ignore* your site. None of them gives Google a reason to *rank it above someone else*. That comes from authority, and on a young domain with three backlinks, there isn't much.
+
+I split my own pages by ranking position to see where impressions actually go:
+
+| Position | Share of impressions | Click-through rate |
+| --- | --- | --- |
+| 1–10 | 20% | 1.6% |
+| 11–20 | 31% | 0.5% |
+| 21–40 | 23% | 0.7% |
+| 40+ | 26% | **0%** |
+
+Over a quarter of all impressions sat at position 40 or deeper, where nobody clicks no matter how good the title is. **Indexing gets you into the results. Position decides whether anyone sees you there.**
+
+So if your Next.js site isn't indexed, fix the six things above — they're cheap and they compound. Just don't expect them to be the last step.
+
+<KeyTakeaways items={[
+  "'Discovered – currently not indexed' means Google found your page and chose not to crawl it yet — a priority judgement, not a missing page.",
+  "new Date() in sitemap.ts stamps every URL with the build time. Google trusts lastmod only when it's verifiably accurate, so use real dates or omit the field.",
+  "Your canonical host must be whichever domain returns 200. Canonicals pointing at a redirecting URL send mixed signals, and a 307 is only temporary.",
+  "A page's metadata.alternates replaces the layout's rather than merging, silently dropping RSS and hreflang links.",
+  "Getting indexed and getting clicks are different problems. Fixes remove reasons to ignore you; authority is what earns position.",
+]} />
+
+<Faq items={[
+  { question: "Why does Google say Discovered – currently not indexed for my Next.js pages?", answer: "It means Google knows the URLs exist and has queued them, but decided they are not worth crawling yet. On a young site it is usually a crawl-priority signal rather than a code bug. Fix the technical signals that make pages look low-value or unreliable — canonicals on the wrong host, sitemap dates that change on every deploy, thin near-duplicate pages — then request indexing for your most important URLs through URL Inspection." },
+  { question: "Should my Next.js sitemap lastmod use new Date()?", answer: "No. new Date() stamps every URL with the build time, so your sitemap claims every page changed on every deploy. Google says it uses lastmod only if it is consistently and verifiably accurate. Use a real modification date where you have one, such as a post's updatedAt, and omit lastmod entirely where you don't." },
+  { question: "Do priority and changefreq in a Next.js sitemap help indexing?", answer: "No. Google's own documentation states that it ignores priority and changefreq values. They are harmless, but time spent tuning them does nothing for crawling or indexing." },
+  { question: "Why did my RSS feed link disappear from a Next.js page?", answer: "If a page exports its own metadata.alternates, it replaces the alternates from the parent layout rather than merging with them. An RSS link declared in the layout is silently dropped on any page that sets its own canonical. Repeat the types entry in the page's alternates, or build both from one shared helper." },
+]} />
+
+Every fix above came out of building this site, which is the same Next.js stack I use for client work — you can see those projects [here](/work). I also used this codebase to test [why Next.js fails to fetch Google Fonts behind a corporate proxy](/blog/nextjs-failed-to-fetch-google-fonts-corporate-proxy).

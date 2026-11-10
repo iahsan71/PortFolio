@@ -11,6 +11,9 @@ export interface PersonalInfo {
     availability: string;
     bio: string;
     shortBio: string;
+    shortRole?: string;
+    longBio?: string;
+    stats?: AchievementMetric[];
     email: string;
     phone: string;
     whatsapp: string;

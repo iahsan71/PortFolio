@@ -33,7 +33,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
     if (!project) return { title: "Project Not Found" };
     
     return {
-        title: `${project.title} — Case Study | ${personalInfo.name}`,
+        title: `${project.title} — Case Study`,
         description: project.shortDescription,
         alternates: {
             canonical: `https://ahsan-afzal.web.app/work/${project.slug}/`
@@ -42,7 +42,21 @@ export function generateMetadata({ params }: PageProps): Metadata {
             title: `${project.title} — Case Study | ${personalInfo.name}`,
             description: project.shortDescription,
             url: `https://ahsan-afzal.web.app/work/${project.slug}/`,
-            type: "article"
+            type: "article",
+            images: [
+                {
+                    url: "/logo512.png",
+                    width: 512,
+                    height: 512,
+                    alt: project.title
+                }
+            ]
+        },
+        twitter: {
+            card: "summary_large_image",
+            title: `${project.title} — Case Study | ${personalInfo.name}`,
+            description: project.shortDescription,
+            images: ["/logo512.png"]
         }
     };
 }
@@ -326,9 +340,9 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                             <div style={{ display: "flex", flexDirection: "column", gap: "1rem" }}>
                                 {project.challenges.map((c, idx) => (
                                     <div key={idx} className="m-card" style={{ padding: "1.5rem" }}>
-                                        <h4 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--m-text)", marginBottom: "0.5rem" }}>
+                                        <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--m-text)", marginBottom: "0.5rem" }}>
                                             Issue {idx + 1}: {c.challenge}
-                                        </h4>
+                                        </h3>
                                         <p style={{ fontSize: "0.925rem", color: "var(--m-muted)", lineHeight: 1.6, margin: 0 }}>
                                             <strong style={{ color: "var(--m-accent)" }}>Resolution:</strong> {c.solution}
                                         </p>

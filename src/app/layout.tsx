@@ -1,9 +1,8 @@
 import type { Metadata } from "next";
 import React from "react";
-import { Poppins } from "next/font/google";
+import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import "bootstrap/dist/css/bootstrap.min.css";
-import "../assets/css/style.css";
 import "../assets/scss/style.scss";
 import "../assets/scss/editorial-reference.scss";
 import ClientShell from "../components/ClientShell";
@@ -13,6 +12,20 @@ const poppins = Poppins({
     subsets: ["latin"],
     weight: ["300", "400", "500", "600", "700", "800"],
     variable: "--font-poppins",
+    display: "swap",
+});
+
+const inter = Inter({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700", "800", "900"],
+    variable: "--font-inter",
+    display: "swap",
+});
+
+const jetbrainsMono = JetBrains_Mono({
+    subsets: ["latin"],
+    weight: ["400", "500", "600", "700"],
+    variable: "--font-jetbrains",
     display: "swap",
 });
 
@@ -132,7 +145,7 @@ export default function RootLayout({
     const gaId = process.env.NEXT_PUBLIC_GA_ID;
 
     return (
-        <html lang="en" className={poppins.variable}>
+        <html lang="en" className={`${poppins.variable} ${inter.variable} ${jetbrainsMono.variable}`}>
             <head>
                 <script
                     type="application/ld+json"

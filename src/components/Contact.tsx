@@ -104,9 +104,9 @@ const Contact: React.FC = () => {
                                         CURRENT STATUS
                                     </span>
                                 </div>
-                                <h4 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--m-text)", margin: "0 0 0.25rem" }}>
+                                <h3 style={{ fontSize: "1.05rem", fontWeight: 700, color: "var(--m-text)", margin: "0 0 0.25rem" }}>
                                     Open for Opportunities
-                                </h4>
+                                </h3>
                                 <p style={{ fontSize: "0.85rem", color: "var(--m-muted)", margin: 0 }}>
                                     Available for full-time senior MERN/full-stack engineering roles and select contract architectures.
                                 </p>
@@ -221,6 +221,7 @@ const Contact: React.FC = () => {
                                                 name="name"
                                                 type="text"
                                                 required
+                                                autoComplete="name"
                                                 placeholder="Alex Smith"
                                                 value={formData.name}
                                                 onChange={handleChange}
@@ -235,6 +236,7 @@ const Contact: React.FC = () => {
                                                 name="email"
                                                 type="email"
                                                 required
+                                                autoComplete="email"
                                                 placeholder="alex@company.com"
                                                 value={formData.email}
                                                 onChange={handleChange}

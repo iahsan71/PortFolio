@@ -3,24 +3,25 @@ import { projectsData } from "../data/portfolioData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://ahsan-afzal.web.app";
-    const now = new Date();
+    // Consistent date to ensure search engines recognize accurate change signals
+    const siteLastModified = new Date("2026-11-10T00:00:00.000Z");
 
     const staticRoutes: MetadataRoute.Sitemap = [
         {
             url: `${baseUrl}/`,
-            lastModified: now,
+            lastModified: siteLastModified,
             changeFrequency: "weekly",
             priority: 1.0,
         },
         {
             url: `${baseUrl}/about/`,
-            lastModified: now,
+            lastModified: siteLastModified,
             changeFrequency: "monthly",
             priority: 0.85,
         },
         {
             url: `${baseUrl}/work/`,
-            lastModified: now,
+            lastModified: siteLastModified,
             changeFrequency: "weekly",
             priority: 0.9,
         },
@@ -28,7 +29,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
 
     const projectRoutes: MetadataRoute.Sitemap = projectsData.map((project) => ({
         url: `${baseUrl}/work/${project.slug}/`,
-        lastModified: now,
+        lastModified: siteLastModified,
         changeFrequency: "monthly",
         priority: 0.8,
     }));

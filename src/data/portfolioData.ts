@@ -16,7 +16,7 @@ import {
     NavItem
 } from "../types/portfolio";
 
-export const personalInfo: PersonalInfo & { shortRole: string; longBio: string; stats: AchievementMetric[] } = {
+export const personalInfo: PersonalInfo = {
     name: "Ahsan Afzal",
     initials: "AA",
     title: "Senior MERN Stack & Full-Stack Engineer",

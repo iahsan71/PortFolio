@@ -2,15 +2,22 @@
   "hosting": {
     "public": "out",
     "site": "ahsan-afzal",
+    "trailingSlash": true,
     "ignore": [
       "firebase.json",
       "**/.*",
       "**/node_modules/**"
     ],
-    "rewrites": [
+    "redirects": [
       {
-        "source": "**",
-        "destination": "/index.html"
+        "source": "/blog",
+        "destination": "/",
+        "type": 301
+      },
+      {
+        "source": "/blog/**",
+        "destination": "/",
+        "type": 301
       }
     ]
   }

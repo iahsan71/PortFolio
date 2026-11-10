@@ -7,7 +7,7 @@ import { personalInfo, experiencesData, educationData, languagesData } from "../
 import { ArrowLeft, CheckCircle2, Download, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
-    title: `About ${personalInfo.name} | Senior MERN Stack & Full-Stack Engineer`,
+    title: "About",
     description: "Learn about Ahsan Afzal's engineering journey, technical background, and 3+ years of experience architecting high-performance MERN stack web applications.",
     alternates: {
         canonical: "https://ahsan-afzal.web.app/about/"
@@ -16,7 +16,21 @@ export const metadata: Metadata = {
         title: `About ${personalInfo.name} | Senior MERN Stack Engineer`,
         description: "3+ years of production experience architecting full-stack web applications, REST APIs, and high-performance MongoDB databases.",
         url: "https://ahsan-afzal.web.app/about/",
-        type: "profile"
+        type: "profile",
+        images: [
+            {
+                url: "/logo512.png",
+                width: 512,
+                height: 512,
+                alt: `About ${personalInfo.name}`
+            }
+        ]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: `About ${personalInfo.name} | Senior MERN Stack Engineer`,
+        description: "3+ years of production experience architecting full-stack web applications, REST APIs, and high-performance MongoDB databases.",
+        images: ["/logo512.png"]
     }
 };
 
@@ -75,10 +89,10 @@ export default function AboutPage() {
                             I am a results-driven <strong style={{ color: "var(--m-text)" }}>MERN Stack Developer</strong> based in Pakistan with over 3 years of hands-on software development experience. Currently at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong>, I architect and build resilient web applications from the database schema up to the user-facing interface.
                         </p>
                         <p>
-                            My engineering journey began with an insatiable curiosity for how internet platforms operate at scale. Over the years, I've transformed that passion into delivering mission-critical applications: business automation engines with AI ticket routing (<strong style={{ color: "var(--m-text)" }}>NextAssist AI</strong>), candidate screening suites (<strong style={{ color: "var(--m-text)" }}>Nexa</strong>), and high-traffic consumer marketplaces (<strong style={{ color: "var(--m-text)" }}>Tealpot</strong> and <strong style={{ color: "var(--m-text)" }}>Lord's Hub</strong>).
+                            My engineering journey began with an insatiable curiosity for how internet platforms operate at scale. Over the years, I&apos;ve transformed that passion into delivering mission-critical applications: business automation engines with AI ticket routing (<strong style={{ color: "var(--m-text)" }}>NextAssist AI</strong>), candidate screening suites (<strong style={{ color: "var(--m-text)" }}>Nexa</strong>), and high-traffic consumer marketplaces (<strong style={{ color: "var(--m-text)" }}>Tealpot</strong> and <strong style={{ color: "var(--m-text)" }}>Lord&apos;s Hub</strong>).
                         </p>
                         <p>
-                            I firmly believe that high-performing software is built at the intersection of clean architecture, defensive security, database query discipline, and empathetic user experience. When I'm not designing REST API routers or tuning MongoDB pipelines, I explore AI developer tooling like Cursor AI, Claude Code, and Antigravity to dramatically amplify engineering velocity.
+                            I firmly believe that high-performing software is built at the intersection of clean architecture, defensive security, database query discipline, and empathetic user experience. When I&apos;m not designing REST API routers or tuning MongoDB pipelines, I explore AI developer tooling like Cursor AI, Claude Code, and Antigravity to dramatically amplify engineering velocity.
                         </p>
                     </div>
 
@@ -89,7 +103,7 @@ export default function AboutPage() {
                             <span>CAREER EXPERIENCE</span>
                         </div>
                         <h2 className="font-display" style={{ fontSize: "1.85rem", fontWeight: 700, color: "var(--m-text)", marginBottom: "1.75rem" }}>
-                            Where I've Contributed
+                            Where I&apos;ve Contributed
                         </h2>
 
                         <div style={{ display: "flex", flexDirection: "column", gap: "2rem" }}>
@@ -184,7 +198,7 @@ export default function AboutPage() {
                             }}
                         >
                             <h3 className="font-display" style={{ fontSize: "2rem", fontWeight: 800, color: "var(--m-text)", marginBottom: "0.75rem" }}>
-                                Let's build together
+                                Let&apos;s build together
                             </h3>
                             <p style={{ fontSize: "1rem", color: "var(--m-muted)", maxWidth: "480px", margin: "0 auto 1.75rem", lineHeight: 1.6 }}>
                                 Available for Senior Full-Stack / MERN engineering roles and technical consulting.

@@ -59,13 +59,13 @@ const About: React.FC = () => {
                             style={{ display: "flex", flexDirection: "column", gap: "1.25rem", fontSize: "1.05rem", color: "var(--m-muted)", lineHeight: 1.7 }}
                         >
                             <p>
-                                I'm <strong style={{ color: "var(--m-text)" }}>{personalInfo.name}</strong>, a Senior MERN Stack Developer at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong> with over 3 years of hands-on experience delivering production web platforms.
+                                I&apos;m <strong style={{ color: "var(--m-text)" }}>{personalInfo.name}</strong>, a Senior MERN Stack Developer at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong> with over 3 years of hands-on experience delivering production web platforms.
                             </p>
                             <p>
                                 I specialize in building end-to-end architectures—from schema design and aggregation pipelines in MongoDB to secure RESTful Express/Node backends and highly responsive, accessible React/Next.js client applications.
                             </p>
                             <p>
-                                I've contributed directly to enterprise-grade platforms including <strong style={{ color: "var(--m-text)" }}>NextAssist AI</strong>, <strong style={{ color: "var(--m-text)" }}>Nexa</strong>, and <strong style={{ color: "var(--m-text)" }}>Tealpot</strong>. Beyond writing code, I care deeply about system reliability, micro-interactions, API security, and optimizing Core Web Vitals.
+                                I&apos;ve contributed directly to enterprise-grade platforms including <strong style={{ color: "var(--m-text)" }}>NextAssist AI</strong>, <strong style={{ color: "var(--m-text)" }}>Nexa</strong>, and <strong style={{ color: "var(--m-text)" }}>Tealpot</strong>. Beyond writing code, I care deeply about system reliability, micro-interactions, API security, and optimizing Core Web Vitals.
                             </p>
 
                             <div style={{ paddingTop: "1rem" }}>
