@@ -1,0 +1,166 @@
+import type { Metadata } from "next";
+import React from "react";
+import { Poppins } from "next/font/google";
+import Script from "next/script";
+import "bootstrap/dist/css/bootstrap.min.css";
+import "../assets/css/style.css";
+import "../assets/scss/style.scss";
+import "../assets/scss/editorial-reference.scss";
+import ClientShell from "../components/ClientShell";
+import { personalInfo } from "../data/portfolioData";
+
+const poppins = Poppins({
+    subsets: ["latin"],
+    weight: ["300", "400", "500", "600", "700", "800"],
+    variable: "--font-poppins",
+    display: "swap",
+});
+
+export const metadata: Metadata = {
+    metadataBase: new URL("https://ahsan-afzal.web.app"),
+    title: {
+        default: "Ahsan Afzal | Senior MERN Stack & Full-Stack Engineer",
+        template: "%s | Ahsan Afzal"
+    },
+    description: "Senior MERN Stack and Full-Stack Engineer based in Pakistan with 3+ years of production experience architecting high-performance web platforms with React, Next.js, Node.js, Express, and MongoDB.",
+    keywords: [
+        "Ahsan Afzal",
+        "MERN Stack Developer",
+        "Full Stack Developer in Pakistan",
+        "Senior React Developer",
+        "Next.js Developer",
+        "Node.js Backend Engineer",
+        "TypeScript Engineer",
+        "MongoDB Aggregation Pipelines",
+        "REST API Architect",
+        "NextPak Agile Solutions"
+    ],
+    authors: [{ name: "Ahsan Afzal", url: "https://ahsan-afzal.web.app" }],
+    creator: "Ahsan Afzal",
+    alternates: {
+        canonical: "https://ahsan-afzal.web.app/"
+    },
+    robots: {
+        index: true,
+        follow: true,
+        googleBot: {
+            index: true,
+            follow: true,
+            "max-video-preview": -1,
+            "max-image-preview": "large",
+            "max-snippet": -1
+        }
+    },
+    openGraph: {
+        type: "website",
+        locale: "en_US",
+        url: "https://ahsan-afzal.web.app/",
+        siteName: "Ahsan Afzal Portfolio",
+        title: "Ahsan Afzal | Senior MERN Stack & Full-Stack Engineer",
+        description: "Senior MERN Stack & Full-Stack Engineer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
+        images: [
+            {
+                url: "/logo512.png",
+                width: 512,
+                height: 512,
+                alt: "Ahsan Afzal — Senior MERN Stack Engineer"
+            }
+        ]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Ahsan Afzal | Senior MERN Stack & Full-Stack Engineer",
+        description: "Senior MERN Stack & Full-Stack Engineer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
+        images: ["/logo512.png"]
+    }
+};
+
+const jsonLd = {
+    "@context": "https://schema.org",
+    "@graph": [
+        {
+            "@type": "Person",
+            "@id": "https://ahsan-afzal.web.app/#person",
+            "name": personalInfo.name,
+            "jobTitle": personalInfo.title,
+            "worksFor": {
+                "@type": "Organization",
+                "name": personalInfo.company,
+                "url": personalInfo.companyUrl
+            },
+            "url": "https://ahsan-afzal.web.app",
+            "image": "https://ahsan-afzal.web.app/logo512.png",
+            "email": personalInfo.email,
+            "telephone": personalInfo.phone,
+            "address": {
+                "@type": "PostalAddress",
+                "addressCountry": personalInfo.location
+            },
+            "description": personalInfo.longBio,
+            "sameAs": [
+                personalInfo.github,
+                personalInfo.linkedin
+            ],
+            "knowsAbout": [
+                "Full-Stack Web Development",
+                "MERN Stack (MongoDB, Express, React, Node.js)",
+                "Next.js 14 App Router",
+                "TypeScript",
+                "RESTful API Architecture",
+                "Real-time WebSockets (Socket.io)",
+                "MongoDB Aggregation Pipelines & Compound Indexing",
+                "Web Performance Optimization & Technical SEO"
+            ]
+        },
+        {
+            "@type": "WebSite",
+            "@id": "https://ahsan-afzal.web.app/#website",
+            "url": "https://ahsan-afzal.web.app",
+            "name": "Ahsan Afzal Portfolio",
+            "publisher": {
+                "@id": "https://ahsan-afzal.web.app/#person"
+            }
+        }
+    ]
+};
+
+export default function RootLayout({
+    children,
+}: {
+    children: React.ReactNode;
+}) {
+    const gaId = process.env.NEXT_PUBLIC_GA_ID;
+
+    return (
+        <html lang="en" className={poppins.variable}>
+            <head>
+                <script
+                    type="application/ld+json"
+                    dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+                />
+            </head>
+            <body>
+                {gaId && (
+                    <>
+                        <Script
+                            src={`https://www.googletagmanager.com/gtag/js?id=${gaId}`}
+                            strategy="afterInteractive"
+                        />
+                        <Script id="google-analytics" strategy="afterInteractive">
+                            {`
+                                window.dataLayer = window.dataLayer || [];
+                                function gtag(){dataLayer.push(arguments);}
+                                gtag('js', new Date());
+                                gtag('config', '${gaId}');
+                            `}
+                        </Script>
+                    </>
+                )}
+                <ClientShell>
+                    {children}
+                </ClientShell>
+            </body>
+        </html>
+    );
+}
+
