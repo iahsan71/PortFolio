@@ -19,17 +19,17 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
 }) => {
     return (
         <div
-            className={`mb-10 md:mb-14 ${
+            className={`m-section-header-wrap ${
                 rightAction ? "d-flex flex-wrap justify-content-between align-items-end gap-3" : ""
             }`}
-            style={{ textAlign: align }}
+            style={{ textAlign: align, marginBottom: "clamp(2.5rem, 6vw, 4.25rem)" }}
         >
             <div>
                 {/* 01 —— ABOUT tag matching reference */}
                 <div
-                    className="font-mono-m mb-3 d-flex align-items-center gap-3"
+                    className="font-mono-m mb-2 d-flex align-items-center gap-3"
                     style={{
-                        fontSize: "0.75rem",
+                        fontSize: "clamp(0.68rem, 1.8vw, 0.75rem)",
                         textTransform: "uppercase",
                         letterSpacing: "0.22em",
                         color: "var(--m-muted)",
@@ -40,7 +40,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
                     <span
                         style={{
                             height: "1px",
-                            width: "32px",
+                            width: "28px",
                             background: "var(--m-border-strong)",
                             display: "inline-block"
                         }}
@@ -52,7 +52,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
                 <h2
                     className="font-display"
                     style={{
-                        fontSize: "clamp(2.25rem, 5vw, 3.5rem)",
+                        fontSize: "clamp(1.75rem, 4.5vw, 3.25rem)",
                         fontWeight: 800,
                         letterSpacing: "-0.03em",
                         color: "var(--m-text)",
@@ -68,24 +68,24 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
                     className="m-draw-x"
                     style={{
                         display: "block",
-                        height: "5px",
-                        width: "60px",
+                        height: "4px",
+                        width: "clamp(40px, 8vw, 60px)",
                         borderRadius: "9999px",
                         background: "var(--m-accent)",
-                        marginTop: "0.85rem",
+                        marginTop: "0.75rem",
                         marginLeft: align === "center" ? "auto" : 0,
                         marginRight: align === "center" ? "auto" : 0
                     }}
                 />
 
-                {/* Optional Subtitle */}
+                {/* Optional Subtitle with generous spacing */}
                 {subtitle && (
                     <p
                         style={{
-                            fontSize: "1.05rem",
+                            fontSize: "clamp(0.925rem, 2vw, 1.05rem)",
                             color: "var(--m-muted)",
-                            marginTop: "1rem",
-                            maxWidth: "40rem",
+                            marginTop: "0.85rem",
+                            maxWidth: "42rem",
                             lineHeight: 1.6,
                             marginLeft: align === "center" ? "auto" : 0,
                             marginRight: align === "center" ? "auto" : 0,
@@ -97,7 +97,7 @@ const SectionHeader: React.FC<SectionHeaderProps> = ({
                 )}
             </div>
 
-            {rightAction && <div>{rightAction}</div>}
+            {rightAction && <div className="mt-2 mt-sm-0">{rightAction}</div>}
         </div>
     );
 };

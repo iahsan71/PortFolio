@@ -45,7 +45,7 @@ export default function AboutPage() {
                     <div className="mb-4">
                         <Link
                             href="/"
-                            className="font-mono-m d-inline-flex align-items-center gap-1.5"
+                            className="font-mono-m d-inline-flex align-items-center gap-2"
                             style={{
                                 fontSize: "0.775rem",
                                 textTransform: "uppercase",
@@ -54,7 +54,7 @@ export default function AboutPage() {
                                 textDecoration: "none"
                             }}
                         >
-                            <ArrowLeft size={13} />
+                            <ArrowLeft size={14} style={{ marginRight: "0.25rem" }} />
                             <span>BACK TO HOME</span>
                         </Link>
                     </div>
@@ -89,7 +89,7 @@ export default function AboutPage() {
                             I am a results-driven <strong style={{ color: "var(--m-text)" }}>MERN Stack Developer</strong> based in Pakistan with over 3 years of hands-on software development experience. Currently at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong>, I architect and build resilient web applications from the database schema up to the user-facing interface.
                         </p>
                         <p>
-                            My engineering journey began with an insatiable curiosity for how internet platforms operate at scale. Over the years, I&apos;ve transformed that passion into delivering mission-critical applications: business automation engines with AI ticket routing (<strong style={{ color: "var(--m-text)" }}>NextAssist AI</strong>), candidate screening suites (<strong style={{ color: "var(--m-text)" }}>Nexa</strong>), and high-traffic consumer marketplaces (<strong style={{ color: "var(--m-text)" }}>Tealpot</strong> and <strong style={{ color: "var(--m-text)" }}>Lord&apos;s Hub</strong>).
+                            My engineering journey began with an insatiable curiosity for how internet platforms operate at scale. Over the years, I&apos;ve transformed that passion into delivering mission-critical applications: business automation engines with AI ticket routing (<strong style={{ color: "var(--m-text)" }}>NextAssist AI</strong>), candidate screening suites (<strong style={{ color: "var(--m-text)" }}>Nexa</strong>), and high-traffic consumer marketplaces (<strong style={{ color: "var(--m-text)" }}>Tealpot</strong> and <strong style={{ color: "var(--m-text)" }}>Lordhub</strong>).
                         </p>
                         <p>
                             I firmly believe that high-performing software is built at the intersection of clean architecture, defensive security, database query discipline, and empathetic user experience. When I&apos;m not designing REST API routers or tuning MongoDB pipelines, I explore AI developer tooling like Cursor AI, Claude Code, and Antigravity to dramatically amplify engineering velocity.

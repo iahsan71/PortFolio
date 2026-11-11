@@ -13,7 +13,7 @@ const Projects: React.FC = () => {
     const displayProjects = projectsData.slice(0, 4);
 
     return (
-        <section id="projects" style={{ padding: "6rem 1.25rem", position: "relative" }}>
+        <section id="projects" style={{ padding: "clamp(4rem, 8vw, 6rem) 1rem", position: "relative" }}>
             <div className="editorial-container">
                 {/* Reference Section Header: 04 —— PROJECTS */}
                 <SectionHeader
@@ -30,7 +30,7 @@ const Projects: React.FC = () => {
                 />
 
                 {/* Projects Grid */}
-                <div className="row g-4 mb-5">
+                <div className="row g-4 mb-4 mb-md-5">
                     {displayProjects.map((project, idx) => (
                         <div key={project.id} className="col-12 col-lg-6">
                             <motion.article
@@ -41,17 +41,31 @@ const Projects: React.FC = () => {
                                 transition={{ duration: 0.6, delay: idx * 0.1, ease: [0.16, 1, 0.3, 1] }}
                             >
                                 {/* Top Card Meta Row */}
-                                <div className="d-flex justify-content-between align-items-center px-4 pt-3 pb-2 font-mono-m" style={{ fontSize: "0.725rem", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                                <div className="d-flex flex-wrap justify-content-between align-items-center px-3 px-sm-4 pt-3 pb-2 font-mono-m gap-2" style={{ fontSize: "0.725rem", borderBottom: "1px solid var(--m-border)" }}>
                                     <div className="d-flex align-items-center gap-2">
                                         <span style={{ display: "inline-block", width: "7px", height: "7px", borderRadius: "50%", background: "var(--m-accent)", boxShadow: "0 0 8px var(--m-accent)" }} />
                                         <span style={{ color: "var(--m-accent)", letterSpacing: "0.15em", fontWeight: 700 }}>{project.status || "LIVE"}</span>
+                                        <span style={{ opacity: 0.35, color: "var(--m-muted)" }}>•</span>
+                                        <span
+                                            style={{
+                                                fontSize: "0.68rem",
+                                                padding: "0.12rem 0.5rem",
+                                                borderRadius: "999px",
+                                                background: project.ownership === "Personal Project" ? "rgba(37, 99, 235, 0.12)" : "rgba(148, 163, 184, 0.12)",
+                                                color: project.ownership === "Personal Project" ? "var(--m-accent)" : "var(--m-muted)",
+                                                fontWeight: 600,
+                                                letterSpacing: "0.04em"
+                                            }}
+                                        >
+                                            {project.ownership}
+                                        </span>
                                     </div>
                                     <span style={{ color: "var(--m-muted)", letterSpacing: "0.15em", textTransform: "uppercase" }}>{project.categoryTag}</span>
                                 </div>
 
                                 {/* Inset Screenshot Preview with Hover Zoom */}
-                                <div style={{ padding: "0.85rem 0.85rem 0" }}>
-                                    <div className="m-project-img-wrapper" style={{ borderRadius: "0.85rem", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", position: "relative", aspectRatio: "16 / 9" }}>
+                                <div style={{ padding: "0.65rem 0.65rem 0" }}>
+                                    <div className="m-project-img-wrapper" style={{ borderRadius: "0.85rem", overflow: "hidden", border: "1px solid var(--m-border)", position: "relative", aspectRatio: "16 / 9" }}>
                                         <Image
                                             src={project.image}
                                             alt={project.title}

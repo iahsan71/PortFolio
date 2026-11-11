@@ -139,7 +139,7 @@ export const experiencesData: Experience[] = [
         type: "Contract",
         description: "Designed, engineered, and delivered custom web platforms, e-commerce portals, and marketplace solutions for international clients.",
         responsibilities: [
-            "Independently designed, developed, and deployed Lord's Hub—a comprehensive gaming marketplace for accounts and automated bot services.",
+            "Independently designed, developed, and deployed Lordhub—a comprehensive gaming marketplace for accounts and automated bot services.",
             "Integrated Firebase real-time databases and custom serverless functions handling concurrent transactions.",
             "Created responsive pixel-perfect frontends translating complex Figma and UI wireframes into modular React code.",
             "Maintained high client satisfaction ratings through structured communication, rigorous API testing, and timely delivery."
@@ -162,6 +162,7 @@ export const projectsData: Project[] = [
         image: nextassistImg,
         featured: true,
         projectNumber: "01",
+        ownership: "Company Project",
         liveUrl: "https://nextassistai.nextpak.org/",
         githubUrl: null,
         client: "NextPak Agile Solutions",
@@ -203,6 +204,7 @@ export const projectsData: Project[] = [
         image: nexaImg,
         featured: true,
         projectNumber: "02",
+        ownership: "Company Project",
         liveUrl: "https://trynexa.com/",
         githubUrl: null,
         client: "Nexa Technologies",
@@ -239,6 +241,7 @@ export const projectsData: Project[] = [
         image: tealpotImg,
         featured: true,
         projectNumber: "03",
+        ownership: "Company Project",
         liveUrl: "https://tealpot.com/",
         githubUrl: null,
         client: "Tealpot Global",
@@ -276,6 +279,7 @@ export const projectsData: Project[] = [
         image: vooteeImg,
         featured: true,
         projectNumber: "04",
+        ownership: "Company Project",
         liveUrl: "https://vootee.com/",
         githubUrl: null,
         client: "Vootee Inc.",
@@ -302,19 +306,20 @@ export const projectsData: Project[] = [
     {
         id: "prof-5",
         slug: "lordshub",
-        title: "Lord's Hub",
+        title: "Lordhub",
         category: "Client Work",
         categoryTag: "GAMING MARKETPLACE",
         status: "LIVE",
         badge: "DEPLOYED",
         shortDescription: "Specialized gaming marketplace and automation service portal with real-time transactional orders, inventory filters, and user profiles.",
-        fullDescription: "Lord's Hub is a high-traffic gaming services marketplace built for competitive gamers. It provides authenticated order pipelines, real-time inventory listings, customer messaging, and automated delivery tracking.",
+        fullDescription: "Lordhub is a high-traffic gaming services marketplace built for competitive gamers. It provides authenticated order pipelines, real-time inventory listings, customer messaging, and automated delivery tracking.",
         image: lordshubImg,
         featured: true,
         projectNumber: "05",
-        liveUrl: "https://lordshub.com/",
+        ownership: "Personal Project",
+        liveUrl: "https://lordhub.store",
         githubUrl: "https://github.com/iahsan71",
-        client: "Independent Gaming Community",
+        client: "Lordhub (Personal Project)",
         timeline: "2023 — 2024",
         role: "Full-Stack Developer",
         technologies: ["React.js", "Next.js", "Firebase", "Node.js", "REST APIs", "SCSS"],
@@ -348,6 +353,7 @@ export const projectsData: Project[] = [
         image: portfolioImg,
         featured: true,
         projectNumber: "06",
+        ownership: "Personal Project",
         liveUrl: "https://github.com/iahsan71/PortFolio",
         githubUrl: "https://github.com/iahsan71/PortFolio",
         client: "Ahsan Afzal (Personal)",
@@ -397,9 +403,9 @@ export const awardsData: Award[] = [
 export const educationData: Education[] = [
     {
         period: "2023 — 2027 (Expected)",
-        degree: "Bachelor of Science in Information Technology (BS IT)",
+        degree: "Bachelor of Science in Computer Science (BS CS)",
         institution: "Virtual University of Pakistan",
-        description: "Focused on Software Engineering, Data Structures & Algorithms, Database Systems, Web Technologies, and Network Security."
+        description: "Focused on Software Engineering, Data Structures & Algorithms, Database Systems, Web Technologies, and Computer Architecture."
     }
 ];
 
@@ -416,6 +422,7 @@ export const navItems: NavItem[] = [
     { id: "experience", label: "Experience", type: "scroll" },
     { id: "projects", label: "Projects", type: "scroll" },
     { id: "work", label: "Work", type: "link", href: "/work" },
+    { id: "games", label: "Games", type: "link", href: "/games" },
     { id: "contact", label: "Contact", type: "scroll" }
 ];
 

@@ -68,7 +68,6 @@ section {
 // Add spacing between sections to prevent overlap
 section:not(.hero) {
   margin-top: 0;
-  padding: 120px 0; /* Increased padding for all sections */
 }
 
 // Fix any layout issues with main container
@@ -85,7 +84,6 @@ section:not(.hero) {
 .projects,
 .cta-section,
 .contact {
-  padding: 120px 0; /* Consistent padding */
   position: relative;
   scroll-margin-top: 100px; /* Ensure smooth scrolling accounts for navbar */
 }
@@ -1310,20 +1308,8 @@ section:not(.hero) {
 // Responsive Design
 @media (max-width: 768px) {
   :root {
-    --section-padding: 80px 0;
+    --section-padding: 48px 0;
     --container-padding: 0 1rem;
-  }
-  
-  section:not(.hero) {
-    padding: 80px 0; /* Reduced padding for mobile */
-  }
-  
-  .about,
-  .skills,
-  .projects,
-  .cta-section,
-  .contact {
-    padding: 80px 0;
   }
   
   .navbar {
@@ -1660,12 +1646,12 @@ section:not(.hero) {
 body.light-theme {
   --primary-bg: #f8fafc;
   --secondary-bg: #f1f5f9;
-  --card-bg: rgba(255, 255, 255, 0.85);
+  --card-bg: rgba(255, 255, 255, 0.92);
   --glass-bg: rgba(0, 0, 0, 0.03);
   --text-primary: #0f172a;
-  --text-secondary: #475569;
-  --text-muted: #94a3b8;
-  --border-color: rgba(0, 0, 0, 0.08);
+  --text-secondary: #334155;
+  --text-muted: #64748b;
+  --border-color: rgba(15, 23, 42, 0.08);
   --gradient-bg: linear-gradient(135deg, #f8fafc 0%, #f1f5f9 50%, #e2e8f0 100%);
   --gradient-card: linear-gradient(135deg, rgba(0, 0, 0, 0.02) 0%, rgba(0, 0, 0, 0.05) 100%);
   --shadow-primary: 0 25px 50px -12px rgba(0, 0, 0, 0.05);

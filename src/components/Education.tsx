@@ -8,14 +8,14 @@ import SectionHeader from "./SectionHeader";
 
 const Education: React.FC = () => {
     return (
-        <section id="education" style={{ padding: "5rem 1.25rem", position: "relative" }}>
+        <section id="education" style={{ padding: "clamp(3.5rem, 7vw, 5rem) 1rem", position: "relative" }}>
             <div className="editorial-container">
                 {/* Reference Section Header: 06 —— EDUCATION */}
                 <SectionHeader
                     number="06"
                     tag="EDUCATION"
                     title="Education"
-                    subtitle="Academic degree from Virtual University of Pakistan and language proficiencies."
+                    subtitle="Academic degree in Computer Science from Virtual University of Pakistan and language proficiencies."
                 />
 
                 <div className="row g-4">
@@ -93,17 +93,23 @@ const Education: React.FC = () => {
                                         style={{
                                             display: "flex",
                                             justifyContent: "space-between",
-                                            alignItems: "center",
+                                            alignItems: "baseline",
+                                            gap: "1rem",
                                             paddingBottom: "0.75rem",
                                             borderBottom: idx !== languagesData.length - 1 ? "1px solid var(--m-border)" : "none"
                                         }}
                                     >
-                                        <span style={{ fontSize: "1rem", fontWeight: 600, color: "var(--m-text)" }}>
+                                        <span style={{ fontSize: "clamp(0.9rem, 2vw, 1rem)", fontWeight: 600, color: "var(--m-text)", flexShrink: 0 }}>
                                             {lang.name}
                                         </span>
                                         <span
                                             className="font-mono-m"
-                                            style={{ fontSize: "0.775rem", color: "var(--m-muted)" }}
+                                            style={{
+                                                fontSize: "clamp(0.7rem, 1.8vw, 0.775rem)",
+                                                color: "var(--m-muted)",
+                                                textAlign: "right",
+                                                lineHeight: 1.4
+                                            }}
                                         >
                                             {lang.level}
                                         </span>

@@ -28,11 +28,11 @@ const getIcon = (name: string): React.ReactNode => {
             return <FaReact aria-hidden="true" style={{ color: "#61DAFB" }} />;
         case "Next.js 14":
         case "Next.js":
-            return <SiNextdotjs aria-hidden="true" style={{ color: "#fff" }} />;
+            return <SiNextdotjs aria-hidden="true" style={{ color: "var(--m-text)" }} />;
         case "Node.js":
             return <FaNodeJs aria-hidden="true" style={{ color: "#68A063" }} />;
         case "Express.js":
-            return <SiExpress aria-hidden="true" style={{ color: "#fff" }} />;
+            return <SiExpress aria-hidden="true" style={{ color: "var(--m-text)" }} />;
         case "MongoDB":
             return <SiMongodb aria-hidden="true" style={{ color: "#47A248" }} />;
         case "TypeScript":
@@ -50,7 +50,7 @@ const getIcon = (name: string): React.ReactNode => {
         case "Git":
             return <FaGitAlt aria-hidden="true" style={{ color: "#F05032" }} />;
         case "GitHub":
-            return <FaGithub aria-hidden="true" style={{ color: "#fff" }} />;
+            return <FaGithub aria-hidden="true" style={{ color: "var(--m-text)" }} />;
         case "Cursor AI":
         case "Claude Code":
             return <Sparkles aria-hidden="true" size={16} style={{ color: "var(--m-accent)" }} />;

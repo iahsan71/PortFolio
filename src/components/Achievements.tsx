@@ -48,7 +48,7 @@ const Counter: React.FC<CounterProps> = ({ value, suffix = "" }) => {
 
 const Achievements: React.FC = () => {
     return (
-        <section id="stats" style={{ padding: "4rem 1.25rem", position: "relative" }}>
+        <section id="stats" style={{ padding: "clamp(2.5rem, 5vw, 4rem) 1rem", position: "relative" }}>
             <div className="editorial-container">
                 <div className="m-stats-grid">
                     {personalInfo.stats?.map((stat, idx) => (

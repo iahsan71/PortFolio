@@ -30,7 +30,7 @@ const Navbar: React.FC = () => {
         }
 
         if (isHome) {
-            const sections = ["home", "about", "skills", "experience", "projects", "insights", "contact"];
+            const sections = ["home", "about", "skills", "experience", "projects", "insights", "faq", "contact"];
             const observer = new IntersectionObserver(
                 (entries) => {
                     entries.forEach((entry) => {

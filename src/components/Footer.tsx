@@ -39,7 +39,7 @@ const Footer: React.FC = () => {
                     </div>
 
                     {/* Socials & Back to Top */}
-                    <div className="d-flex align-items-center gap-2">
+                    <div className="d-flex flex-wrap align-items-center gap-2 w-100 w-md-auto mt-3 mt-md-0 m-footer-social-group">
                         <a
                             href={personalInfo.github}
                             target="_blank"
@@ -72,7 +72,7 @@ const Footer: React.FC = () => {
                         <button
                             type="button"
                             onClick={scrollToTop}
-                            className="m-footer-social"
+                            className="m-footer-social m-footer-top-btn"
                             style={{ cursor: "pointer", padding: "0.45rem 0.65rem" }}
                             aria-label="Back to top"
                             title="Back to top"
@@ -87,11 +87,12 @@ const Footer: React.FC = () => {
                     <Link href="/" className="m-footer-link">Home</Link>
                     <Link href="/about" className="m-footer-link">About</Link>
                     <Link href="/work" className="m-footer-link">All Projects</Link>
+                    <Link href="/games" className="m-footer-link">Games</Link>
                     <button type="button" onClick={scrollToContact} className="m-footer-link">Contact</button>
                 </div>
 
                 {/* Copyright & Disclaimer */}
-                <div className="d-flex flex-column flex-sm-row justify-content-between align-items-center gap-2 font-mono-m" style={{ fontSize: "0.775rem", color: "var(--m-dim)" }}>
+                <div className="d-flex flex-column flex-sm-row justify-content-between align-items-start align-items-sm-center gap-2 font-mono-m" style={{ fontSize: "clamp(0.7rem, 1.8vw, 0.775rem)", color: "var(--m-dim)" }}>
                     <span>
                         &copy; {new Date().getFullYear()} {personalInfo.name}. All rights reserved.
                     </span>

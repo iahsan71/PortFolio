@@ -8,7 +8,7 @@ import SectionHeader from "./SectionHeader";
 
 const ComingSoon: React.FC = () => {
     return (
-        <section id="insights" style={{ padding: "5rem 1.25rem", position: "relative" }}>
+        <section id="insights" style={{ padding: "clamp(3.5rem, 7vw, 5rem) 1rem", position: "relative" }}>
             <div className="editorial-container">
                 {/* Section Header: 07 —— INSIGHTS */}
                 <SectionHeader
@@ -19,13 +19,11 @@ const ComingSoon: React.FC = () => {
                 />
 
                 <motion.div
-                    className="m-card text-center"
+                    className="m-card text-center m-coming-soon-card"
                     style={{
-                        padding: "3.5rem 2rem",
+                        padding: "clamp(2.25rem, 5vw, 3.5rem) clamp(1rem, 3vw, 2rem)",
                         position: "relative",
-                        overflow: "hidden",
-                        background: "linear-gradient(135deg, rgba(14, 15, 20, 0.95) 0%, rgba(18, 20, 28, 0.95) 100%)",
-                        borderColor: "rgba(255, 255, 255, 0.08)"
+                        overflow: "hidden"
                     }}
                     initial={{ opacity: 0, y: 20 }}
                     whileInView={{ opacity: 1, y: 0 }}

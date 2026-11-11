@@ -91,10 +91,10 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
             />
             <Navbar />
 
-            <main style={{ paddingTop: "7rem", paddingBottom: "6rem" }}>
+            <main style={{ paddingTop: "clamp(5.5rem, 8vw, 7rem)", paddingBottom: "clamp(3.5rem, 6vw, 6rem)" }}>
                 <div className="editorial-container-narrow">
                     {/* Breadcrumb Navigation */}
-                    <div className="d-flex align-items-center gap-2 mb-4 font-mono-m" style={{ fontSize: "0.775rem", color: "var(--m-muted)" }}>
+                    <div className="d-flex align-items-center gap-2 mb-4 font-mono-m" style={{ fontSize: "clamp(0.7rem, 1.8vw, 0.775rem)", color: "var(--m-muted)" }}>
                         <Link href="/work" style={{ color: "var(--m-muted)", textDecoration: "none" }}>
                             ALL WORK
                         </Link>
@@ -112,23 +112,29 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                                 <span>STATUS:</span>
                                 <span style={{ color: "#10b981", fontWeight: 700 }}>{project.status}</span>
                             </span>
+                            <span className="m-pill">
+                                <span>TYPE:</span>
+                                <span style={{ color: project.ownership === "Personal Project" ? "var(--m-accent)" : "var(--m-text)", fontWeight: 700 }}>
+                                    {project.ownership}
+                                </span>
+                            </span>
                         </div>
 
                         <h1
                             className="font-display"
                             style={{
-                                fontSize: "clamp(2.5rem, 6vw, 4.25rem)",
+                                fontSize: "clamp(1.85rem, 5vw, 4.25rem)",
                                 fontWeight: 800,
                                 letterSpacing: "-0.035em",
                                 color: "var(--m-text)",
-                                lineHeight: 1.05,
+                                lineHeight: 1.08,
                                 marginBottom: "1rem"
                             }}
                         >
                             {project.title}
                         </h1>
 
-                        <p style={{ fontSize: "1.2rem", color: "var(--m-muted)", lineHeight: 1.65, maxWidth: "44rem" }}>
+                        <p style={{ fontSize: "clamp(0.95rem, 2.2vw, 1.2rem)", color: "var(--m-muted)", lineHeight: 1.65, maxWidth: "44rem" }}>
                             {project.shortDescription}
                         </p>
                     </div>
@@ -391,8 +397,8 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                                     <span>Inspect Repository</span>
                                 </a>
                             )}
-                            <Link href="/work" className="m-btn-secondary" style={{ marginLeft: "auto" }}>
-                                <ArrowLeft size={15} />
+                            <Link href="/work" className="m-btn-secondary" style={{ marginLeft: "auto", gap: "0.5rem" }}>
+                                <ArrowLeft size={15} style={{ marginRight: "0.25rem" }} />
                                 <span>Back to all projects</span>
                             </Link>
                         </div>

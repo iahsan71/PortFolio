@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
                 minHeight: "100vh",
                 display: "flex",
                 alignItems: "center",
-                padding: "8rem 1.25rem 4rem",
+                padding: "clamp(6.5rem, 13vw, 8.5rem) 1rem clamp(2.5rem, 5vw, 4rem)",
                 overflow: "hidden"
             }}
         >
@@ -26,16 +26,16 @@ const Hero: React.FC = () => {
                 >
                     {/* Top availability & profile badges */}
                     <div
-                        className="font-mono-m mb-4 d-flex flex-wrap align-items-center gap-2"
+                        className="font-mono-m mb-3 mb-sm-4 d-flex flex-wrap align-items-center gap-2"
                         style={{
-                            fontSize: "0.75rem",
+                            fontSize: "clamp(0.625rem, 1.8vw, 0.725rem)",
                             textTransform: "uppercase",
-                            letterSpacing: "0.2em",
+                            letterSpacing: "0.15em",
                             color: "var(--m-muted)"
                         }}
                     >
-                        <span className="m-pill">
-                            <span style={{ position: "relative", display: "inline-flex", width: "8px", height: "8px" }}>
+                        <span className="m-pill" style={{ padding: "0.22rem 0.6rem", whiteSpace: "nowrap" }}>
+                            <span style={{ position: "relative", display: "inline-flex", width: "7px", height: "7px" }}>
                                 <span
                                     style={{
                                         position: "absolute",
@@ -50,8 +50,8 @@ const Hero: React.FC = () => {
                                     style={{
                                         position: "relative",
                                         display: "inline-flex",
-                                        width: "8px",
-                                        height: "8px",
+                                        width: "7px",
+                                        height: "7px",
                                         borderRadius: "50%",
                                         background: "var(--m-accent)"
                                     }}
@@ -60,7 +60,7 @@ const Hero: React.FC = () => {
                             <span>{personalInfo.availability}</span>
                         </span>
 
-                        <span className="m-pill">
+                        <span className="m-pill" style={{ padding: "0.22rem 0.6rem", whiteSpace: "nowrap" }}>
                             <span>{personalInfo.company}</span>
                             <span style={{ color: "var(--m-accent)" }}>·</span>
                             <span>3+ Yrs Exp</span>
@@ -68,12 +68,12 @@ const Hero: React.FC = () => {
                     </div>
 
                     {/* Prominent Editorial Display Heading */}
-                    <h1 style={{ margin: "1.5rem 0 1rem", lineHeight: 0.95 }}>
+                    <h1 style={{ margin: "1rem 0 0.75rem", lineHeight: 0.95 }}>
                         <span
                             className="font-display"
                             style={{
                                 display: "block",
-                                fontSize: "clamp(3rem, 11vw, 7.5rem)",
+                                fontSize: "clamp(2.25rem, 9.5vw, 7rem)",
                                 fontWeight: 800,
                                 letterSpacing: "-0.035em",
                                 color: "var(--m-text)"
@@ -85,12 +85,13 @@ const Hero: React.FC = () => {
                             className="font-mono-m"
                             style={{
                                 display: "block",
-                                marginTop: "1rem",
-                                fontSize: "clamp(0.85rem, 2vw, 1.05rem)",
+                                marginTop: "0.85rem",
+                                fontSize: "clamp(0.75rem, 2.2vw, 1.05rem)",
                                 textTransform: "uppercase",
-                                letterSpacing: "0.22em",
+                                letterSpacing: "0.16em",
                                 color: "var(--m-muted)",
-                                fontWeight: 600
+                                fontWeight: 600,
+                                lineHeight: 1.45
                             }}
                         >
                             {personalInfo.title}
@@ -102,11 +103,11 @@ const Hero: React.FC = () => {
                         className="m-draw-x"
                         style={{
                             display: "block",
-                            height: "6px",
-                            width: "clamp(120px, 15vw, 180px)",
+                            height: "5px",
+                            width: "clamp(80px, 14vw, 160px)",
                             borderRadius: "9999px",
                             background: "var(--m-accent)",
-                            margin: "1.5rem 0 2rem",
+                            margin: "1.25rem 0 1.75rem",
                             transformOrigin: "left"
                         }}
                     />
@@ -114,18 +115,18 @@ const Hero: React.FC = () => {
                     {/* Short Editorial Intro */}
                     <p
                         style={{
-                            fontSize: "clamp(1.1rem, 2.2vw, 1.4rem)",
+                            fontSize: "clamp(0.975rem, 2.2vw, 1.35rem)",
                             lineHeight: 1.65,
                             color: "var(--m-muted)",
                             maxWidth: "42rem",
-                            marginBottom: "2.5rem"
+                            marginBottom: "clamp(1.75rem, 4vw, 2.5rem)"
                         }}
                     >
                         {personalInfo.bio}
                     </p>
 
                     {/* Interactive CTAs */}
-                    <div className="d-flex flex-wrap align-items-center gap-3 mb-5">
+                    <div className="d-flex flex-wrap align-items-center gap-2 gap-sm-3 mb-4 mb-md-5">
                         <a href="#projects" className="m-btn-primary">
                             <span>Explore Projects</span>
                             <ArrowRight size={16} />
@@ -145,23 +146,23 @@ const Hero: React.FC = () => {
                     </div>
 
                     {/* Social & Direct Connections */}
-                    <div className="d-flex align-items-center gap-3 pt-3" style={{ borderTop: "1px solid var(--m-border)", maxWidth: "34rem" }}>
+                    <div className="d-flex flex-wrap align-items-center gap-2 gap-sm-3 pt-3" style={{ borderTop: "1px solid var(--m-border)", maxWidth: "34rem" }}>
                         <span
                             className="font-mono-m"
-                            style={{ fontSize: "0.75rem", textTransform: "uppercase", letterSpacing: "0.2em", color: "var(--m-dim)" }}
+                            style={{ fontSize: "0.7rem", textTransform: "uppercase", letterSpacing: "0.16em", color: "var(--m-dim)" }}
                         >
                             CONNECT
                         </span>
-                        <div className="d-flex align-items-center gap-2">
+                        <div className="d-flex align-items-center gap-2" style={{ flexWrap: "nowrap" }}>
                             <a
                                 href={personalInfo.github}
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="m-pill"
-                                style={{ padding: "0.35rem 0.65rem", textDecoration: "none" }}
+                                style={{ padding: "0.25rem 0.55rem", textDecoration: "none", fontSize: "0.7rem", whiteSpace: "nowrap" }}
                                 aria-label="GitHub Profile"
                             >
-                                <Github size={15} />
+                                <Github size={13} />
                                 <span>GitHub</span>
                             </a>
                             <a
@@ -169,19 +170,19 @@ const Hero: React.FC = () => {
                                 target="_blank"
                                 rel="noopener noreferrer"
                                 className="m-pill"
-                                style={{ padding: "0.35rem 0.65rem", textDecoration: "none" }}
+                                style={{ padding: "0.25rem 0.55rem", textDecoration: "none", fontSize: "0.7rem", whiteSpace: "nowrap" }}
                                 aria-label="LinkedIn Profile"
                             >
-                                <Linkedin size={15} />
+                                <Linkedin size={13} />
                                 <span>LinkedIn</span>
                             </a>
                             <a
                                 href={`mailto:${personalInfo.email}`}
                                 className="m-pill"
-                                style={{ padding: "0.35rem 0.65rem", textDecoration: "none" }}
+                                style={{ padding: "0.25rem 0.55rem", textDecoration: "none", fontSize: "0.7rem", whiteSpace: "nowrap" }}
                                 aria-label="Send Email"
                             >
-                                <Mail size={15} />
+                                <Mail size={13} />
                                 <span>Email</span>
                             </a>
                         </div>

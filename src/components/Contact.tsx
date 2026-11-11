@@ -12,10 +12,13 @@ import {
     Send,
     CheckCircle2,
     AlertCircle,
-    ArrowUpRight
+    ArrowUpRight,
+    Copy,
+    Check
 } from "lucide-react";
 
 const Contact: React.FC = () => {
+    const [copied, setCopied] = useState<boolean>(false);
     const [formData, setFormData] = useState<ContactFormData>({
         name: "",
         email: "",
@@ -24,6 +27,14 @@ const Contact: React.FC = () => {
     });
     const [loading, setLoading] = useState<boolean>(false);
     const [status, setStatus] = useState<"success" | "error" | null>(null);
+
+    const handleCopyEmail = (e: React.MouseEvent) => {
+        e.preventDefault();
+        e.stopPropagation();
+        navigator.clipboard.writeText(personalInfo.email);
+        setCopied(true);
+        setTimeout(() => setCopied(false), 2000);
+    };
 
     const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
         const { name, value } = e.target;
@@ -56,10 +67,10 @@ const Contact: React.FC = () => {
     };
 
     return (
-        <section id="contact" style={{ padding: "6rem 1.25rem 5rem", position: "relative" }}>
+        <section id="contact" style={{ padding: "clamp(4rem, 8vw, 6rem) 1rem clamp(3rem, 6vw, 5rem)", position: "relative" }}>
             <div className="editorial-container">
                 <SectionHeader
-                    number="08"
+                    number="09"
                     tag="CONTACT"
                     title="Contact"
                     subtitle="Have a project in mind, an engineering role, or a technical inquiry? Send a direct note below."
@@ -114,35 +125,100 @@ const Contact: React.FC = () => {
 
                             {/* Direct Communication Items */}
                             <div className="d-flex flex-column gap-2">
-                                <a
-                                    href={`mailto:${personalInfo.email}`}
-                                    className="m-card d-flex align-items-center gap-3"
-                                    style={{ padding: "1rem 1.25rem", textDecoration: "none" }}
+                                <div
+                                    className="m-card d-flex align-items-center justify-content-between gap-2 gap-sm-3"
+                                    style={{ padding: "0.85rem 1rem" }}
                                 >
-                                    <div
-                                        style={{
-                                            width: "36px",
-                                            height: "36px",
-                                            borderRadius: "8px",
-                                            background: "rgba(59, 130, 246, 0.1)",
-                                            color: "var(--m-accent)",
-                                            display: "flex",
-                                            alignItems: "center",
-                                            justifyContent: "center"
-                                        }}
-                                    >
-                                        <Mail size={16} />
+                                    <div className="d-flex align-items-center gap-2 gap-sm-3" style={{ minWidth: 0, flex: "1 1 auto" }}>
+                                        <div
+                                            style={{
+                                                width: "36px",
+                                                height: "36px",
+                                                borderRadius: "8px",
+                                                background: "rgba(59, 130, 246, 0.1)",
+                                                color: "var(--m-accent)",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                flexShrink: 0
+                                            }}
+                                        >
+                                            <Mail size={16} />
+                                        </div>
+                                        <div style={{ minWidth: 0, overflow: "hidden" }}>
+                                            <span className="font-mono-m d-block" style={{ fontSize: "0.68rem", color: "var(--m-dim)", textTransform: "uppercase" }}>
+                                                EMAIL
+                                            </span>
+                                            <a
+                                                href={`mailto:${personalInfo.email}`}
+                                                style={{
+                                                    fontSize: "clamp(0.85rem, 2vw, 0.95rem)",
+                                                    color: "var(--m-text)",
+                                                    fontWeight: 500,
+                                                    textDecoration: "none",
+                                                    display: "block",
+                                                    overflow: "hidden",
+                                                    textOverflow: "ellipsis",
+                                                    whiteSpace: "nowrap"
+                                                }}
+                                                title={personalInfo.email}
+                                            >
+                                                {personalInfo.email}
+                                            </a>
+                                        </div>
                                     </div>
-                                    <div style={{ flexGrow: 1 }}>
-                                        <span className="font-mono-m d-block" style={{ fontSize: "0.7rem", color: "var(--m-dim)", textTransform: "uppercase" }}>
-                                            EMAIL
-                                        </span>
-                                        <span style={{ fontSize: "0.95rem", color: "var(--m-text)", fontWeight: 500 }}>
-                                            {personalInfo.email}
-                                        </span>
+                                    <div className="d-flex align-items-center gap-1.5 gap-sm-2" style={{ flexShrink: 0 }}>
+                                        <button
+                                            type="button"
+                                            onClick={handleCopyEmail}
+                                            aria-label="Copy email address"
+                                            title={copied ? "Copied to clipboard!" : "Copy email address"}
+                                            style={{
+                                                background: copied ? "rgba(16, 185, 129, 0.15)" : "var(--m-surface-2)",
+                                                border: `1px solid ${copied ? "rgba(16, 185, 129, 0.4)" : "var(--m-border)"}`,
+                                                color: copied ? "#10b981" : "var(--m-muted)",
+                                                borderRadius: "0.5rem",
+                                                padding: "0.35rem 0.55rem",
+                                                display: "inline-flex",
+                                                alignItems: "center",
+                                                gap: "0.3rem",
+                                                fontSize: "0.725rem",
+                                                fontFamily: "var(--m-font-mono)",
+                                                cursor: "pointer",
+                                                transition: "all 0.2s ease"
+                                            }}
+                                        >
+                                            {copied ? (
+                                                <>
+                                                    <Check size={13} style={{ color: "#10b981" }} />
+                                                    <span className="d-none d-sm-inline">Copied!</span>
+                                                </>
+                                            ) : (
+                                                <>
+                                                    <Copy size={13} />
+                                                    <span className="d-none d-sm-inline">Copy</span>
+                                                </>
+                                            )}
+                                        </button>
+                                        <a
+                                            href={`mailto:${personalInfo.email}`}
+                                            className="m-btn-secondary"
+                                            style={{
+                                                padding: "0.35rem 0.5rem",
+                                                borderRadius: "0.5rem",
+                                                color: "var(--m-dim)",
+                                                textDecoration: "none",
+                                                display: "inline-flex",
+                                                alignItems: "center",
+                                                justifyContent: "center"
+                                            }}
+                                            aria-label="Open in default mail client"
+                                            title="Open mail client"
+                                        >
+                                            <ArrowUpRight size={15} />
+                                        </a>
                                     </div>
-                                    <ArrowUpRight size={16} style={{ color: "var(--m-dim)" }} />
-                                </a>
+                                </div>
 
                                 <a
                                     href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}

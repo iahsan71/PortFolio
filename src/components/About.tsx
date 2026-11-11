@@ -38,7 +38,7 @@ const About: React.FC = () => {
     ];
 
     return (
-        <section id="about" style={{ padding: "6rem 1.25rem", position: "relative" }}>
+        <section id="about" style={{ padding: "clamp(4rem, 8vw, 6rem) 1rem", position: "relative" }}>
             <div className="editorial-container">
                 {/* Reference Section Header: 01 —— ABOUT */}
                 <SectionHeader
@@ -48,7 +48,7 @@ const About: React.FC = () => {
                     subtitle="A look into my development philosophy, daily engineering practices, and core strengths."
                 />
 
-                <div className="row g-5 align-items-start">
+                <div className="row g-4 g-lg-5 align-items-start">
                     {/* Left Column: Narrative Story */}
                     <div className="col-lg-6">
                         <motion.div
@@ -56,7 +56,7 @@ const About: React.FC = () => {
                             whileInView={{ opacity: 1, y: 0 }}
                             viewport={{ once: true }}
                             transition={{ duration: 0.6, ease: [0.16, 1, 0.3, 1] }}
-                            style={{ display: "flex", flexDirection: "column", gap: "1.25rem", fontSize: "1.05rem", color: "var(--m-muted)", lineHeight: 1.7 }}
+                            style={{ display: "flex", flexDirection: "column", gap: "1.25rem", fontSize: "clamp(0.95rem, 2vw, 1.05rem)", color: "var(--m-muted)", lineHeight: 1.7 }}
                         >
                             <p>
                                 I&apos;m <strong style={{ color: "var(--m-text)" }}>{personalInfo.name}</strong>, a Senior MERN Stack Developer at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong> with over 3 years of hands-on experience delivering production web platforms.

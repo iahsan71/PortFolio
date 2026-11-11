@@ -8,7 +8,7 @@ import SectionHeader from "./SectionHeader";
 
 const Experience: React.FC = () => {
     return (
-        <section id="experience" style={{ padding: "6rem 1.25rem", position: "relative" }}>
+        <section id="experience" style={{ padding: "clamp(4rem, 8vw, 6rem) 1rem", position: "relative" }}>
             <div className="editorial-container">
                 {/* Reference Section Header: 03 —— EXPERIENCE */}
                 <SectionHeader

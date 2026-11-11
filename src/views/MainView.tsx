@@ -11,6 +11,7 @@ import Projects from "../components/Projects";
 import Awards from "../components/Awards";
 import Education from "../components/Education";
 import ComingSoon from "../components/ComingSoon";
+import FAQ from "../components/FAQ";
 import Contact from "../components/Contact";
 import Footer from "../components/Footer";
 
@@ -43,6 +44,7 @@ const MainView: React.FC = () => {
                 <Awards />
                 <Education />
                 <ComingSoon />
+                <FAQ />
                 <Contact />
             </main>
             <Footer />

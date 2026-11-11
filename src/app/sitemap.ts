@@ -25,6 +25,42 @@ export default function sitemap(): MetadataRoute.Sitemap {
             changeFrequency: "weekly",
             priority: 0.9,
         },
+        {
+            url: `${baseUrl}/games/`,
+            lastModified: siteLastModified,
+            changeFrequency: "weekly",
+            priority: 0.85,
+        },
+        {
+            url: `${baseUrl}/games/zip/`,
+            lastModified: siteLastModified,
+            changeFrequency: "monthly",
+            priority: 0.75,
+        },
+        {
+            url: `${baseUrl}/games/signal/`,
+            lastModified: siteLastModified,
+            changeFrequency: "monthly",
+            priority: 0.75,
+        },
+        {
+            url: `${baseUrl}/games/flood/`,
+            lastModified: siteLastModified,
+            changeFrequency: "monthly",
+            priority: 0.75,
+        },
+        {
+            url: `${baseUrl}/games/merge/`,
+            lastModified: siteLastModified,
+            changeFrequency: "monthly",
+            priority: 0.75,
+        },
+        {
+            url: `${baseUrl}/games/mines/`,
+            lastModified: siteLastModified,
+            changeFrequency: "monthly",
+            priority: 0.75,
+        },
     ];
 
     const projectRoutes: MetadataRoute.Sitemap = projectsData.map((project) => ({

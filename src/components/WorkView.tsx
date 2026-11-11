@@ -43,13 +43,13 @@ export default function WorkView() {
         <div className="App">
             <Navbar />
 
-            <main style={{ paddingTop: "7rem", paddingBottom: "6rem" }}>
+            <main style={{ paddingTop: "clamp(5.5rem, 8vw, 7rem)", paddingBottom: "clamp(3.5rem, 6vw, 6rem)" }}>
                 <div className="editorial-container">
                     {/* Breadcrumb */}
                     <div className="mb-4">
                         <Link
                             href="/"
-                            className="font-mono-m d-inline-flex align-items-center gap-1.5"
+                            className="font-mono-m d-inline-flex align-items-center gap-2"
                             style={{
                                 fontSize: "0.775rem",
                                 textTransform: "uppercase",
@@ -58,7 +58,7 @@ export default function WorkView() {
                                 textDecoration: "none"
                             }}
                         >
-                            <ArrowLeft size={13} />
+                            <ArrowLeft size={14} style={{ marginRight: "0.25rem" }} />
                             <span>BACK TO HOME</span>
                         </Link>
                     </div>
@@ -72,7 +72,7 @@ export default function WorkView() {
                         <h1
                             className="font-display"
                             style={{
-                                fontSize: "clamp(2.5rem, 6vw, 4rem)",
+                                fontSize: "clamp(2rem, 5.5vw, 4rem)",
                                 fontWeight: 800,
                                 letterSpacing: "-0.03em",
                                 color: "var(--m-text)",
@@ -82,7 +82,7 @@ export default function WorkView() {
                         >
                             Everything I&apos;ve Shipped
                         </h1>
-                        <p style={{ fontSize: "1.15rem", color: "var(--m-muted)", maxWidth: "42rem", lineHeight: 1.6, margin: 0 }}>
+                        <p style={{ fontSize: "clamp(0.95rem, 2vw, 1.15rem)", color: "var(--m-muted)", maxWidth: "42rem", lineHeight: 1.6, margin: 0 }}>
                             Full-stack web applications, AI tools, real-time architectures, and client platforms engineered with Next.js, Node.js, Express, and MongoDB.
                         </p>
                     </div>
@@ -187,17 +187,31 @@ export default function WorkView() {
                                             transition={{ duration: 0.3 }}
                                         >
                                             {/* Top Card Meta Row */}
-                                            <div className="d-flex justify-content-between align-items-center px-4 pt-3 pb-2 font-mono-m" style={{ fontSize: "0.725rem", borderBottom: "1px solid rgba(255,255,255,0.06)" }}>
+                                            <div className="d-flex flex-wrap justify-content-between align-items-center px-3 px-sm-4 pt-3 pb-2 font-mono-m gap-2" style={{ fontSize: "0.725rem", borderBottom: "1px solid var(--m-border)" }}>
                                                 <div className="d-flex align-items-center gap-2">
                                                     <span style={{ display: "inline-block", width: "7px", height: "7px", borderRadius: "50%", background: "var(--m-accent)", boxShadow: "0 0 8px var(--m-accent)" }} />
                                                     <span style={{ color: "var(--m-accent)", letterSpacing: "0.15em", fontWeight: 700 }}>{project.status || "LIVE"}</span>
+                                                    <span style={{ opacity: 0.35, color: "var(--m-muted)" }}>•</span>
+                                                    <span
+                                                        style={{
+                                                            fontSize: "0.68rem",
+                                                            padding: "0.12rem 0.5rem",
+                                                            borderRadius: "999px",
+                                                            background: project.ownership === "Personal Project" ? "rgba(37, 99, 235, 0.12)" : "rgba(148, 163, 184, 0.12)",
+                                                            color: project.ownership === "Personal Project" ? "var(--m-accent)" : "var(--m-muted)",
+                                                            fontWeight: 600,
+                                                            letterSpacing: "0.04em"
+                                                        }}
+                                                    >
+                                                        {project.ownership}
+                                                    </span>
                                                 </div>
                                                 <span style={{ color: "var(--m-muted)", letterSpacing: "0.15em", textTransform: "uppercase" }}>{project.categoryTag}</span>
                                             </div>
 
                                             {/* Inset Preview Image */}
                                             <div style={{ padding: "0.85rem 0.85rem 0" }}>
-                                                <div className="m-project-img-wrapper" style={{ borderRadius: "0.85rem", overflow: "hidden", border: "1px solid rgba(255,255,255,0.08)", position: "relative", aspectRatio: "16 / 9" }}>
+                                                <div className="m-project-img-wrapper" style={{ borderRadius: "0.85rem", overflow: "hidden", border: "1px solid var(--m-border)", position: "relative", aspectRatio: "16 / 9" }}>
                                                     <Image
                                                         src={project.image}
                                                         alt={project.title}

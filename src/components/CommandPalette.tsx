@@ -14,6 +14,7 @@ import {
     FileText,
     Github,
     Linkedin,
+    Gamepad2,
     X
 } from "lucide-react";
 import { personalInfo, projectsData } from "../data/portfolioData";
@@ -36,6 +37,7 @@ const CommandPalette: React.FC = () => {
         { name: "Go to Home", category: "Navigation", icon: <Home size={16} />, action: () => router.push("/") },
         { name: "About Ahsan Afzal", category: "Navigation", icon: <User size={16} />, action: () => router.push("/about") },
         { name: "All Projects (Work)", category: "Navigation", icon: <Layers size={16} />, action: () => router.push("/work") },
+        { name: "Games & Arcade Hub", category: "Navigation", icon: <Gamepad2 size={16} />, action: () => router.push("/games") },
         { name: "Jump to Skills", category: "Section", icon: <Code size={16} />, action: () => { router.push("/"); setTimeout(() => document.getElementById("skills")?.scrollIntoView({ behavior: "smooth" }), 100); } },
         { name: "Jump to Experience", category: "Section", icon: <Briefcase size={16} />, action: () => { router.push("/"); setTimeout(() => document.getElementById("experience")?.scrollIntoView({ behavior: "smooth" }), 100); } },
         { name: "Contact Me", category: "Section", icon: <Mail size={16} />, action: () => { router.push("/"); setTimeout(() => document.getElementById("contact")?.scrollIntoView({ behavior: "smooth" }), 100); } },

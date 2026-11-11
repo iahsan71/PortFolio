@@ -66,6 +66,7 @@ export interface Project {
     image: StaticImageData | string;
     featured: boolean;
     projectNumber: string;
+    ownership: "Personal Project" | "Company Project";
     liveUrl: string | null;
     githubUrl: string | null;
     client: string;
