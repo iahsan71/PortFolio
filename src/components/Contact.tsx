@@ -119,7 +119,7 @@ const Contact: React.FC = () => {
                                     Open for Opportunities
                                 </h3>
                                 <p style={{ fontSize: "0.85rem", color: "var(--m-muted)", margin: 0 }}>
-                                    Available for full-time senior MERN/full-stack engineering roles and select contract architectures.
+                                    Available for Full Stack AI Developer roles, full-time engineering roles and select contract work.
                                 </p>
                             </div>
 

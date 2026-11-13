@@ -9,8 +9,8 @@ import { ArrowUpRight, ExternalLink } from "lucide-react";
 import SectionHeader from "./SectionHeader";
 
 const Projects: React.FC = () => {
-    // Show top featured projects on homepage
-    const displayProjects = projectsData.slice(0, 4);
+    // Show top featured projects on homepage including Lord's Hub
+    const displayProjects = projectsData.slice(0, 5);
 
     return (
         <section id="projects" style={{ padding: "clamp(4rem, 8vw, 6rem) 1rem", position: "relative" }}>
@@ -80,14 +80,32 @@ const Projects: React.FC = () => {
 
                                 {/* Body Content */}
                                 <div className="m-project-body">
-                                    <h3 className="m-project-title">
+                                    <h3 className="m-project-title d-flex align-items-center gap-2">
                                         <Link
                                             href={`/work/${project.slug}`}
                                             style={{ color: "inherit", textDecoration: "none" }}
                                         >
                                             {project.title}
                                         </Link>
-                                        <ArrowUpRight size={20} className="m-project-arrow transition-all" />
+                                        {(project.hasAiTag || project.slug === "nextassist-ai" || project.slug === "nexa") && (
+                                            <span
+                                                className="font-mono-m d-inline-flex align-items-center"
+                                                style={{
+                                                    fontSize: "0.625rem",
+                                                    padding: "0.15rem 0.45rem",
+                                                    borderRadius: "999px",
+                                                    background: "rgba(59, 130, 246, 0.15)",
+                                                    color: "var(--m-accent)",
+                                                    border: "1px solid rgba(59, 130, 246, 0.4)",
+                                                    fontWeight: 700,
+                                                    letterSpacing: "0.08em",
+                                                    lineHeight: 1
+                                                }}
+                                            >
+                                                AI
+                                            </span>
+                                        )}
+                                        <ArrowUpRight size={20} className="m-project-arrow transition-all ms-auto" />
                                     </h3>
 
                                     <p className="m-project-desc">

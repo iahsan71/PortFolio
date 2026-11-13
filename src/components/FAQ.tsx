@@ -16,12 +16,17 @@ const FAQ_DATA: FAQItem[] = [
         answer: "I specialize in the MERN stack (MongoDB, Express.js, React.js, Node.js) paired with Next.js 14 App Router, TypeScript, and modern state architecture. My daily engineering focuses on resilient REST APIs, real-time websockets (Socket.io), MongoDB aggregation optimization, and accessible, high-performance UI systems."
     },
     {
+        question: "What AI features have you built?",
+        // TODO: Ahsan to add more details, architecture specifics, and metrics for AI features built
+        answer: "I have built AI chatbot features, WhatsApp integrations and MCP servers for client products."
+    },
+    {
         question: "How are personal projects distinguished from company projects in your portfolio?",
-        answer: "Company projects (such as NextAssist AI, Nexa, Tealpot, and Vootee) represent commercial platforms where I contributed as a professional software engineer within development teams. Personal projects (such as Lordhub and this bespoke developer portfolio) are independent applications that I conceptualized, engineered, and shipped end-to-end."
+        answer: "Company projects (such as NextAssist AI, Nexa, Tealpot, and Vootee) represent commercial platforms where I contributed as a professional software engineer within development teams. Personal projects (such as Lord's Hub and this bespoke developer portfolio) are independent applications that I conceptualized, engineered, and shipped end-to-end."
     },
     {
         question: "Are you available for full-time engineering roles or contracts?",
-        answer: "Yes, I am actively available for senior full-stack engineering roles (hybrid or remote) and high-impact technical contracts. I bring 3+ years of production experience, structured code practices, and rapid execution velocity."
+        answer: "Yes, I am actively available for Full Stack AI Developer roles, full-time engineering roles and select contract work. I bring 3+ years of production experience, structured code practices, and rapid execution velocity."
     },
     {
         question: "How do you ensure web performance and accessibility?",

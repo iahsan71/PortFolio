@@ -1,11 +1,43 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
-import { ArrowRight, Download, Github, Linkedin, Mail } from "lucide-react";
+import { ArrowRight, Bot, Cpu, Download, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
 import { personalInfo } from "../data/portfolioData";
 
+const ROTATING_TITLES = [
+    "Full Stack AI Developer",
+    "AI Chatbot Builder",
+    "WhatsApp Automation Developer",
+    "MCP Server Developer"
+];
+
 const Hero: React.FC = () => {
+    const [titleIndex, setTitleIndex] = useState(0);
+    const [displayText, setDisplayText] = useState(ROTATING_TITLES[0]);
+    const [isDeleting, setIsDeleting] = useState(false);
+
+    useEffect(() => {
+        const currentTitle = ROTATING_TITLES[titleIndex];
+        let timeout: NodeJS.Timeout;
+
+        if (!isDeleting && displayText === currentTitle) {
+            timeout = setTimeout(() => setIsDeleting(true), 2200);
+        } else if (isDeleting && displayText === "") {
+            setIsDeleting(false);
+            setTitleIndex((prev) => (prev + 1) % ROTATING_TITLES.length);
+        } else {
+            const nextLength = isDeleting ? displayText.length - 1 : displayText.length + 1;
+            timeout = setTimeout(
+                () => {
+                    setDisplayText(currentTitle.slice(0, nextLength));
+                },
+                isDeleting ? 30 : 65
+            );
+        }
+
+        return () => clearTimeout(timeout);
+    }, [displayText, isDeleting, titleIndex]);
     return (
         <section
             id="home"
@@ -82,19 +114,30 @@ const Hero: React.FC = () => {
                             {personalInfo.name}
                         </span>
                         <span
-                            className="font-mono-m"
+                            className="font-mono-m d-flex align-items-center"
                             style={{
-                                display: "block",
                                 marginTop: "0.85rem",
                                 fontSize: "clamp(0.75rem, 2.2vw, 1.05rem)",
                                 textTransform: "uppercase",
                                 letterSpacing: "0.16em",
-                                color: "var(--m-muted)",
-                                fontWeight: 600,
-                                lineHeight: 1.45
+                                color: "var(--m-accent)",
+                                fontWeight: 700,
+                                lineHeight: 1.45,
+                                minHeight: "1.6em"
                             }}
                         >
-                            {personalInfo.title}
+                            <span>{displayText}</span>
+                            <span
+                                style={{
+                                    display: "inline-block",
+                                    width: "2px",
+                                    height: "1em",
+                                    background: "var(--m-accent)",
+                                    marginLeft: "0.35rem",
+                                    animation: "m-blink 0.9s infinite",
+                                    verticalAlign: "middle"
+                                }}
+                            />
                         </span>
                     </h1>
 
@@ -107,15 +150,29 @@ const Hero: React.FC = () => {
                             width: "clamp(80px, 14vw, 160px)",
                             borderRadius: "9999px",
                             background: "var(--m-accent)",
-                            margin: "1.25rem 0 1.75rem",
+                            margin: "1.25rem 0 1.5rem",
                             transformOrigin: "left"
                         }}
                     />
 
-                    {/* Short Editorial Intro */}
+                    {/* Value Proposition Hook */}
                     <p
                         style={{
-                            fontSize: "clamp(0.975rem, 2.2vw, 1.35rem)",
+                            fontSize: "clamp(1.05rem, 2.4vw, 1.35rem)",
+                            lineHeight: 1.55,
+                            color: "var(--m-text)",
+                            fontWeight: 600,
+                            maxWidth: "46rem",
+                            marginBottom: "0.85rem"
+                        }}
+                    >
+                        Full-stack developer who turns AI into real products: chatbots that talk to customers, WhatsApp automations, and MCP servers that connect AI to your tools.
+                    </p>
+
+                    {/* Existing Editorial Intro */}
+                    <p
+                        style={{
+                            fontSize: "clamp(0.925rem, 2vw, 1.15rem)",
                             lineHeight: 1.65,
                             color: "var(--m-muted)",
                             maxWidth: "42rem",
@@ -126,7 +183,7 @@ const Hero: React.FC = () => {
                     </p>
 
                     {/* Interactive CTAs */}
-                    <div className="d-flex flex-wrap align-items-center gap-2 gap-sm-3 mb-4 mb-md-5">
+                    <div className="d-flex flex-wrap align-items-center gap-2 gap-sm-3 mb-4">
                         <a href="#projects" className="m-btn-primary">
                             <span>Explore Projects</span>
                             <ArrowRight size={16} />
@@ -142,6 +199,163 @@ const Hero: React.FC = () => {
                         >
                             <Download size={15} />
                             <span>Download CV</span>
+                        </a>
+                    </div>
+
+                    {/* What I Build 3-card Strip */}
+                    <div className="row g-2 g-sm-3 mb-4" style={{ maxWidth: "52rem" }}>
+                        <div className="col-12 col-md-4">
+                            <div
+                                className="m-card h-100"
+                                style={{
+                                    padding: "0.85rem 1rem",
+                                    background: "var(--m-surface)",
+                                    border: "1px solid var(--m-border)"
+                                }}
+                            >
+                                <div className="d-flex align-items-center gap-2 mb-1">
+                                    <div
+                                        style={{
+                                            width: "28px",
+                                            height: "28px",
+                                            borderRadius: "8px",
+                                            background: "rgba(59, 130, 246, 0.12)",
+                                            color: "var(--m-accent)",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            flexShrink: 0
+                                        }}
+                                    >
+                                        <Bot size={15} />
+                                    </div>
+                                    <h2 style={{ fontSize: "0.925rem", fontWeight: 700, margin: 0, color: "var(--m-text)" }}>
+                                        AI Chatbots
+                                    </h2>
+                                </div>
+                                <p style={{ fontSize: "0.8rem", color: "var(--m-muted)", margin: 0, lineHeight: 1.5 }}>
+                                    Customer support and lead qualification
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="col-12 col-md-4">
+                            <div
+                                className="m-card h-100"
+                                style={{
+                                    padding: "0.85rem 1rem",
+                                    background: "var(--m-surface)",
+                                    border: "1px solid var(--m-border)"
+                                }}
+                            >
+                                <div className="d-flex align-items-center gap-2 mb-1">
+                                    <div
+                                        style={{
+                                            width: "28px",
+                                            height: "28px",
+                                            borderRadius: "8px",
+                                            background: "rgba(16, 185, 129, 0.12)",
+                                            color: "#10b981",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            flexShrink: 0
+                                        }}
+                                    >
+                                        <MessageCircle size={15} />
+                                    </div>
+                                    <h2 style={{ fontSize: "0.925rem", fontWeight: 700, margin: 0, color: "var(--m-text)" }}>
+                                        WhatsApp Integrations
+                                    </h2>
+                                </div>
+                                <p style={{ fontSize: "0.8rem", color: "var(--m-muted)", margin: 0, lineHeight: 1.5 }}>
+                                    Messages, bookings and automation
+                                </p>
+                            </div>
+                        </div>
+
+                        <div className="col-12 col-md-4">
+                            <div
+                                className="m-card h-100"
+                                style={{
+                                    padding: "0.85rem 1rem",
+                                    background: "var(--m-surface)",
+                                    border: "1px solid var(--m-border)"
+                                }}
+                            >
+                                <div className="d-flex align-items-center gap-2 mb-1">
+                                    <div
+                                        style={{
+                                            width: "28px",
+                                            height: "28px",
+                                            borderRadius: "8px",
+                                            background: "rgba(139, 92, 246, 0.12)",
+                                            color: "#8b5cf6",
+                                            display: "flex",
+                                            alignItems: "center",
+                                            justifyContent: "center",
+                                            flexShrink: 0
+                                        }}
+                                    >
+                                        <Cpu size={15} />
+                                    </div>
+                                    <h2 style={{ fontSize: "0.925rem", fontWeight: 700, margin: 0, color: "var(--m-text)" }}>
+                                        MCP Servers
+                                    </h2>
+                                </div>
+                                <p style={{ fontSize: "0.8rem", color: "var(--m-muted)", margin: 0, lineHeight: 1.5 }}>
+                                    Connecting AI to tools and data
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* One-Line Trust Row */}
+                    <div
+                        className="d-flex flex-wrap align-items-center gap-2 font-mono-m mb-4"
+                        style={{
+                            fontSize: "clamp(0.75rem, 1.9vw, 0.85rem)",
+                            color: "var(--m-muted)",
+                            maxWidth: "52rem"
+                        }}
+                    >
+                        <span style={{ color: "var(--m-dim)", textTransform: "uppercase", letterSpacing: "0.12em" }}>
+                            Live products:
+                        </span>
+                        <a
+                            href="https://nextassistai.nextpak.org/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "var(--m-text)", textDecoration: "none", fontWeight: 600, borderBottom: "1px dotted var(--m-border-strong)" }}
+                        >
+                            NextAssist AI
+                        </a>
+                        <span style={{ color: "var(--m-border-strong)" }}>·</span>
+                        <a
+                            href="https://trynexa.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "var(--m-text)", textDecoration: "none", fontWeight: 600, borderBottom: "1px dotted var(--m-border-strong)" }}
+                        >
+                            Nexa
+                        </a>
+                        <span style={{ color: "var(--m-border-strong)" }}>·</span>
+                        <a
+                            href="https://tealpot.com/"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "var(--m-text)", textDecoration: "none", fontWeight: 600, borderBottom: "1px dotted var(--m-border-strong)" }}
+                        >
+                            Tealpot
+                        </a>
+                        <span style={{ color: "var(--m-border-strong)" }}>·</span>
+                        <a
+                            href="https://lordshub.com"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            style={{ color: "var(--m-text)", textDecoration: "none", fontWeight: 600, borderBottom: "1px dotted var(--m-border-strong)" }}
+                        >
+                            Lord&apos;s Hub
                         </a>
                     </div>
 

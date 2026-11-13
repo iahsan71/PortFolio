@@ -32,12 +32,17 @@ const jetbrainsMono = JetBrains_Mono({
 export const metadata: Metadata = {
     metadataBase: new URL("https://ahsan-afzal.web.app"),
     title: {
-        default: "Ahsan Afzal | Senior MERN Stack & Full-Stack Engineer",
+        default: "Ahsan Afzal | Full Stack AI Developer",
         template: "%s | Ahsan Afzal"
     },
-    description: "Senior MERN Stack and Full-Stack Engineer based in Pakistan with 3+ years of production experience architecting high-performance web platforms with React, Next.js, Node.js, Express, and MongoDB.",
+    description: "Full Stack AI Developer based in Pakistan with 3+ years of production experience architecting high-performance web platforms with React, Next.js, Node.js, Express, and MongoDB.",
     keywords: [
         "Ahsan Afzal",
+        "Full Stack AI Developer",
+        "AI Developer",
+        "AI Chatbot Developer",
+        "WhatsApp Integration",
+        "MCP Server",
         "MERN Stack Developer",
         "Full Stack Developer in Pakistan",
         "Senior React Developer",
@@ -69,21 +74,21 @@ export const metadata: Metadata = {
         locale: "en_US",
         url: "https://ahsan-afzal.web.app/",
         siteName: "Ahsan Afzal Portfolio",
-        title: "Ahsan Afzal | Senior MERN Stack & Full-Stack Engineer",
-        description: "Senior MERN Stack & Full-Stack Engineer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
+        title: "Ahsan Afzal | Full Stack AI Developer",
+        description: "Full Stack AI Developer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
         images: [
             {
                 url: "/logo512.png",
                 width: 512,
                 height: 512,
-                alt: "Ahsan Afzal — Senior MERN Stack Engineer"
+                alt: "Ahsan Afzal — Full Stack AI Developer"
             }
         ]
     },
     twitter: {
         card: "summary_large_image",
-        title: "Ahsan Afzal | Senior MERN Stack & Full-Stack Engineer",
-        description: "Senior MERN Stack & Full-Stack Engineer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
+        title: "Ahsan Afzal | Full Stack AI Developer",
+        description: "Full Stack AI Developer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
         images: ["/logo512.png"]
     }
 };
@@ -115,6 +120,10 @@ const jsonLd = {
                 personalInfo.linkedin
             ],
             "knowsAbout": [
+                "Full-Stack AI Development",
+                "AI Chatbot Development",
+                "WhatsApp Integrations & Automations",
+                "Model Context Protocol (MCP) Servers",
                 "Full-Stack Web Development",
                 "MERN Stack (MongoDB, Express, React, Node.js)",
                 "Next.js 14 App Router",

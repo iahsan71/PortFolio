@@ -59,7 +59,10 @@ const About: React.FC = () => {
                             style={{ display: "flex", flexDirection: "column", gap: "1.25rem", fontSize: "clamp(0.95rem, 2vw, 1.05rem)", color: "var(--m-muted)", lineHeight: 1.7 }}
                         >
                             <p>
-                                I&apos;m <strong style={{ color: "var(--m-text)" }}>{personalInfo.name}</strong>, a Senior MERN Stack Developer at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong> with over 3 years of hands-on experience delivering production web platforms.
+                                I build AI-powered products, including chatbots, WhatsApp integrations and MCP servers, on top of a solid MERN foundation. I use Cursor, Claude Code, Antigravity and Kiro in my daily workflow.
+                            </p>
+                            <p>
+                                I&apos;m <strong style={{ color: "var(--m-text)" }}>{personalInfo.name}</strong>, a Full Stack AI Developer at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong> with over 3 years of hands-on experience delivering production web platforms.
                             </p>
                             <p>
                                 I specialize in building end-to-end architectures—from schema design and aggregation pipelines in MongoDB to secure RESTful Express/Node backends and highly responsive, accessible React/Next.js client applications.

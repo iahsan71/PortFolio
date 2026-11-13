@@ -19,16 +19,16 @@ import {
 export const personalInfo: PersonalInfo = {
     name: "Ahsan Afzal",
     initials: "AA",
-    title: "Senior MERN Stack & Full-Stack Engineer",
-    shortRole: "MERN Stack Developer",
+    title: "Full Stack AI Developer",
+    shortRole: "Full Stack AI Developer",
     company: "NextPak Agile Solutions",
     companyUrl: "https://nextpak.org",
     experienceYears: "3+",
     location: "Pakistan",
     availability: "Available for work",
     bio: "I build high-performance full-stack web applications, scalable REST APIs, and responsive digital products with MongoDB, Express.js, React, Next.js, and Node.js.",
-    shortBio: "Senior MERN Stack Engineer architecting robust digital platforms.",
-    longBio: "I am a results-driven MERN Stack Developer with 3+ years of professional experience engineering resilient web architectures. At NextPak Agile Solutions, I lead and contribute to production products including NextAssist AI, Tealpot, and Nexa. I specialize in designing end-to-end full-stack systems, optimizing database pipelines, securing user authentication flows, and crafting delightful, responsive user interfaces.",
+    shortBio: "Full Stack AI Developer architecting robust digital platforms.",
+    longBio: "I am a results-driven Full Stack AI Developer with 3+ years of professional experience engineering resilient web architectures. At NextPak Agile Solutions, I lead and contribute to production products including NextAssist AI, Tealpot, and Nexa. I specialize in designing end-to-end full-stack systems, optimizing database pipelines, securing user authentication flows, and crafting delightful, responsive user interfaces.",
     email: "imahsan000@gmail.com",
     phone: "+92 349 3082202",
     whatsapp: "+92 349 3082202",
@@ -56,6 +56,17 @@ export interface SkillGroup {
 
 export const skillsData: { categories: SkillGroup[]; marquee: string[] } = {
     categories: [
+        {
+            title: "AI Engineering",
+            skills: [
+                { name: "AI Chatbot Development", level: 95 },
+                { name: "WhatsApp Integration", level: 92 },
+                { name: "MCP Server Development", level: 90 },
+                { name: "Prompt Engineering", level: 95 },
+                { name: "AI-Assisted Development", level: 95 },
+                { name: "AI Feature Integration", level: 92 }
+            ]
+        },
         {
             title: "Frontend Engineering",
             skills: [
@@ -108,7 +119,7 @@ export const skillsData: { categories: SkillGroup[]; marquee: string[] } = {
         }
     ],
     marquee: [
-        "React.js", "Next.js 14", "Node.js", "Express.js", "MongoDB", "TypeScript",
+        "AI Chatbots", "WhatsApp Automations", "MCP Servers", "React.js", "Next.js 14", "Node.js", "Express.js", "MongoDB", "TypeScript",
         "JavaScript", "Redux Toolkit", "Socket.io", "Tailwind CSS", "Firebase",
         "JWT Auth", "REST APIs", "Cursor AI", "Claude Code", "Git", "GitHub", "Postman", "SCSS"
     ]
@@ -117,12 +128,13 @@ export const skillsData: { categories: SkillGroup[]; marquee: string[] } = {
 export const experiencesData: Experience[] = [
     {
         period: "March 2025 — Present",
-        role: "Senior MERN Stack Developer",
+        role: "Full Stack AI Developer (MERN)",
         company: "NextPak Agile Solutions",
         location: "Pakistan (Hybrid)",
         type: "Full-time",
         description: "Architecting and engineering end-to-end full-stack web applications, REST APIs, and database schemas for flagship client platforms.",
         responsibilities: [
+            "Built AI chatbot features, WhatsApp integrations, and MCP servers for client AI products.",
             "Architected full-stack modules for flagship products including NextAssist AI, Tealpot, and Nexa.",
             "Designed and implemented robust JWT-based session security and role-based permissions preventing unauthorized endpoint access.",
             "Built interactive analytical telemetry dashboards with real-time websocket metrics and data visualization.",
@@ -157,6 +169,7 @@ export const projectsData: Project[] = [
         categoryTag: "AI PRODUCT",
         status: "LIVE",
         badge: "PRODUCTION",
+        hasAiTag: true,
         shortDescription: "Enterprise business automation and ticket routing platform with real-time analytics graphs, AI-assisted triage, and live customer booking dashboard.",
         fullDescription: "NextAssist AI is an enterprise-grade platform engineered to streamline customer inquiry routing, automated triage, and live support operations. Built with a scalable MERN stack and real-time Socket.io communication, it gives support teams and managers comprehensive analytics, granular role permissions, and instant ticket sync.",
         image: nextassistImg,
@@ -199,6 +212,7 @@ export const projectsData: Project[] = [
         categoryTag: "RECRUITING SAAS",
         status: "LIVE",
         badge: "PRODUCTION",
+        hasAiTag: true,
         shortDescription: "Next-generation hiring and applicant tracking system featuring candidate profile scoring, interview pipeline stages, and resume parsing.",
         fullDescription: "Nexa is a modern applicant tracking system (ATS) crafted to eliminate friction in modern technical recruiting. It provides recruiters and hiring managers with candidate scoring, drag-and-drop pipeline management, and structured evaluation rubrics.",
         image: nexaImg,
@@ -306,18 +320,18 @@ export const projectsData: Project[] = [
     {
         id: "prof-5",
         slug: "lordshub",
-        title: "Lordhub",
+        title: "Lord's Hub",
         category: "Client Work",
         categoryTag: "GAMING MARKETPLACE",
         status: "LIVE",
         badge: "DEPLOYED",
-        shortDescription: "Specialized gaming marketplace and automation service portal with real-time transactional orders, inventory filters, and user profiles.",
-        fullDescription: "Lordhub is a high-traffic gaming services marketplace built for competitive gamers. It provides authenticated order pipelines, real-time inventory listings, customer messaging, and automated delivery tracking.",
+        shortDescription: "Gaming marketplace for Lords Mobile accounts, gems and automated bot services.",
+        fullDescription: "Lord's Hub is a specialized gaming marketplace and automation service portal built for competitive gamers. It provides authenticated order pipelines, real-time inventory listings for Lords Mobile accounts and gems, and automated bot delivery services.",
         image: lordshubImg,
         featured: true,
         projectNumber: "05",
         ownership: "Personal Project",
-        liveUrl: "https://lordhub.store",
+        liveUrl: "https://lordshub.com",
         githubUrl: "https://github.com/iahsan71",
         client: "Lordhub (Personal Project)",
         timeline: "2023 — 2024",

@@ -34,7 +34,7 @@ const Footer: React.FC = () => {
                             <span className="m-dot">.</span>
                         </Link>
                         <p style={{ fontSize: "0.9rem", color: "var(--m-muted)", marginTop: "0.5rem", maxWidth: "420px", lineHeight: 1.6 }}>
-                            Senior MERN Stack & Full-Stack Engineer crafting high-performance, resilient digital web architectures.
+                            Full Stack AI Developer crafting high-performance, resilient digital web architectures.
                         </p>
                     </div>
 

@@ -118,6 +118,11 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                                     {project.ownership}
                                 </span>
                             </span>
+                            {(project.hasAiTag || project.slug === "nextassist-ai" || project.slug === "nexa") && (
+                                <span className="m-pill" style={{ borderColor: "rgba(59, 130, 246, 0.4)", background: "rgba(59, 130, 246, 0.15)", color: "var(--m-accent)", fontWeight: 700 }}>
+                                    AI
+                                </span>
+                            )}
                         </div>
 
                         <h1

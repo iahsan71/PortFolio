@@ -67,6 +67,7 @@ export interface Project {
     featured: boolean;
     projectNumber: string;
     ownership: "Personal Project" | "Company Project";
+    hasAiTag?: boolean;
     liveUrl: string | null;
     githubUrl: string | null;
     client: string;

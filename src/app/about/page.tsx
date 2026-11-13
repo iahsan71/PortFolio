@@ -8,13 +8,13 @@ import { ArrowLeft, CheckCircle2, Download, Mail } from "lucide-react";
 
 export const metadata: Metadata = {
     title: "About",
-    description: "Learn about Ahsan Afzal's engineering journey, technical background, and 3+ years of experience architecting high-performance MERN stack web applications.",
+    description: "Learn about Ahsan Afzal's engineering journey, technical background, and 3+ years of experience architecting high-performance web applications and AI products.",
     alternates: {
         canonical: "https://ahsan-afzal.web.app/about/"
     },
     openGraph: {
-        title: `About ${personalInfo.name} | Senior MERN Stack Engineer`,
-        description: "3+ years of production experience architecting full-stack web applications, REST APIs, and high-performance MongoDB databases.",
+        title: `About ${personalInfo.name} | Full Stack AI Developer`,
+        description: "3+ years of production experience architecting full-stack web applications, AI chatbots, WhatsApp automations, and high-performance MongoDB databases.",
         url: "https://ahsan-afzal.web.app/about/",
         type: "profile",
         images: [
@@ -28,8 +28,8 @@ export const metadata: Metadata = {
     },
     twitter: {
         card: "summary_large_image",
-        title: `About ${personalInfo.name} | Senior MERN Stack Engineer`,
-        description: "3+ years of production experience architecting full-stack web applications, REST APIs, and high-performance MongoDB databases.",
+        title: `About ${personalInfo.name} | Full Stack AI Developer`,
+        description: "3+ years of production experience architecting full-stack web applications, AI chatbots, WhatsApp automations, and high-performance MongoDB databases.",
         images: ["/logo512.png"]
     }
 };
@@ -86,7 +86,10 @@ export default function AboutPage() {
                     {/* Narrative & Career Journey */}
                     <div style={{ display: "flex", flexDirection: "column", gap: "1.5rem", fontSize: "1.1rem", lineHeight: 1.8, color: "var(--m-muted)" }}>
                         <p>
-                            I am a results-driven <strong style={{ color: "var(--m-text)" }}>MERN Stack Developer</strong> based in Pakistan with over 3 years of hands-on software development experience. Currently at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong>, I architect and build resilient web applications from the database schema up to the user-facing interface.
+                            I build AI-powered products, including chatbots, WhatsApp integrations and MCP servers, on top of a solid MERN foundation. I use Cursor, Claude Code, Antigravity and Kiro in my daily workflow.
+                        </p>
+                        <p>
+                            I am a results-driven <strong style={{ color: "var(--m-text)" }}>Full Stack AI Developer</strong> based in Pakistan with over 3 years of hands-on software development experience. Currently at <strong style={{ color: "var(--m-text)" }}>{personalInfo.company}</strong>, I architect and build resilient web applications from the database schema up to the user-facing interface.
                         </p>
                         <p>
                             My engineering journey began with an insatiable curiosity for how internet platforms operate at scale. Over the years, I&apos;ve transformed that passion into delivering mission-critical applications: business automation engines with AI ticket routing (<strong style={{ color: "var(--m-text)" }}>NextAssist AI</strong>), candidate screening suites (<strong style={{ color: "var(--m-text)" }}>Nexa</strong>), and high-traffic consumer marketplaces (<strong style={{ color: "var(--m-text)" }}>Tealpot</strong> and <strong style={{ color: "var(--m-text)" }}>Lordhub</strong>).

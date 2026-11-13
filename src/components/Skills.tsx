@@ -8,6 +8,7 @@ import SectionHeader from "./SectionHeader";
 
 const TABS = [
     { key: "ALL", label: "ALL" },
+    { key: "AI ENGINEERING", label: "AI ENGINEERING", match: "AI Engineering" },
     { key: "FRONTEND", label: "FRONTEND", match: "Frontend Engineering" },
     { key: "BACKEND", label: "BACKEND", match: "Backend Architecture & APIs" },
     { key: "DATABASES & CLOUD", label: "DATABASES & CLOUD", match: "Databases & Cloud" },
