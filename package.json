@@ -17,6 +17,7 @@
         "build": "next build",
         "start": "next start -p 3001",
         "typecheck": "tsc --noEmit",
+        "deploy": "vercel --prod",
         "prepare": "husky install"
     },
     "eslintConfig": {

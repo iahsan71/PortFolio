@@ -16,6 +16,9 @@
 # firebase
 /.firebase
 
+# vercel
+.vercel
+
 # misc
 .DS_Store
 .playwright-mcp
