@@ -3,6 +3,7 @@ import React from "react";
 import { Poppins, Inter, JetBrains_Mono } from "next/font/google";
 import Script from "next/script";
 import { Analytics } from "@vercel/analytics/next";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "../assets/scss/style.scss";
 import "../assets/scss/editorial-reference.scss";
@@ -183,6 +184,7 @@ export default function RootLayout({
                     {children}
                 </ClientShell>
                 <Analytics />
+                <SpeedInsights />
             </body>
         </html>
     );
