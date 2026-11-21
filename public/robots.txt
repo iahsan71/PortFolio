@@ -10,4 +10,4 @@ Allow: /
 User-agent: facebookexternalhit
 Allow: /
 
-Sitemap: https://ahsanafzal.com/sitemap.xml
+Sitemap: https://www.ahsanafzal.com/sitemap.xml

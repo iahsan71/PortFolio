@@ -32,7 +32,7 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://ahsanafzal.com"),
+    metadataBase: new URL("https://www.ahsanafzal.com"),
     title: {
         default: "Ahsan Afzal | Full Stack AI Developer",
         template: "%s | Ahsan Afzal"
@@ -55,10 +55,10 @@ export const metadata: Metadata = {
         "REST API Architect",
         "NextPak Agile Solutions"
     ],
-    authors: [{ name: "Ahsan Afzal", url: "https://ahsanafzal.com" }],
+    authors: [{ name: "Ahsan Afzal", url: "https://www.ahsanafzal.com" }],
     creator: "Ahsan Afzal",
     alternates: {
-        canonical: "https://ahsanafzal.com/"
+        canonical: "https://www.ahsanafzal.com/"
     },
     robots: {
         index: true,
@@ -74,13 +74,13 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://ahsanafzal.com/",
+        url: "https://www.ahsanafzal.com/",
         siteName: "Ahsan Afzal Portfolio",
         title: "Ahsan Afzal | Full Stack AI Developer",
         description: "AI Chatbots, WhatsApp Automation & MCP Servers | React, Next.js, Node.js. 3+ years of production experience.",
         images: [
             {
-                url: "https://ahsanafzal.com/og-image.png",
+                url: "https://www.ahsanafzal.com/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: "Ahsan Afzal — Full Stack AI Developer",
@@ -92,7 +92,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: "Ahsan Afzal | Full Stack AI Developer",
         description: "AI Chatbots, WhatsApp Automation & MCP Servers | React, Next.js, Node.js. 3+ years of production experience.",
-        images: ["https://ahsanafzal.com/og-image.png"]
+        images: ["https://www.ahsanafzal.com/og-image.png"]
     }
 };
 
@@ -101,7 +101,7 @@ const jsonLd = {
     "@graph": [
         {
             "@type": "Person",
-            "@id": "https://ahsanafzal.com/#person",
+            "@id": "https://www.ahsanafzal.com/#person",
             "name": "Ahsan Afzal",
             "jobTitle": "Full Stack AI Developer",
             "worksFor": {
@@ -109,8 +109,8 @@ const jsonLd = {
                 "name": "NextPak Agile Solutions",
                 "url": "https://nextpak.org"
             },
-            "url": "https://ahsanafzal.com",
-            "image": "https://ahsanafzal.com/og-image.png",
+            "url": "https://www.ahsanafzal.com",
+            "image": "https://www.ahsanafzal.com/og-image.png",
             "email": personalInfo.email,
             "telephone": personalInfo.phone,
             "address": {
@@ -139,11 +139,11 @@ const jsonLd = {
         },
         {
             "@type": "WebSite",
-            "@id": "https://ahsanafzal.com/#website",
-            "url": "https://ahsanafzal.com",
+            "@id": "https://www.ahsanafzal.com/#website",
+            "url": "https://www.ahsanafzal.com",
             "name": "Ahsan Afzal Portfolio",
             "publisher": {
-                "@id": "https://ahsanafzal.com/#person"
+                "@id": "https://www.ahsanafzal.com/#person"
             }
         }
     ]

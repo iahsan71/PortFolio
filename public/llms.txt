@@ -1,10 +1,10 @@
 # Ahsan Afzal Portfolio
 
-This is the portfolio website of Ahsan Afzal, a MERN Stack Developer and Full Stack Engineer.
+This is the portfolio website of Ahsan Afzal, a Full Stack AI Developer.
 
 ## About
-Ahsan Afzal is a results-driven MERN Stack Developer specializing in building high-performance full-stack web applications with React, Next.js, Node.js, Express, and MongoDB.
+Ahsan Afzal is a results-driven Full Stack AI Developer specializing in building high-performance full-stack web applications, AI chatbots, WhatsApp automations, and MCP servers with React, Next.js, Node.js, Express, and MongoDB.
 
 ## Links
-- [Main Site](https://ahsan-afzal.web.app)
+- [Main Site](https://www.ahsanafzal.com)
 - [GitHub](https://github.com/iahsan71)

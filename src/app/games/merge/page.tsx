@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Merge — 2048 | Arcade",
     description: "Slide and combine matching tiles to engineer the 2048 block with keyboard and touch swipe gestures.",
     alternates: {
-        canonical: "https://ahsanafzal.com/games/merge/"
+        canonical: "https://www.ahsanafzal.com/games/merge/"
     }
 };
 

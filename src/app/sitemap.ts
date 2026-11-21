@@ -2,7 +2,7 @@ import { MetadataRoute } from "next";
 import { projectsData } from "../data/portfolioData";
 
 export default function sitemap(): MetadataRoute.Sitemap {
-    const baseUrl = "https://ahsanafzal.com";
+    const baseUrl = "https://www.ahsanafzal.com";
     // Consistent date to ensure search engines recognize accurate change signals
     const siteLastModified = new Date("2026-11-10T00:00:00.000Z");
 

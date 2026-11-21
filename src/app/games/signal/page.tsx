@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Signal — Lights Out | Arcade",
     description: "Invert intersecting nodes to deactivate all active signals in this electronic logic matrix puzzle.",
     alternates: {
-        canonical: "https://ahsanafzal.com/games/signal/"
+        canonical: "https://www.ahsanafzal.com/games/signal/"
     }
 };
 

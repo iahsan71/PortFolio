@@ -10,16 +10,16 @@ export const metadata: Metadata = {
     title: "About",
     description: "Learn about Ahsan Afzal's engineering journey, technical background, and 3+ years of experience architecting high-performance web applications and AI products.",
     alternates: {
-        canonical: "https://ahsanafzal.com/about/"
+        canonical: "https://www.ahsanafzal.com/about/"
     },
     openGraph: {
         title: `About ${personalInfo.name} | Full Stack AI Developer`,
         description: "3+ years of production experience architecting full-stack web applications, AI chatbots, WhatsApp automations, and high-performance MongoDB databases.",
-        url: "https://ahsanafzal.com/about/",
+        url: "https://www.ahsanafzal.com/about/",
         type: "profile",
         images: [
             {
-                url: "https://ahsanafzal.com/og-image.png",
+                url: "https://www.ahsanafzal.com/og-image.png",
                 width: 1200,
                 height: 630,
                 alt: `About ${personalInfo.name}`
@@ -30,7 +30,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: `About ${personalInfo.name} | Full Stack AI Developer`,
         description: "3+ years of production experience architecting full-stack web applications, AI chatbots, WhatsApp automations, and high-performance MongoDB databases.",
-        images: ["https://ahsanafzal.com/og-image.png"]
+        images: ["https://www.ahsanafzal.com/og-image.png"]
     }
 };
 

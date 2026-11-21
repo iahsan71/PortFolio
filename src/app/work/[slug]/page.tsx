@@ -36,16 +36,16 @@ export function generateMetadata({ params }: PageProps): Metadata {
         title: `${project.title} — Case Study`,
         description: project.shortDescription,
         alternates: {
-            canonical: `https://ahsanafzal.com/work/${project.slug}/`
+            canonical: `https://www.ahsanafzal.com/work/${project.slug}/`
         },
         openGraph: {
             title: `${project.title} — Case Study | ${personalInfo.name}`,
             description: project.shortDescription,
-            url: `https://ahsanafzal.com/work/${project.slug}/`,
+            url: `https://www.ahsanafzal.com/work/${project.slug}/`,
             type: "article",
             images: [
                 {
-                    url: "https://ahsanafzal.com/og-image.png",
+                    url: "https://www.ahsanafzal.com/og-image.png",
                     width: 1200,
                     height: 630,
                     alt: project.title
@@ -56,7 +56,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
             card: "summary_large_image",
             title: `${project.title} — Case Study | ${personalInfo.name}`,
             description: project.shortDescription,
-            images: ["https://ahsanafzal.com/og-image.png"]
+            images: ["https://www.ahsanafzal.com/og-image.png"]
         }
     };
 }
@@ -77,10 +77,10 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
         "author": {
             "@type": "Person",
             "name": personalInfo.name,
-            "url": "https://ahsan-afzal.web.app"
+            "url": "https://www.ahsanafzal.com"
         },
         "description": project.shortDescription,
-        "url": project.liveUrl || `https://ahsan-afzal.web.app/work/${project.slug}/`
+        "url": project.liveUrl || `https://www.ahsanafzal.com/work/${project.slug}/`
     };
 
     return (
