@@ -93,7 +93,20 @@ export const metadata: Metadata = {
         title: "Ahsan Afzal | Full Stack AI Developer",
         description: "AI Chatbots, WhatsApp Automation & MCP Servers | React, Next.js, Node.js. 3+ years of production experience.",
         images: ["https://www.ahsanafzal.com/og-image.png"]
-    }
+    },
+    icons: {
+        icon: [
+            { url: "/favicon.ico", sizes: "any" },
+            { url: "/icon-48x48.png", sizes: "48x48", type: "image/png" },
+            { url: "/icon-96x96.png", sizes: "96x96", type: "image/png" },
+            { url: "/icon-192x192.png", sizes: "192x192", type: "image/png" }
+        ],
+        shortcut: "/favicon.ico",
+        apple: [
+            { url: "/apple-touch-icon.png", sizes: "180x180", type: "image/png" }
+        ]
+    },
+    manifest: "/manifest.json"
 };
 
 const jsonLd = {
