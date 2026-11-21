@@ -7,18 +7,18 @@ export const metadata: Metadata = {
     title: "All Work & Projects",
     description: "Explore the complete portfolio of full-stack web applications, AI platforms, and real-time architectures engineered by Ahsan Afzal.",
     alternates: {
-        canonical: "https://ahsan-afzal.web.app/work/"
+        canonical: "https://ahsanafzal.com/work/"
     },
     openGraph: {
         title: `All Work & Projects | ${personalInfo.name}`,
         description: "Explore the complete portfolio of full-stack web applications, AI platforms, and real-time architectures engineered by Ahsan Afzal.",
-        url: "https://ahsan-afzal.web.app/work/",
+        url: "https://ahsanafzal.com/work/",
         type: "website",
         images: [
             {
-                url: "/logo512.png",
-                width: 512,
-                height: 512,
+                url: "https://ahsanafzal.com/og-image.png",
+                width: 1200,
+                height: 630,
                 alt: "Ahsan Afzal — Portfolio Projects"
             }
         ]
@@ -27,7 +27,7 @@ export const metadata: Metadata = {
         card: "summary_large_image",
         title: `All Work & Projects | ${personalInfo.name}`,
         description: "Explore the complete portfolio of full-stack web applications, AI platforms, and real-time architectures engineered by Ahsan Afzal.",
-        images: ["/logo512.png"]
+        images: ["https://ahsanafzal.com/og-image.png"]
     }
 };
 

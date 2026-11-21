@@ -12,13 +12,27 @@ export const metadata: Metadata = {
     title: "Games & Arcade",
     description: "Interactive browser puzzle arcade engineered with React and TypeScript. Play Zip, Signal, Flood, Merge (2048), and Minesweeper with daily challenges.",
     alternates: {
-        canonical: "https://ahsan-afzal.web.app/games/"
+        canonical: "https://ahsanafzal.com/games/"
     },
     openGraph: {
         title: "Arcade Games | Ahsan Afzal",
         description: "5 high-performance browser puzzles engineered with React 18, TypeScript, and accessible 60fps animations.",
-        url: "https://ahsan-afzal.web.app/games/",
-        type: "website"
+        url: "https://ahsanafzal.com/games/",
+        type: "website",
+        images: [
+            {
+                url: "https://ahsanafzal.com/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Arcade Games — Ahsan Afzal"
+            }
+        ]
+    },
+    twitter: {
+        card: "summary_large_image",
+        title: "Arcade Games | Ahsan Afzal",
+        description: "5 high-performance browser puzzles engineered with React 18, TypeScript, and accessible 60fps animations.",
+        images: ["https://ahsanafzal.com/og-image.png"]
     }
 };
 

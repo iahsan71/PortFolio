@@ -4,6 +4,7 @@ import React, { useEffect } from "react";
 import Navbar from "../components/Navbar";
 import Hero from "../components/Hero";
 import Achievements from "../components/Achievements";
+import AgencyAgents from "../components/AgencyAgents";
 import About from "../components/About";
 import Skills from "../components/Skills";
 import Experience from "../components/Experience";
@@ -37,6 +38,7 @@ const MainView: React.FC = () => {
             <main>
                 <Hero />
                 <Achievements />
+                <AgencyAgents />
                 <About />
                 <Skills />
                 <Experience />

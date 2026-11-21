@@ -155,6 +155,22 @@ const Hero: React.FC = () => {
                         }}
                     />
 
+                    {/* LinkedIn Sub-line */}
+                    <p
+                        className="font-mono-m"
+                        style={{
+                            fontSize: "clamp(0.85rem, 2vw, 1.05rem)",
+                            lineHeight: 1.5,
+                            color: "var(--m-accent)",
+                            fontWeight: 600,
+                            letterSpacing: "0.02em",
+                            maxWidth: "48rem",
+                            marginBottom: "0.85rem"
+                        }}
+                    >
+                        AI Chatbots, WhatsApp Automation &amp; MCP Servers | React, Next.js, Node.js
+                    </p>
+
                     {/* Value Proposition Hook */}
                     <p
                         style={{

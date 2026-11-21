@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Minesweeper | Arcade",
     description: "Deduce concealed mines through numeric proximity analysis with first-click protection and mobile flag mode.",
     alternates: {
-        canonical: "https://ahsan-afzal.web.app/games/mines/"
+        canonical: "https://ahsanafzal.com/games/mines/"
     }
 };
 

@@ -51,8 +51,8 @@ const Projects: React.FC = () => {
                                                 fontSize: "0.68rem",
                                                 padding: "0.12rem 0.5rem",
                                                 borderRadius: "999px",
-                                                background: project.ownership === "Personal Project" ? "rgba(37, 99, 235, 0.12)" : "rgba(148, 163, 184, 0.12)",
-                                                color: project.ownership === "Personal Project" ? "var(--m-accent)" : "var(--m-muted)",
+                                                background: project.ownership === "Client Project" ? "rgba(16, 185, 129, 0.12)" : project.ownership === "Personal Project" ? "rgba(37, 99, 235, 0.12)" : "rgba(148, 163, 184, 0.12)",
+                                                color: project.ownership === "Client Project" ? "#10b981" : project.ownership === "Personal Project" ? "var(--m-accent)" : "var(--m-muted)",
                                                 fontWeight: 600,
                                                 letterSpacing: "0.04em"
                                             }}

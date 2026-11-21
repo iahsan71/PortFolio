@@ -30,12 +30,12 @@ const jetbrainsMono = JetBrains_Mono({
 });
 
 export const metadata: Metadata = {
-    metadataBase: new URL("https://ahsan-afzal.web.app"),
+    metadataBase: new URL("https://ahsanafzal.com"),
     title: {
         default: "Ahsan Afzal | Full Stack AI Developer",
         template: "%s | Ahsan Afzal"
     },
-    description: "Full Stack AI Developer based in Pakistan with 3+ years of production experience architecting high-performance web platforms with React, Next.js, Node.js, Express, and MongoDB.",
+    description: "Full Stack AI Developer with 3+ years of experience engineering AI chatbots, WhatsApp automations, and MCP servers with React, Next.js, Node.js, and MongoDB.",
     keywords: [
         "Ahsan Afzal",
         "Full Stack AI Developer",
@@ -53,10 +53,10 @@ export const metadata: Metadata = {
         "REST API Architect",
         "NextPak Agile Solutions"
     ],
-    authors: [{ name: "Ahsan Afzal", url: "https://ahsan-afzal.web.app" }],
+    authors: [{ name: "Ahsan Afzal", url: "https://ahsanafzal.com" }],
     creator: "Ahsan Afzal",
     alternates: {
-        canonical: "https://ahsan-afzal.web.app/"
+        canonical: "https://ahsanafzal.com/"
     },
     robots: {
         index: true,
@@ -72,24 +72,25 @@ export const metadata: Metadata = {
     openGraph: {
         type: "website",
         locale: "en_US",
-        url: "https://ahsan-afzal.web.app/",
+        url: "https://ahsanafzal.com/",
         siteName: "Ahsan Afzal Portfolio",
         title: "Ahsan Afzal | Full Stack AI Developer",
-        description: "Full Stack AI Developer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
+        description: "AI Chatbots, WhatsApp Automation & MCP Servers | React, Next.js, Node.js. 3+ years of production experience.",
         images: [
             {
-                url: "/logo512.png",
-                width: 512,
-                height: 512,
-                alt: "Ahsan Afzal — Full Stack AI Developer"
+                url: "https://ahsanafzal.com/og-image.png",
+                width: 1200,
+                height: 630,
+                alt: "Ahsan Afzal — Full Stack AI Developer",
+                type: "image/png"
             }
         ]
     },
     twitter: {
         card: "summary_large_image",
         title: "Ahsan Afzal | Full Stack AI Developer",
-        description: "Full Stack AI Developer crafting resilient, high-performance web platforms with Next.js, Node.js, and MongoDB.",
-        images: ["/logo512.png"]
+        description: "AI Chatbots, WhatsApp Automation & MCP Servers | React, Next.js, Node.js. 3+ years of production experience.",
+        images: ["https://ahsanafzal.com/og-image.png"]
     }
 };
 
@@ -98,26 +99,26 @@ const jsonLd = {
     "@graph": [
         {
             "@type": "Person",
-            "@id": "https://ahsan-afzal.web.app/#person",
-            "name": personalInfo.name,
-            "jobTitle": personalInfo.title,
+            "@id": "https://ahsanafzal.com/#person",
+            "name": "Ahsan Afzal",
+            "jobTitle": "Full Stack AI Developer",
             "worksFor": {
                 "@type": "Organization",
-                "name": personalInfo.company,
-                "url": personalInfo.companyUrl
+                "name": "NextPak Agile Solutions",
+                "url": "https://nextpak.org"
             },
-            "url": "https://ahsan-afzal.web.app",
-            "image": "https://ahsan-afzal.web.app/logo512.png",
+            "url": "https://ahsanafzal.com",
+            "image": "https://ahsanafzal.com/og-image.png",
             "email": personalInfo.email,
             "telephone": personalInfo.phone,
             "address": {
                 "@type": "PostalAddress",
                 "addressCountry": personalInfo.location
             },
-            "description": personalInfo.longBio,
+            "description": "Full Stack AI Developer with 3+ years of production experience building AI chatbots, WhatsApp automations, and MCP servers on top of a solid MERN/Next.js foundation.",
             "sameAs": [
-                personalInfo.github,
-                personalInfo.linkedin
+                "https://www.linkedin.com/in/dev-ahsanafzal/",
+                "https://github.com/iahsan71"
             ],
             "knowsAbout": [
                 "Full-Stack AI Development",
@@ -136,11 +137,11 @@ const jsonLd = {
         },
         {
             "@type": "WebSite",
-            "@id": "https://ahsan-afzal.web.app/#website",
-            "url": "https://ahsan-afzal.web.app",
+            "@id": "https://ahsanafzal.com/#website",
+            "url": "https://ahsanafzal.com",
             "name": "Ahsan Afzal Portfolio",
             "publisher": {
-                "@id": "https://ahsan-afzal.web.app/#person"
+                "@id": "https://ahsanafzal.com/#person"
             }
         }
     ]

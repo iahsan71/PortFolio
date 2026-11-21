@@ -11,6 +11,7 @@ export interface PersonalInfo {
     availability: string;
     bio: string;
     shortBio: string;
+    subline?: string;
     shortRole?: string;
     longBio?: string;
     stats?: AchievementMetric[];
@@ -66,7 +67,7 @@ export interface Project {
     image: StaticImageData | string;
     featured: boolean;
     projectNumber: string;
-    ownership: "Personal Project" | "Company Project";
+    ownership: "Personal Project" | "Company Project" | "Client Project";
     hasAiTag?: boolean;
     liveUrl: string | null;
     githubUrl: string | null;

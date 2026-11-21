@@ -36,18 +36,18 @@ export function generateMetadata({ params }: PageProps): Metadata {
         title: `${project.title} — Case Study`,
         description: project.shortDescription,
         alternates: {
-            canonical: `https://ahsan-afzal.web.app/work/${project.slug}/`
+            canonical: `https://ahsanafzal.com/work/${project.slug}/`
         },
         openGraph: {
             title: `${project.title} — Case Study | ${personalInfo.name}`,
             description: project.shortDescription,
-            url: `https://ahsan-afzal.web.app/work/${project.slug}/`,
+            url: `https://ahsanafzal.com/work/${project.slug}/`,
             type: "article",
             images: [
                 {
-                    url: "/logo512.png",
-                    width: 512,
-                    height: 512,
+                    url: "https://ahsanafzal.com/og-image.png",
+                    width: 1200,
+                    height: 630,
                     alt: project.title
                 }
             ]
@@ -56,7 +56,7 @@ export function generateMetadata({ params }: PageProps): Metadata {
             card: "summary_large_image",
             title: `${project.title} — Case Study | ${personalInfo.name}`,
             description: project.shortDescription,
-            images: ["/logo512.png"]
+            images: ["https://ahsanafzal.com/og-image.png"]
         }
     };
 }
@@ -114,7 +114,7 @@ export default function ProjectCaseStudyPage({ params }: PageProps) {
                             </span>
                             <span className="m-pill">
                                 <span>TYPE:</span>
-                                <span style={{ color: project.ownership === "Personal Project" ? "var(--m-accent)" : "var(--m-text)", fontWeight: 700 }}>
+                                <span style={{ color: project.ownership === "Client Project" ? "#10b981" : project.ownership === "Personal Project" ? "var(--m-accent)" : "var(--m-text)", fontWeight: 700 }}>
                                     {project.ownership}
                                 </span>
                             </span>

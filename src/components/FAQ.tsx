@@ -21,8 +21,8 @@ const FAQ_DATA: FAQItem[] = [
         answer: "I have built AI chatbot features, WhatsApp integrations and MCP servers for client products."
     },
     {
-        question: "How are personal projects distinguished from company projects in your portfolio?",
-        answer: "Company projects (such as NextAssist AI, Nexa, Tealpot, and Vootee) represent commercial platforms where I contributed as a professional software engineer within development teams. Personal projects (such as Lord's Hub and this bespoke developer portfolio) are independent applications that I conceptualized, engineered, and shipped end-to-end."
+        question: "How are client and company projects distinguished from personal projects in your portfolio?",
+        answer: "Company and client projects (such as NextAssist AI, Nexa, Tealpot, and Lord's Hub) represent commercial platforms where I engineered solutions for clients and product development teams. Personal projects (such as this bespoke developer portfolio) are independent applications that I conceptualized, engineered, and shipped end-to-end."
     },
     {
         question: "Are you available for full-time engineering roles or contracts?",

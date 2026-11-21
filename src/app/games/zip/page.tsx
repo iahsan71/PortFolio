@@ -8,7 +8,7 @@ export const metadata: Metadata = {
     title: "Zip Puzzle | Arcade",
     description: "Connect numbered cells in order and draw one continuous non-crossing path filling every cell on the grid.",
     alternates: {
-        canonical: "https://ahsan-afzal.web.app/games/zip/"
+        canonical: "https://ahsanafzal.com/games/zip/"
     }
 };
 

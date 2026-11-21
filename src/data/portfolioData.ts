@@ -21,6 +21,7 @@ export const personalInfo: PersonalInfo = {
     initials: "AA",
     title: "Full Stack AI Developer",
     shortRole: "Full Stack AI Developer",
+    subline: "AI Chatbots, WhatsApp Automation & MCP Servers | React, Next.js, Node.js",
     company: "NextPak Agile Solutions",
     companyUrl: "https://nextpak.org",
     experienceYears: "3+",
@@ -127,34 +128,36 @@ export const skillsData: { categories: SkillGroup[]; marquee: string[] } = {
 
 export const experiencesData: Experience[] = [
     {
-        period: "March 2025 — Present",
+        period: "March 2025 to Present",
         role: "Full Stack AI Developer (MERN)",
         company: "NextPak Agile Solutions",
         location: "Pakistan (Hybrid)",
-        type: "Full-time",
+        type: "Part-time",
         description: "Architecting and engineering end-to-end full-stack web applications, REST APIs, and database schemas for flagship client platforms.",
         responsibilities: [
-            "Built AI chatbot features, WhatsApp integrations, and MCP servers for client AI products.",
-            "Architected full-stack modules for flagship products including NextAssist AI, Tealpot, and Nexa.",
-            "Designed and implemented robust JWT-based session security and role-based permissions preventing unauthorized endpoint access.",
-            "Built interactive analytical telemetry dashboards with real-time websocket metrics and data visualization.",
-            "Refactored high-load MongoDB database pipelines with compound indexing, reducing query response times by up to 45%.",
-            "Accelerated feature velocity using modern AI developer tooling (Cursor AI, Claude Code, Antigravity) with structured prompt engineering."
+            "AI chatbot used by different businesses for bookings and orders.",
+            "WhatsApp integration for messages, scheduling, and customer communication.",
+            "MCP server connecting AI agents to tools, APIs, and internal data.",
+            "Full-stack modules for flagship products including NextAssist AI, Tealpot and Nexa.",
+            "JWT sessions and RBAC (role-based access control) protecting internal platform endpoints.",
+            "Real-time websocket telemetry dashboards with live metrics and data visualization.",
+            "MongoDB compound indexing reducing high-load aggregation query latency by up to 45%.",
+            "AI tooling (Cursor, Claude Code, Antigravity) with structured prompt engineering to accelerate shipping velocity."
         ],
         technologies: ["React.js", "Next.js", "Node.js", "Express.js", "MongoDB", "Socket.io", "Tailwind CSS", "Redux Toolkit"]
     },
     {
-        period: "2022 — 2025",
-        role: "Full Stack Developer & Independent Freelancer",
-        company: "Self-Employed / Freelance",
+        period: "Jan 2022 to Feb 2025",
+        role: "Full Stack Developer",
+        company: "Self-employed",
         location: "Remote",
         type: "Contract",
         description: "Designed, engineered, and delivered custom web platforms, e-commerce portals, and marketplace solutions for international clients.",
         responsibilities: [
-            "Independently designed, developed, and deployed Lordhub—a comprehensive gaming marketplace for accounts and automated bot services.",
-            "Integrated Firebase real-time databases and custom serverless functions handling concurrent transactions.",
-            "Created responsive pixel-perfect frontends translating complex Figma and UI wireframes into modular React code.",
-            "Maintained high client satisfaction ratings through structured communication, rigorous API testing, and timely delivery."
+            "Built custom web platforms, e-commerce portals and marketplace solutions for international clients.",
+            "Firebase real-time databases and serverless functions for concurrent transactions.",
+            "Pixel-perfect React front ends from Figma wireframes and design systems.",
+            "Structured communication, API testing, on-time delivery across multiple time zones."
         ],
         technologies: ["React.js", "Next.js", "JavaScript", "Firebase", "Node.js", "CSS3 / SCSS", "REST APIs"]
     }
@@ -330,10 +333,10 @@ export const projectsData: Project[] = [
         image: lordshubImg,
         featured: true,
         projectNumber: "05",
-        ownership: "Personal Project",
+        ownership: "Client Project",
         liveUrl: "https://lordshub.com",
         githubUrl: "https://github.com/iahsan71",
-        client: "Lordhub (Personal Project)",
+        client: "Lordhub (Client Project)",
         timeline: "2023 — 2024",
         role: "Full-Stack Developer",
         technologies: ["React.js", "Next.js", "Firebase", "Node.js", "REST APIs", "SCSS"],
