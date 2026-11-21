@@ -1,17 +1,6 @@
 {
   "redirects": [
     {
-      "source": "/:path*",
-      "has": [
-        {
-          "type": "host",
-          "value": "www.ahsanafzal.com"
-        }
-      ],
-      "destination": "https://ahsanafzal.com/:path*",
-      "permanent": true
-    },
-    {
       "source": "/blog",
       "destination": "/",
       "permanent": true
@@ -23,6 +12,15 @@
     }
   ],
   "headers": [
+    {
+      "source": "/_next/static/(.*)",
+      "headers": [
+        {
+          "key": "Access-Control-Allow-Origin",
+          "value": "*"
+        }
+      ]
+    },
     {
       "source": "/(.*)",
       "headers": [
