@@ -33,6 +33,7 @@ export const personalInfo: PersonalInfo = {
     email: "imahsan000@gmail.com",
     phone: "+92 349 3082202",
     whatsapp: "+92 349 3082202",
+    whatsappUrl: "https://wa.me/923493082202",
     resumeUrl: "/Ahsan_Afzal_Resume.pdf",
     github: "https://github.com/iahsan71",
     linkedin: "https://www.linkedin.com/in/dev-ahsanafzal/",

@@ -18,6 +18,7 @@ export interface PersonalInfo {
     email: string;
     phone: string;
     whatsapp: string;
+    whatsappUrl?: string;
     github: string;
     linkedin: string;
     resumeUrl: string;

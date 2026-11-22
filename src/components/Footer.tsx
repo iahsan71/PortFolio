@@ -5,6 +5,7 @@ import Link from "next/link";
 import { useRouter } from "next/navigation";
 import { personalInfo } from "../data/portfolioData";
 import { ArrowUp, Github, Linkedin, Mail } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Footer: React.FC = () => {
     const router = useRouter();
@@ -59,6 +60,16 @@ const Footer: React.FC = () => {
                         >
                             <Linkedin size={14} />
                             <span>LINKEDIN</span>
+                        </a>
+                        <a
+                            href="https://wa.me/923493082202"
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="m-footer-social"
+                            aria-label="WhatsApp"
+                        >
+                            <FaWhatsapp size={14} style={{ color: "#10b981" }} />
+                            <span>WHATSAPP</span>
                         </a>
                         <a
                             href={`mailto:${personalInfo.email}`}

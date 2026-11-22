@@ -16,6 +16,7 @@ import {
     Copy,
     Check
 } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 
 const Contact: React.FC = () => {
     const [copied, setCopied] = useState<boolean>(false);
@@ -221,33 +222,106 @@ const Contact: React.FC = () => {
                                 </div>
 
                                 <a
-                                    href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
-                                    className="m-card d-flex align-items-center gap-3"
-                                    style={{ padding: "1rem 1.25rem", textDecoration: "none" }}
+                                    href="https://wa.me/923493082202"
+                                    target="_blank"
+                                    rel="noopener noreferrer"
+                                    className="m-card d-flex align-items-center justify-content-between gap-3"
+                                    style={{
+                                        padding: "0.85rem 1rem",
+                                        textDecoration: "none",
+                                        border: "1px solid rgba(16, 185, 129, 0.25)"
+                                    }}
+                                    aria-label="Chat on WhatsApp"
                                 >
+                                    <div className="d-flex align-items-center gap-2 gap-sm-3" style={{ minWidth: 0, flex: "1 1 auto" }}>
+                                        <div
+                                            style={{
+                                                width: "36px",
+                                                height: "36px",
+                                                borderRadius: "8px",
+                                                background: "rgba(16, 185, 129, 0.12)",
+                                                color: "#10b981",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                flexShrink: 0
+                                            }}
+                                        >
+                                            <FaWhatsapp size={18} />
+                                        </div>
+                                        <div style={{ minWidth: 0, overflow: "hidden" }}>
+                                            <span className="font-mono-m d-block" style={{ fontSize: "0.68rem", color: "var(--m-dim)", textTransform: "uppercase" }}>
+                                                WHATSAPP
+                                            </span>
+                                            <span style={{ fontSize: "clamp(0.85rem, 2vw, 0.95rem)", color: "var(--m-text)", fontWeight: 500 }}>
+                                                {personalInfo.whatsapp}
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div className="d-flex align-items-center gap-1.5" style={{ flexShrink: 0 }}>
+                                        <span className="font-mono-m d-none d-sm-inline" style={{ fontSize: "0.725rem", color: "#10b981", fontWeight: 600 }}>
+                                            Chat on WhatsApp
+                                        </span>
+                                        <div
+                                            style={{
+                                                padding: "0.35rem 0.5rem",
+                                                borderRadius: "0.5rem",
+                                                color: "#10b981",
+                                                background: "rgba(16, 185, 129, 0.1)",
+                                                display: "inline-flex",
+                                                alignItems: "center",
+                                                justifyContent: "center"
+                                            }}
+                                        >
+                                            <ArrowUpRight size={15} />
+                                        </div>
+                                    </div>
+                                </a>
+
+                                <a
+                                    href={`tel:${personalInfo.phone.replace(/\s+/g, '')}`}
+                                    className="m-card d-flex align-items-center justify-content-between gap-3"
+                                    style={{ padding: "0.85rem 1rem", textDecoration: "none" }}
+                                    aria-label="Direct Phone Call"
+                                >
+                                    <div className="d-flex align-items-center gap-2 gap-sm-3" style={{ minWidth: 0, flex: "1 1 auto" }}>
+                                        <div
+                                            style={{
+                                                width: "36px",
+                                                height: "36px",
+                                                borderRadius: "8px",
+                                                background: "rgba(59, 130, 246, 0.1)",
+                                                color: "var(--m-accent)",
+                                                display: "flex",
+                                                alignItems: "center",
+                                                justifyContent: "center",
+                                                flexShrink: 0
+                                            }}
+                                        >
+                                            <Phone size={16} />
+                                        </div>
+                                        <div style={{ minWidth: 0, overflow: "hidden" }}>
+                                            <span className="font-mono-m d-block" style={{ fontSize: "0.68rem", color: "var(--m-dim)", textTransform: "uppercase" }}>
+                                                PHONE
+                                            </span>
+                                            <span style={{ fontSize: "clamp(0.85rem, 2vw, 0.95rem)", color: "var(--m-text)", fontWeight: 500 }}>
+                                                {personalInfo.phone}
+                                            </span>
+                                        </div>
+                                    </div>
                                     <div
                                         style={{
-                                            width: "36px",
-                                            height: "36px",
-                                            borderRadius: "8px",
-                                            background: "rgba(59, 130, 246, 0.1)",
-                                            color: "var(--m-accent)",
-                                            display: "flex",
+                                            padding: "0.35rem 0.5rem",
+                                            borderRadius: "0.5rem",
+                                            color: "var(--m-dim)",
+                                            display: "inline-flex",
                                             alignItems: "center",
-                                            justifyContent: "center"
+                                            justifyContent: "center",
+                                            flexShrink: 0
                                         }}
                                     >
-                                        <Phone size={16} />
+                                        <ArrowUpRight size={15} />
                                     </div>
-                                    <div style={{ flexGrow: 1 }}>
-                                        <span className="font-mono-m d-block" style={{ fontSize: "0.7rem", color: "var(--m-dim)", textTransform: "uppercase" }}>
-                                            PHONE / WHATSAPP
-                                        </span>
-                                        <span style={{ fontSize: "0.95rem", color: "var(--m-text)", fontWeight: 500 }}>
-                                            {personalInfo.phone}
-                                        </span>
-                                    </div>
-                                    <ArrowUpRight size={16} style={{ color: "var(--m-dim)" }} />
                                 </a>
 
                                 <div className="m-card d-flex align-items-center gap-3" style={{ padding: "1rem 1.25rem" }}>

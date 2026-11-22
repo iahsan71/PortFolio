@@ -3,6 +3,7 @@
 import React, { useState, useEffect } from "react";
 import { motion } from "framer-motion";
 import { ArrowRight, Bot, Cpu, Download, Github, Linkedin, Mail, MessageCircle } from "lucide-react";
+import { FaWhatsapp } from "react-icons/fa";
 import { personalInfo } from "../data/portfolioData";
 
 const ROTATING_TITLES = [
@@ -405,6 +406,17 @@ const Hero: React.FC = () => {
                             >
                                 <Linkedin size={13} />
                                 <span>LinkedIn</span>
+                            </a>
+                            <a
+                                href="https://wa.me/923493082202"
+                                target="_blank"
+                                rel="noopener noreferrer"
+                                className="m-pill"
+                                style={{ padding: "0.25rem 0.55rem", textDecoration: "none", fontSize: "0.7rem", whiteSpace: "nowrap" }}
+                                aria-label="WhatsApp Chat"
+                            >
+                                <FaWhatsapp size={13} style={{ color: "#10b981" }} />
+                                <span>WhatsApp</span>
                             </a>
                             <a
                                 href={`mailto:${personalInfo.email}`}
