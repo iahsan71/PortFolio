@@ -75,7 +75,7 @@ export const metadata: Metadata = {
         type: "website",
         locale: "en_US",
         url: "https://www.ahsanafzal.com/",
-        siteName: "Ahsan Afzal Portfolio",
+        siteName: "Ahsan Afzal",
         title: "Ahsan Afzal | Full Stack AI Developer",
         description: "AI Chatbots, WhatsApp Automation & MCP Servers | React, Next.js, Node.js. 3+ years of production experience.",
         images: [
@@ -153,8 +153,9 @@ const jsonLd = {
         {
             "@type": "WebSite",
             "@id": "https://www.ahsanafzal.com/#website",
-            "url": "https://www.ahsanafzal.com",
-            "name": "Ahsan Afzal Portfolio",
+            "url": "https://www.ahsanafzal.com/",
+            "name": "Ahsan Afzal",
+            "alternateName": ["Ahsan Afzal Portfolio", "AA"],
             "publisher": {
                 "@id": "https://www.ahsanafzal.com/#person"
             }
