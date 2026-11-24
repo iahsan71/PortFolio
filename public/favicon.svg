@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512" width="512" height="512">
+  <defs>
+    <linearGradient id="emeraldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#34d399" />
+      <stop offset="100%" stop-color="#059669" />
+    </linearGradient>
+    <linearGradient id="bgGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0e1526" />
+      <stop offset="100%" stop-color="#050811" />
+    </linearGradient>
+  </defs>
+  <!-- Dark theme background -->
+  <rect width="512" height="512" rx="108" fill="url(#bgGrad)" />
+  <rect width="496" height="496" x="8" y="8" rx="100" fill="none" stroke="#10b981" stroke-width="12" stroke-opacity="0.3" />
+  
+  <!-- Left A (High-Contrast Pure White) -->
+  <path fill-rule="evenodd" d="M 110 92 L 174 92 L 244 420 L 180 420 L 164 330 L 120 330 L 100 420 L 36 420 Z M 142 180 L 164 270 L 120 270 Z" fill="#FFFFFF" />
+  
+  <!-- Right A (Vibrant Emerald / Teal Accent) -->
+  <path fill-rule="evenodd" d="M 342 92 L 406 92 L 476 420 L 412 420 L 396 330 L 352 330 L 332 420 L 268 420 Z M 374 180 L 396 270 L 352 270 Z" fill="url(#emeraldGrad)" />
+</svg>

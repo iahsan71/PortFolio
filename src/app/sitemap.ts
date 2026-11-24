@@ -4,7 +4,7 @@ import { projectsData } from "../data/portfolioData";
 export default function sitemap(): MetadataRoute.Sitemap {
     const baseUrl = "https://www.ahsanafzal.com";
     // Signal search engines that the site content was refreshed
-    const siteLastModified = new Date("2026-11-22T00:00:00.000Z");
+    const siteLastModified = new Date("2026-11-24T00:00:00.000Z");
 
     const staticRoutes: MetadataRoute.Sitemap = [
         {
